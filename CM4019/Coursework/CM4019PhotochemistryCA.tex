@@ -1,0 +1,121 @@
+\documentclass[addpoints,12pt]{exam}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{mhchem}
+%\usepackage{Exercise}
+
+%\usetheme{JuanLesPins}
+%\logo{\includegraphics[height=1cm]{../../graphics/crac}}
+\setlength{\parskip}{1em}
+\boxedpoints
+\printanswers
+
+\begin{document}
+
+\begin{center}
+\includegraphics{../../graphics/UCCchem}
+
+\fbox{\fbox{\parbox{5.5in}{\centering
+CM4019 Continuous Assessment Photochemistry\\Submission by September 28 2022, 10AM\\\vspace{1cm}This assessment is worth 10\% of the module mark}}}
+\end{center}
+\vspace{0.1in}
+%\makebox[\textwidth]{Name and section:\enspace\hrulefill}
+%\vspace{0.2in}
+%\makebox[\textwidth]{Lecturer's name:\enspace\hrulefill}
+
+
+\begin{questions}
+%\pointname{}
+\pointformat{\bfseries\boldmath[ \thepoints]}
+
+\question[5]
+
+A 100 cm\(^3\) vessel containing hydrogen and chlorine was irradiated with light of 400 nm. Measurements with a thermopile showed that \(11 \times 10^{-7}\) J of light energy was absorbed by the chlorine per second. During an irradiation of 1 minute the partial pressure of chlorine, as determined by the absorption of light and the application of Beer's law, decreased from 27.3 to 20.8 kPa (corrected to 0 \(^\circ\)C).
+
+\begin{parts}
+\part%[1]
+What is the energy of each photon?
+
+\begin{solution}
+\(E=\frac{hc}{\lambda} = \frac{(6.626\times10^{-34}\ J\ s)(2.998\times10^8\ m\ s^{-1})}{400\times10^{-9}\ m} = 4.97\times 10^{-19}\ J\)
+\end{solution}
+
+\part%[2]
+How many quanta were absorbed?
+
+\begin{solution}
+The number of quanta absorbed = \(\frac{(11\times10^{-7}\ J\ s^{-1})(60\ s)}{4.97\times10^{-19}\ J} = 1.33\times10^{14}\)
+\end{solution}
+
+\part%[3]
+How many moles of Chlorine reacted? 
+
+\begin{solution}
+Since \(PV = nRT,\ V\Delta P = RT\Delta n\)
+
+\(\Delta n = \frac{V \Delta P}{RT} = \frac{(0.1\times10^{-3}\ m^3)[(27.3 - 20.8)\times10^3\ Pa](6.02\times10^{23}\ mol^{-1})}{8.314\ J\ K^{-1}\ mol^{-1})(273\ K)}= 1.72\times10^{20}\) molecules
+
+\(=2.86\times10^{-4}\) mol
+\end{solution}
+
+\part%[1]
+What was the quantum yield?
+
+\begin{solution}
+Since \ce{H2 + Cl2 = 2HCl}
+
+\(\phi = \frac{1.72\times10^{20}}{1.33\times10^{14}}\times2 = 2.6\times10^6\)
+\end{solution}
+
+\end{parts}
+
+\question[3] 
+
+You want to use photochemical reactions to produce some product. Assume that 5\% of the electric energy consumed by a quartz-mercury-vapour lamp goes into light, and 30\% of this is photochemically effective.
+
+The electricity costs 5 cents per kilowatt-hour, you want to produce 1 lb (453.6 g) of an organic compound having a molar mass of 100g/mol and the average effective wavelength is 400 nm, The reaction has a quantum yield of 0.8 molecule per photon.
+
+\begin{parts}
+
+\part%[1]
+Calculate the number of quanta required
+
+\begin{solution}
+Number of quanta required \(=\frac{(453.6\ g)(6.022\times10^{23}\ mol^{-1})}{100\ g\ mol^{-1})(0.8)}=3.41\times10^{24}\)
+\end{solution}
+
+\part%[3]
+Calculate the energy required
+
+\begin{solution}
+The energy per photon: \(E=\frac{hc}{\lambda} = \frac{(6.26\times10^{-34}\ J\ s)(2.998\times10^8\ m\ s^{-1})}{400\times10^{-10}\ m} = 4.97\times10^{-19}\ J\)
+
+The total energy required = \(\frac{(3.41\times10^{24})(4.97\times10^{-19}\ J)}{(0.05)(0.3)} = 1.13\times10^8\ J\)
+
+\end{solution}
+
+\part%[1]
+Calculate the cost to produce 453.6 g of the compound
+
+\begin{solution}
+1 kW hr = \((10^3\ J\ s^{-1})(60\times60s) = 36\times10^5\ J\)
+
+\(Cost = \frac{1.13\times10^8\ J)(EURO 0.05 /KWhr)}{36\times10^5\ J/KWhr} = EURO 1.6\)
+\end{solution}
+
+\end{parts}
+
+\question[2] 
+
+The quantum yield is 2 for the photolysis of gaseous \ce{HI} to \ce{H2 + I2} by light of 253.7 nm wavelength. Calculate the number of moles of \ce{HI} that will be decomposed if 300 J of light of this wavelength is absorbed.
+
+\begin{solution}
+\(E=\frac{hc}{\lambda} = \frac{(6.626\times10^{-34}\ J\ s)(3\times10^8\ m\ s^{-1})}{253.7\times10^{-9}\ m)} = 7.84\times10^{-19}\ J\)
+
+\(n=\frac{(2)(300\ J)}{(7.84\times10^{-19}\ J)(6.02\times10^{23}\ mol^{-1})}=1.27\times10^{-3}\) mol of HI
+\end{solution}
+
+\end{questions}
+
+\end{document}

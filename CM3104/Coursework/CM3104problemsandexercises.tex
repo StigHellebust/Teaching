@@ -1,0 +1,107 @@
+\documentclass[addpoints,12pt]{exam}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+%\usepackage{fancyhdr,url}
+\usepackage{amsmath}
+\usepackage{exercise}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization,shapes,arrows}
+\usepackage{smartdiagram}
+\usepackage[version=4]{mhchem}
+
+\setlength{\parskip}{1em}
+\boxedpoints
+\printanswers
+
+\begin{document}
+
+\begin{center}
+\includegraphics{../../../graphics/UCCchem}
+
+\fbox{\fbox{\parbox{5.5in}{\centering
+CM3104 Aquatic chemistry\\
+\center{\tiny{version 2020.01.1}}}}}
+\end{center}
+\vspace{0.1in}
+
+\begin{questions}
+\question
+If the concentration of atmospheric CO\textsubscript{2}  were to double from the current value of 400 ppm, what would be the calculated pH of rainwater (assuming CO\textsubscript{2}  were the only acidic input)? With respect to rising CO\textsubscript{2}  levels, do we have to be concerned about enhanced aciditiy of rain in addition to potential climate warming? (hint: notes section 1.3)
+
+\begin{solution} {\color{red}
+This is similar to the example in Lecture notes page 7. Carbon dioxide dissolves in water in accordance with Henry's law. 
+
+\ce{CO2 + H2O -> H2CO3}, \quad with an equilibrium constant \(K_s = \frac{[H_2CO_3]}{P_{CO_2}} = 10^{-1.5}\) M/atm.
+
+If the atmospheric \ce{CO2} is at 800 ppm then \(P_{CO_2} = 800 \times 10^{-6}\) atm.
+
+\([H_2CO_3] = K_sP_{CO_2} = 10^{-1.5} \times 800 \times 10^{-6} = 2.53 \times 10^{-5}\)
+
+\ce{H2CO3 = H+ + HCO3-}, \(K_a = 10^{-6.4}\), so we say \([H^+] \approx [HCO_3^-]\) and
+
+\([H^+]^2 = K_a[H_2CO_3] = 10^{-6.4} \times 2.53\times 10^{-5} = 1.007\times10^{-11} \implies [H^+] = 3.173\times 10^{-6} \implies\) pH = 5.5}
+\end{solution}
+
+\question
+How much \ce{Fe2+} could be present in water containing \(1.0 \times 10^{-2}\) M \ce{HCO3-} without causing precipitation of \ce{FeCO3} (\(K_{sp} = 10^{-10.7}\))?
+
+
+\begin{solution} {\color{red} This is similar to the example on page 16-17 in the notes. The reaction is \ce{FeCO3 + H2CO3 = Fe2^+ = 2HCO3-}
+ 
+ So the equilibrium is \(K = \frac{[Fe^{2+}][HCO_3^-]^2}{[H_2CO_3]} = \frac{K_{sp}K_{a1}}{K_{a2}}\)
+ 
+ The concentration of \ce{H2CO3} is given by the atmospheric level (so we'll use \(10^{-4.9}\) as we worked out before)
+ 
+ because we can say \([HCO_3^-] \approx 2[Fe^{2+}]\) we get
+ 
+ \(K = \frac{4[Fe^{2+}]^3}{[H_2CO_3]} \implies [Fe^{2+}] = \left(\frac{\frac{K_{sp}K_{a1}}{K_{a2}}\times 10^{-4.9}}{4}\right)^{1/3}=8.11\times10^{-5}\)
+ }
+ \end{solution}
+ 
+\question
+Describe the three major buffer ranges for neutralizing acidic inputs to soils. For each of the ranges, include in your description: (1) the pH range over which the buffer operates; (2) the major chemical component(s) that participates in the buffering reactions; and (3) the chemical reaction by which H+ is neutralised
+
+\begin{solution} {\color{red}
+Buffering ranges are described in sections 3-5 in the notes, see figure 6 on page 21 for summary of the buffering ranges.
+}
+\end{solution}
+
+\question
+Why is the process of acid deposition beneficial from the point of view of air quality? How does this process transfer a short-term air-pollution problem into long-term problems of soil and water pollution?
+
+\begin{solution} {\color{red}
+Think about the example of Big Moose Lake, which was getting acidified because of emissions of \ce{SO2} to the atmosphere. Because the \ce{SO2} was being removed from the air as acid rain, it didn't build up as a permanent problem of air quality, but transferred the problem to soil and water
+}
+\end{solution}
+
+\question
+a) The total amount of base in a water sample can be determined by titration with standard acid, and is usually reported as the alkalinity, in equivalents of acid per liter (eq/L). If the alkalinity of a carbonate-containing sample is \(2.0 \times 10^{-3}\) eq/L, and the pH is 7.0, what are the concentrations of \ce{OH-}, \ce{CO_3^{2-}}, \ce{HCO3-} and \ce{H2CO3}?
+ 
+
+b) How do these concentrations change if the pH of the sample increases to 10.0 as a result of photosynthesis by algae (for simplicity, assume no input of CO\textsubscript{2} from the atmosphere) What weight of biomass, (\ce{CH2O}), is produced?
+
+\begin{solution} {\color{red}
+alkalinity is given by (page 17 of notes):
+
+a) \(alkalinity = [HCO_3^-] + 2[CO_3^{2-}] + [OH^-] - [H_3O^+]\)
+
+Since pH = 7, that means that \([H_3O^+] = [OH^-] = 10^{-7}\), so the last two terms cancel each other. That means \([HCO_3^-] + 2[CO_3^{2-}] = 2.0 \times 10^{-3}\) eq/L
+
+From the equilibrium we also have that \([HCO_3^-] = \frac{[H^+][CO_3^{2-}]}{K_{a2}}\). We also know that \([H^+] = 10^{-7}\), so
+
+\(2.0\times10^{-3} - 2[CO_3^{2-}] = \frac{[H^+][CO_3^{2-}]}{K_{a2}}\)
+
+Solve that and we get \([CO_3^{2-}] = 9.35\times10^{-7}\)
+
+\medskip b) if photosynthesis removes enough \ce{CO2} to increase the pH to 10, (and without more \ce{CO2} being dissolved, it means the equilibrium is shifted towards the undissociated form, which releases \ce{CO2} into the water \ce{H2CO3 -> CO2 + H2O}.
+
+if the Ph changes from 7 to 10 that means that the concentration of \(H^+\) changes from \(10^{-7}\) to \(10^{-10}\), so \(10^{-7} - 10^{-10} = 9.99\times10^{-8}\) moles of \ce{H+} have reacted, per litre. for each mole of \ce{H^+} that is consumed in the reaction \ce{H+ + HCO3- -> H2CO3 -> CO2 + H2O}, we release one mole of \ce{CO2} for photosynthesis. so the weight of biomass is \(9.99\times10^{-8}\) mol/L \(\times\) 30 g/mol \(= 2.997\times10^{-6}\) g/L
+}
+\end{solution}
+
+\end{questions}
+
+\end{document}

@@ -1,0 +1,86 @@
+%\documentclass[ignorenonframetext]{beamer}
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage{beamerarticle}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+\usepackage{fancyhdr,url}
+\usepackage{amsmath}
+\usepackage{exercise}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization,shapes,arrows}
+\usepackage{smartdiagram}
+\usepackage[version=4]{mhchem}
+
+
+\renewcommand*\contentsname{}
+
+\begin{document}
+These are some selected practice exercises relevant to the taught material. Some of them are meant to be a little bit more challenging than what was covered in the lectures.
+\section{Exercises}
+
+\subsection{crystal structures}
+\begin{ExerciseList}
+\Exercise Find the Miller indices of the planes that intersect the crystallographic axes at the distances (2a,3b,2c) and (2a,2b,\(\infty\)c)
+
+
+\Exercise Calculate the separations of the planes (111), (211) and (100) in a crystal in which the cubic unit cell has side 432 pm
+
+\Exercise Tobacco seed globulin forms forms face-centered cubic crystals with a unit cell dimension of 12.3 nm and a density of 1.287 g cm\(^{-3}\). Determine its molar mass
+
+\Exercise Is there an expansion or a contraction as titanium transforms from hexagonal close-packed to body-centered cubic? The atomic radius of titanium 145.8 pm in hcp but 142.5 pm in bcc.
+
+\Exercise The unit cell dimensions of NaCl, KCl, NaBr and KBr, all of which crystallise in face-centered cubic lattices, are 562.8, 627.7, 596.2 and 658.6 pm, respectively. In each case, anions and cations are in contact along an edge of the unit cell. Does this information support the contention that ionic radii are constants independent of the counterion?
+
+\subsection{adsorption}
+\Exercise How many molecules of cetanol (of cross-sectional area \(2.58\times10^{-19}\ m^2\)) can be adsorbed on the surface of a spherical drop of dodecane of radius 17.8 nm?
+
+\Exercise What pressure of Argon gas is required to produce a collision rate of \(4.5\times10^{20}\ s^{-1}\) at 425 K on a circular surface of diameter 1.5 mm?
+
+\Exercise Calculate the average rate at which e atoms strike a Cu atom in a surface formed by exposing a (100) plane in metallic copper to helium gas at 80 K and a pressure of 35 Pa. Crystals of copper are face-centered cubic with a cell edge of 361 pm.
+
+\Exercise A monolayer of \ce{N2} molecules is adsorbed on the surface of 1.00 g of an \ce{Fe/Al2O3} catalyst at 77 K, the boiling point of liquid nitrogen. Upon warming, the nitrogen occupies 2.86 cm\(^3\) at 0\(^\circ\)C and 760 Torr. What is the surface area of the catalyst? The effective area of an \ce{N2} molecule is 0.167 nm\(^2\).
+
+The volume of oxygen gas at 0\(^\circ\)C and 101 kPa adsorbed on the surface of 1.00 g of a sample of silica at 0\(^\circ\)C was 0.284 cm\(^3\) at 142.4 Torr and 1.430 cm\(^3\) at 760 Torr \ce{O2}. What is the value of \(V_{mon}\)?
+
+\Exercise The enthalpy of adsorption of CO on a surface is found to be -120 kJ mol\(^{-1}\). Is the adsorption physisorption or chemisorption? Estimate the mean lifetime of a CO molecule on the surface at 400 K.
+
+\Exercise The adsorption of a gas is described by the Langmuir isotherm with K = 0.85 kPa\(^{-1}\) at 25\(^\circ\)C. Calculate the pressure at which the frational surface coverage is (a) 0.15, (b) 0.95.
+
+\Exercise Suppose it is known that ozone adsorbs on a particular surface in accord with a Langmuir isotherm. How could you use the pressure dependence of the fractional coverage to distinguish between adsorption (a) without dissociation, (b) with dissociation into \ce{O + O2}, (c) with dissociation into O + O + O?
+
+\Exercise Nitrogen gas adsorbed on charcoal to the extent of 0.921 cm\(^3\)g\(^{-1}\) at 490 kPa and 190 K, but at 250 K the same amount of adsorption was achieved only when the pressure was increased to 3.2 MPa. What is the molar enthalpy of adsorption of nitrogen on charcoal?
+
+\Exercise Nickel is a face-centered cubic with a unit cell of side 352 pm. What is the number of atoms per square centimetre exposed on a surface formed by (a) (100), (b) (110), (c) (111) planes? Calculate the frequency of molecular collisions per surface atom in a vessel containing (1) hydrogen, (2) propane at 25 \(^\circ\)C when the pressure is (i) 100 Pa, (ii) 0.10 \(\mu\)Torr
+
+\Exercise The data below are for the chemisorption of hydrogen on copper poweder at 25\(^\circ\)C. Confirm that they fit the Langmuir isotherm at low coverages. Then find the value of K for the adsorption equilibrium and the adsorption volume corresponding to complete coverage.
+
+\begin{tabular}{lllllll}
+\hline\\p/Torr & 0.19 & 0.97 & 1.9 & 4.05 & 7.5 & 11.95\\
+V/cm\(^3\) & 0.042 & 0.163 & 0.221 & 0.321 & 0.411 & 0.471\\\hline
+\end{tabular}
+
+\Exercise The following data have been obtained for the adsorption of \ce{H2} on the surface of 1.00 g of copper at 0\(^\circ\)C. The volume of \ce{H2} below is the volume that the gas would occupy at STP (0\(^\circ\)C and 1 atm).
+
+\begin{tabular}{llllll}
+\hline\\p/atm & 0.050 & 0.100 & 0.150 & 0.200 & 0.250 \\
+V/mL & 1.22 & 1.33 & 1.31 & 1.36 & 1.40 \\\hline
+\end{tabular}
+
+Determine the volume of \ce{H2} necessary to form a monolayer and estimate the surface area of the copper sample. The density of liquid hydrogen is 0.0708 g cm\(^{-1}\)
+
+\Exercise In some catalytic reactions the products may adsorb more strongly than the reacting gas. This is the case, for instance, in the catalytic decomposition of ammonia on platinum at 1000\(^\circ\)C. As a first step in examining the kinetics of this type of process, show that the rate of ammonia decomposition should follow
+\[\frac{dp(\ce{NH3}}{dt} = -k_c \frac{p(\ce{NH3})}{(\ce{H2})}\]
+in the limit of very strong adsorption of hydrogen. Start by showing that when a gas J adsorbs very strongly, and its pressure is p(J), that the fraction of uncovered sites is approximately 1/Kp(J). Solve the rate equation for the catalytic decomposition of \ce{NH3} on platinum and show that a plot of \textit{F(t) =}(1/\textit{t})ln(\(p/p_0\)) against \(G(t) = (p - p_0)/t\), where \(p\) is the pressure of ammonia, should give a straight line from which \(k_c\) can be determined. Check the rate law on the basis of the data below, and find \(k_c\) for the reaction.
+
+\begin{tabular}{llllllll}
+\hline\\t/s & 0 & 30 & 60 & 100 & 160 & 200 & 250\\
+p/Torr & 100 & 88 & 84 & 80 & 77 & 74 & 72\\\hline
+\end{tabular}
+
+
+
+\end{ExerciseList}
+\end{document}

@@ -1,0 +1,2718 @@
+%\documentclass[compress,aspectratio=169,ignorenonframetext]{beamer}
+\documentclass[a4paper,titlepage]{article}
+\usepackage{beamerarticle}
+
+\mode<article>{\usepackage[a4paper, top=1.5in]{geometry}}
+%\includeonlylecture{Lecture 8}
+%\includeonlyframes{current}
+
+%\mode<presentation>{\AtBeginLecture{\frame{\Large Topics: \insertlecture}}}
+\AtBeginPart{\frame{\partpage}
+\begin{frame}<beamer>
+  \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}}
+\logo{\includegraphics[height=1cm]{../graphics/crac.jpg}}
+
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right, rightskip=1mm, leftskip=1mm]{titlelike}
+        \inserttitle\hfill\insertauthor\hfill\insertframenumber%
+    \end{beamercolorbox}
+}
+
+\mode<presentation>
+{
+  %\usetheme{Warsaw}
+  % or ...
+  \usetheme{JuanLesPins}
+  %\setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+\usepackage{fancyhdr,url}
+\usepackage{ulem}
+\mode<presentation>{\usepackage[absolute,overlay]{textpos}}
+\mode<article>{\usepackage[absolute]{textpos} }
+
+\mode<article>{
+%\pagestyle{headings}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CM3104}
+\chead{Environmental Chemistry}
+\rhead{S2 AY2022-2023}
+\cfoot{Chemistry of Aquatic Environments}
+\rfoot{\thepage}
+}
+
+
+\title[Aquatic chemistry]{CM3104 Environmental Chemistry}
+\subtitle{Aquatic Chemistry\\\tiny{version 2023.01}}
+\author{Stig Hellebust\inst{1}  \texttt{s.hellebust@ucc.ie}}
+\date{S2 AY2022/2023}
+\institute
+{\inst{1}
+  School of Chemistry\\
+  University College Cork}
+
+\renewcommand*\contentsname{}
+
+%\AtBeginSection[]
+%\AtBeginPart
+%{
+%  \begin{frame}<beamer>
+%  \frametitle{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+\begin{document}
+\mode<article>{\maketitle}
+
+\begin{frame}
+  \titlepage
+  %\titlegraphic{\includegraphics{../graphics/crac.jpg}}
+\end{frame}
+
+\tableofcontents
+
+\lecture{pH, weak acids and bases}{Lecture 1}
+\part{The story of Big Moose Lake}
+\begin{frame}
+\frametitle{Big Moose Lake}
+%(\url{https://serc.carleton.edu/integrate/workshops/risk_resilience/case/82104.html}) 
+\includegraphics[width=\textwidth]{../graphics/Big-Moose-Lake.jpg}
+Big Moose Lake is a large lake in the Adirondack Mountains in New York State. It lies downwind from the old industrial heartland of the U.S. that stretched from western Pennsylvania through Illinois.\par\medskip
+\end{frame}
+
+\begin{frame}{Big Moose Lake}
+\begin{itemize}
+\only<1-3>{\item<1-> A steep rise in industrial activity began in this region around 1880, and increased to such an extent that by 1900 the U.S. produced more steel than the rest of the world combined. 
+\item<2->Heavy industry continued as a dominant economic sector up until the end of the 20th century. Industrial output was fueled by dirty \textbf{coal}, which upon combustion released copious amounts of \textbf{sulfur dioxide} (SO\(_2\)) into the atmosphere.
+\item<3-> In the atmosphere this gas gets chemically transformed to \textbf{sulfuric acid}. Prevailing winds blew the acidic sulfur emissions from the heartland northeasterly into the Adirondacks where they were trapped as \textbf{deposit on the soils} in a phenomenon that became known as "acid rain." }
+\only<4-6>{\item<4-> The mountain range, home to over 2,000 pristine lakes and ponds, had long been known for its spectacular fishing that drew hundreds of thousands of anglers to the region every year. 
+\item<5-> In the \textbf{1970s}, park rangers began to notice a sudden and unexpected \textbf{increase in lake water acidity}, and a concomitant \textbf{decline in fish populations} that died off in the order of their ability to survive in acidic lake waters. This regional catastrophe led to a national debate about the need to strengthen air pollution policies, and was a major consideration in the formulation of the Clean Air Act Amendments of 1990.
+\item<6> Big Moose Lake was one of the few lakes where \textbf{accurate, simultaneous data existed for long-term trends in pH, upwind SO\(_2\) emissions, and fish populations}. These data provide a concise glimpse of the events that led to the acidification of the mountain lakes. }
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acidification and fish death}
+\only<1> {\begin{figure} \includegraphics[width=.55\textwidth]{../graphics/bigmooselake.png} \caption{pH changes in Big Moose Lake} \end{figure}}
+\only<2> {\begin{itemize}
+\item Notice that the \textbf{pH} of the lake water remained essentially \textbf{constant over the period from 1760 to about 1950}. Then within the space of 30 years, the pH declined more than 1 whole pH unit (corresponding to a factor of 10 increase in acidity). It can also be observed that the \textbf{rapid pH decline was not synchronous with acidic sulfur emissions} from the industrial heartland. \par\medskip
+
+\item This "tipping point" in pH occurred 70 years after SO\(_2\) emissions began and 30 years after the emissions peaked around 1920. When the base cation exchange capacity in the soil was depleted, the \textbf{acid depositions percolated into the lake}, and acid-sensitive fish species began to disappear, followed eventually by more resistant species. \end{itemize}}
+\end{frame}
+
+\begin{frame}{Questions}
+\begin{itemize}
+\item how can emissions to air change the chemistry of water bodies? (depositions)
+\item why did it take so long before anybody noticed? (buffering)
+\item how can we prevent this?
+\item can we fix this?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why the delayed response?}
+\only<1>{A lake receives most of its water not from direct wet precipitation on its surface, but rather from runoff and groundwater flow through the \textbf{watershed soils draining into the lake}. \par\medskip
+
+The \textbf{soils buffer a lake} against acidification because they possess what soil chemists call \textbf{"Cation Exchange Capacity"} (CEC). It is the CEC that serves to neutralise acidic inputs that would otherwise flow unhindered into the lake. A lake's resilience to acidification is determined by the size of the watershed's CEC. \par\medskip
+
+Even relatively well-buffered watersheds can \textbf{lose their CEC over time} when inputs of acid rain are high enough to surpass the rate at which the CEC can be naturally replenished. When the CEC declines to about 5\% of its original capacity, the lake is highly vulnerable to the kind of rapid acidification experienced by Big Moose Lake.\par\medskip}
+
+\only<2>{In other words, the lake was subject to a \textbf{gigantic titration experiment} over four generations of industrial activity.\par\medskip
+
+Coal-fuelled industrialisation upwind of the lake supplied the acid and the soils of the watershed provided the buffering chemicals. Because of the \textbf{natural buffering capacity of the watershed} it took three generations before the effect of the acid inputs from coal burning was recognised, because there was \textbf{no direct evidence} of how the pollution was affecting the pH of the lake water.\par\medskip
+
+But acidification was occurring. The watershed lies on granite rock and has no limestone. The pH remained close to 5.6, the clay buffer value, over the entire period from 1760 to 1950. Then suddenly, in the space of 30 years, the pH declined to about 4.5, which means \textbf{almost 10 times increased acid concentration}\par}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{How can we understand this?}
+
+Before we can understand what happened we have to understand what \textit{Acidification} actually is.\par\medskip
+
+In order to understand how acidification happens we have to know some some basic \textit{Acid-Base chemistry}.\par\medskip
+
+Then we need to look at how acid-base chemistry occurs in water, soil and rock\par\medskip
+
+\end{frame}
+
+\begin{frame}{Aquatic chemistry in the environment is about three things: }
+\begin{description}
+\item[Acid-Base chemistry:] Because where there is water, there are acids and bases
+\item[Henry's Law for dissolved gases:] Because it controls the levels of oxygen and carbon dioxide (the most influential acid) in the water %the earth is a giant acid-base reactor
+\item[REDOX chemistry:] Because oxygen levels (and pH) control the water chemistry and therefore life on earth
+\end{description}
+\end{frame}
+
+\begin{frame}<article:0>{What you should now be able to do:} %Learning Outcomes
+\begin{itemize}
+\item discuss why lack of direct evidence of destruction doesn't always mean the environment is not damaged
+\item give an example of long-term environmental damage
+\end{itemize}
+\end{frame}
+
+
+\lecture{Polyprotic acids and buffers}{Lecture 2}
+
+\part{Acids and Bases}
+
+\section{Acid-Base chemistry}
+\subsection{Ions in water}
+\begin{frame} %use option plain to get rid of tree {Acid-Base Chemistry}
+\frametitle{Ions in water}
+\onslide*<1>{\textbf{Water dissolves ionic compounds} easily. Even if the forces between ions
+of opposite charge in a crystal are very strong, such as in table salt,
+it can dissolve readily in water. The water molecules strongly
+\emph{solvate} both the positive sodium ions and the negative chloride
+ions. The strong interionic forces are replaced by equally strong
+solvation forces.\par\medskip
+
+The strong solvation forces are due to water's large \textbf{dipole moment and
+H-bonding ability.}}
+
+\onslide*<2>{Hydrogen and hydroxide ions are among the ions that are stabilised in
+water. These react together to form water:  
+
+\[  H^+ + OH^- \rightleftharpoons H_2O  \]
+
+This reaction is a \emph{neutralisation} reaction; the strong base
+neutralises the strong acid and vice versa. The reverse of the reaction
+is \emph{autoionisation}. The water can ionise itself because the ions
+are stabilised by other water molecules. The position of the equilibrium
+lies far to the right.}
+
+\onslide*<3>{In water, reactions are usually rapid, because the water molecules are
+in close contact with each other and the H-bonds and coordinate bonds
+are broken and reformed rapidly. Therefore, the extent of reaction is
+generally determined by the \textbf{equilibrium constant}, rather than kinetics\par\medskip
+We use the equilibrium constants to \textbf{calculate the extent of
+reactions from various starting conditions}. This is particularly useful
+in relation to acid-base reactions, which are fundamental to the
+chemistry of the aqueous environment}
+\end{frame}
+
+\subsection{What is pH?}
+\begin{frame}
+\frametitle{What is pH?}
+\onslide*<1-3>{\visible<1->{For solutions of a \emph{strong} acid, HA, the concentration of \(H^+\)
+ions is the same as the \emph{analytical} concentration (\(C_{HA}\)),
+i.e. the number of moles per liter of dissolved HA. We can write:
+\begin{center}
+\(HA \rightleftharpoons H^+ + A^-\) \enspace and \enspace \([H^+] = C_{HA}\) (M)}
+\end{center}
+\medskip 
+\visible<2->{Likewise, for solutions of a strong base, MOH:\newline
+\[[OH^-] = C_{MOH}\] \newline}
+\visible<3->{Because \([H^+]\) is generally less than 1M and
+usually much less, the convention is to express the concentration as the
+negative logarithm, symbolised by "p": \[pH = - log[H_3O^+]\] } }
+
+\visible<4->{Similarly, \[pOH = -log[OH^-]\] 
+}
+\onslide<5->{\visible<5->{\textbf{Example:}\par When the HA (acid) concentration is \(10^{-\textcolor{red}{3}}\)M, the pH is \textcolor{red}{3} and when it is
+twice this much, it is \(2*10^{-3}\)M, so the pH is 2.7, because
+
+\[-log(2\times10^{-3}) = -(log(2) + log(10^{-3}) ) = -(log(2) - 3\times log(10)) = -(0.3 - 3) = 2.7\]}
+}
+\end{frame}
+
+\begin{frame}{equlibrium constants}
+\visible<1->{Consider the autoionisation reaction, the reverse of reaction {[}1{]}: \[ H_2O = H^+ + OH^-\] }
+
+\visible<2->{We can write the equilibrium expression as:
+\[ K = \frac{[H^+][OH^-]}{[H_2O]} \]}
+
+\visible<3->{So it is clear that \(H^+\) and \(OH^-\) are reciprocally related
+
+\[ [H^+] = \frac{K[H_2O]}{[OH^-]}\]}
+\end{frame}
+\begin{frame}{pH}
+in other words, \[ pH = -logK[H_2O] - pOH \]
+\bigskip
+{\tiny because \(pH = - log([H^+])\) and  \(log(\frac{x}{y}) = log(x) - log(y)\)}
+\end{frame}
+
+\begin{frame}
+\frametitle{concentration and neutral pH in water}
+\onslide*<1>{\fbox{\parbox{\textwidth}{In aqueous solutions, the concentration of water is taken as constant;
+one litre of water weighs 1,000 g and contains 1000/18 = 55.5 moles. The
+added weight of dissolved ions is ignored as being a very small fraction
+unless solution very concentrated.}}\par\medskip
+
+\([H_2O]\) is usually included in the "effective" equilibrium constant,
+\(K[H_2O]\). For the autoionisation equilibrium, this is called \(K_W\)\par\medskip
+The value of \(K_W = 10^{-14}M^2\)}
+
+\onslide*<2>{This means that: \[pH = 14 - pOH\]
+
+In other words, the pH and the pOH add up to 14.
+\medskip
+In pure water there is no other source of these ions than the
+autoionisation, so in that case, \[[H^+] = [OH^-]\]}
+
+\onslide*<3>{So from the equation we get
+\[ [H^+]^2 = 10^{-14} M^2 \rightarrow [H^+] = 10^{-7} M \]
+\par\medskip
+So pure water has a pH of 7, and so does water in which a strong acid
+has been neutralised by a strong base. A pH of 7 is the definition of
+neutrality. pH values below 7 are acidic and pH values above 7 are
+basic, or alkaline.
+
+    \[HA +H_2O = H^+ + A^- + H_2O\]
+    }
+\end{frame}
+
+\begin{frame}<article:0>{Some things you should be able to explain after today:} %Learning outcomes
+\begin{itemize}
+\item Explain what pH is a measure of and what causes low pH 
+\item Explain how pH is calculated
+\item Explain why the concentration of OH\(^-\) is known if the concentration of H\(^+\) is known
+\item Explain why neutral pH is equal to 7
+\end{itemize}
+\end{frame}
+
+%\part{Weak acids and bases}
+\subsection{Weak acids and bases}
+
+\begin{frame}
+\frametitle{pH of weak acid solutions}
+\only<1-2>{\visible<1-2>{
+Strong acids are completely protonised but many acids hold on to their
+proton to some extent and the \textbf{proton transfer is incomplete}. The extent
+of the proton transfer depends on the \emph{equilibrium constant},
+\textbf{\(K_a\)}, for the \emph{acid dissociation reaction}.
+
+\[ HA + H_2O \rightleftharpoons H_3O^+ + A^- \]}
+\visible<2>{
+\begin{equation} \label{eq1}
+K_a = \frac{[H_3O^+][A^-]}{[HA]} 
+\end{equation}
+If \(K_a\) is small, then only a small fraction of the acid, HA, will be
+dissociated.
+
+In the environment, the only place where pure water exists is probably
+as water vapour. This is the start of the hydrological cycle. Once
+liquid water is formed, it will dissolve substances from its
+surroundings.}
+}
+
+\only<3-4>{\visible<3->{
+
+\fbox{\textcolor{red}{What is the pH of a 0.1 M solution of acetic acid, which has a
+\(K_a\) of \(10^{-4.75} M^2\)?}}\par\medskip}
+
+\visible<4->{Dissociation of HA produces an equal number of \(H^+\) and \(A^-\) ions
+so \([H^+] = [A^-]\)
+
+Using the equality above gives: \[[H^+]^2 = K_a[HA]\]
+
+If only a small fraction of the HA is dissociated then the concentration
+[HA] is almost the same as the analytical concentration, \(C_{HA}\),
+which is true as long as \(K_a \ll C_{HA}\), so
+\[[H^+]^2 \approx K_aC_{HA}\] }}
+
+\only<5>{So the answer is:
+\[[H^+]^2 = 10^{-4.75} \times 10^{-1.0} = 10^{-5.75} \]
+\[ [H^+] = 10^{-2.88} M \implies pH = 2.88\]}
+
+\only<6-7>{\fbox{\parbox{\textwidth}{Raindrops dissolve gases and in the atmosphere, raindrops will dissolve
+\(CO_2\)\par\medskip
+
+Calculate the \(CO_2\) concentration in water in equilibrium with the
+atmosphere. Use a \(CO_2\) concentration of 370 ppm.}} \par\medskip The solubility
+constant, \(K_s\), for the reaction:\newline
+\begin{center} \(CO_2(g) + H_2O \rightleftharpoons H_2CO_3(aq)\) \end{center}is equal to
+\(3.162 \times 10^{-2} \approx 10^{-1.5}\)\par\medskip
+\visible<7>{
+\(K_s = \frac{[H_2CO_3]}{P_{CO_2}} = 10^{-1.5} \frac{M}{atm}\), and
+\(P_{CO_2} = 370 \times 10^{-6}\) or \(10^{-3.4}\) atm\newline\medskip and therefore:
+\([H_2CO_3] = K_sP_{CO_2} = 10^{-1.5} x 10^{-3.4} = 10^{-4.9} M \)} }
+\end{frame}
+
+\begin{frame}<article:0>
+\frametitle{What you need to know about weak acids}
+\begin{itemize}
+\item Calculate pH using equilibrium constants
+\item Calculate concentrations using the equilibrium constants
+\item Calculate the concentration of of dissolved CO\(_2\) and carbonic acid in water in equilibrium with the atmosphere and the pH of the solution
+\end{itemize}
+\end{frame}
+
+\lecture{Polyprotic acids}{Lecture 3}
+
+\begin{frame}
+\frametitle{Basicity constant and acidity constant}
+\visible<1->{Because \( HA \rightleftharpoons H^+ + A^- \) is an equilibrium,
+it can be shifted to the left or to the right by adding or removing one
+of the species involved. So if a salt of \(A^-\) is added, it will
+remove a proton from the water:
+\[ A^- + H_2O \rightleftharpoons HA + OH^-\]}
+
+\visible<2->{This is called a hydrolysis reaction. Because \(OH^-\) is produced, the
+ion \(A^-\) acts as a base. If the equilibrium does not lie far to the
+right, \(A^-\) is a weak base.
+
+The equilibrium constant for this reaction is the \emph{basicity
+constant}, \(K_b\):
+\begin{equation} \label{eq2}
+K_b = \frac{[HA][OH^-]}{[A^-]}
+\end{equation}
+}
+\visible<3>{The acid and base dissociation reactions are linked by the
+autoionisation reactions, so: \enspace \(K_aK_b = K_W\)
+}
+
+\end{frame}
+
+%\part{Polyprotic acids}
+
+\section{Polyprotic acids (weak acids)}
+\subsection{Carbonic acid}
+
+\begin{frame}{Carbonic acid}
+\only<1>{Carbonic acid is a polyprotic acid. That means it can lose more than one
+proton in solution, so there are multiple equilibria at once.\newline\medskip
+\begin{equation*}
+\begin{split}
+H_2CO_3 &\rightleftharpoons H^+ + HCO_3^- \hspace{.9in} K_{a1} = 10^{-6.40} \\
+HCO_3^- &\rightleftharpoons H^+ + CO_3^- \hspace{1in} K_{a2} = 10^{-10.33} 
+\end{split}
+\end{equation*}
+
+A solution of bicarbonate (\(HCO_3^-\)), is both a conjugate base of
+\(H_2CO_3\) and a conjugate acid of \(CO_3^{2-}\)
+}
+\only<2>{
+The main acid-base reaction in the bicarbonate solution is :\newline\medskip
+\begin{equation}
+2HCO_3^- \rightleftharpoons H_2CO_3 + CO_3^{2-}
+\end{equation}
+
+\medskip This reaction is obtained by subtracting the two reactions above (so we say we produce equal amounts of \(H_2CO_3\) and \(CO_3^{2-}\)), and we can write:\newline\medskip
+\begin{center}
+\raggedright
+\(\frac{K_{a2}}{K_{a1}} = \frac{[H_2CO_3][CO_3^{2-}]}{[HCO_3^-]}\), \quad so \quad
+\(\frac{K_{a2}}{K_{a1}} = \frac{[H_2CO_3]^2}{[HCO_3^-]^2}\) \quad and\newline\medskip
+
+\([H^+] = \frac{K_{a1}[HCO_3^-]}{[H_2CO_3]} = K_{a1}\left(\frac{K_{a2}}{K_{a1}}\right)^\frac{1}{2} = \left(K_{a1}K_{a2}\right)^\frac{1}{2}\)
+\end{center}
+}
+\only<3>{
+So the pH is given by: \newline\smallskip
+
+\centering
+\hspace{1in} \(pH = \left(\frac{pK_{a2} + pK_{a1}}{2}\right) = \frac{(10.33 + 6.40)}{2} = 8.36\)\newline
+
+\begin{alertblock}{useful}
+The pH of a solution of a diprotic acid is just the gemoetric mean of the two \(pK_a\) values!\end{alertblock}
+}
+\end{frame}
+
+\lecture{Acids and bases in natural systems}{Lecture 4}
+
+\subsection{Phosphate and phosphoric acid}
+
+\begin{frame}{Phosphoric acid}
+\only<1>{Phosphorous exists in water mostly as P(V) species, as orthophosphate\newline
+\[ H_3PO_4 \leftrightarrows H_2PO_4^- \leftrightarrows HPO_4^{2-} \leftrightarrows PO^{3-}_4  \]
+
+The distribution of these four species depends on pH and the acid
+dissociation constants\newline\smallskip
+
+\begin{tabular}{lcc}
+Dissociation & \(K_a\) & \(pK_a\)\\\hline
+First dissociation & \(7.1 x 10^{-3}\) & 2.17\\
+Second dissociation & \(6.3 x 10^{-8}\) & 7.31\\
+Third dissociation & \(4.2 x 10^{-13}\) & 12.36\\\hline
+\end{tabular}
+}
+\only<2>{
+
+The first dissociation is the reaction:\\
+\[H_3PO_4+ H_2O  \rightleftarrows H_2PO_4^- + H_3O^+\]
+
+Which has the equilibrium constant:
+
+\[ K_{a1} = \frac{[H_2PO_4^-][H_3O^+]}{[H_3PO_4]} \]\\
+}
+\only<3>{
+The fraction, \(\alpha_{H_3PO_4}\), of undissociated \(H_3PO_4\) in a
+solution is:\\
+\[ \alpha_{H_3PO_4} = \frac{[H_3PO_4]}{[H_3PO_4] + [H_2PO_4^-] + [HPO_4^{2-}] + [PO^{3-}_4]} = \frac{[H_3PO_4]}{C_p} \]\newline\medskip
+
+Where \(C_p\) is the total concentration of all four orthophosphate
+species. For the other phosphate species, similar fractions are given
+by: \newline\smallskip
+
+\( \alpha_{H_2PO_4^-} = \frac{[H_2PO_4^-]}{C_p} \) \qquad 
+\( \alpha_{HPO_4^{2-}} = \frac{[HPO_4^{2-}]}{C_p} \) \qquad
+\( \alpha_{PO_4^{3-}} = \frac{[PO_4^{3-}]}{C_p} \)
+}
+
+\only<4>{{\Large 
+\smallskip Mass Balance P: \newline
+\begin{equation} \label{Cp}
+\begin{split}
+C_p & = [H_3PO_4] + [H_2PO_4^-] + [HPO_4^{2-}] + [PO_4^{3-}] \\\\
+ & = [H_3PO_4]  \left(1 + \frac{K_{a1}}{[H_3O^+]} + \frac{K_{a1} \times K_{a2}}{[H_3O^+]^2} + \frac{K_{a1} \times K_{a2} \times K_{a3}}{[H_3O^+]^3}\right)
+\end{split}
+\end{equation}}
+%Mass Balance P: \newline \centering 
+%\( C_p = [H_3PO_4] + [H_2PO_4^-] + [HPO_4^{2-} + [PO_4^{3-}] = \) \newline\newline\medskip \([H_3PO_4]  \left(1 + \frac{K_{a1}}{[H_3O^+]} + \frac{K_{a1} \times K_{a2}}{[H_3O^+]^2} + \frac{K_{a1} \times K_{a2} \times K_{a3}}{[H_3O^+]^3}\right)\)
+}
+
+\only<5>{
+\begin{exampleblock}{Class exercise: derive these relationships}
+
+The three dissociation constant expressions can be rearranged to give
+the concentration of each individual species in terms of \([H_3PO_4]\)
+and \([H_3O^+]\).
+
+\[[H_2PO_4^-] = \frac{K_{a1} \times [H_3PO_4]}{[H_3O^+]} \]
+
+\[ [HPO_4^-] = \frac{K_{a1} \times K_{a2} \times [H_3PO_4]}{[H_3O^+]^2} \]
+
+\[ [PO_4^{3-}] = \frac{K_{a1} \times K_{a2} \times K_{a3} \times [H_3PO_4]}{[H_3O^+]^3} \]
+\end{exampleblock}
+}
+\only<6>{
+From the above:
+
+\[\alpha_{H_3PO_4} = \frac{[H_3PO_4]}{C_p} = \frac{[H_3PO_4]}{[H_3PO_4]\left(1 + \frac{K_{a1}}{[H_3O^+]} + \frac{K_{a1} \times K_{a2}}{[H_3O^+]^2} + \frac{K_{a1} \times K_{a2} \times K_{a3}}{[H_3O^+]^3}\right)} \]
+}
+
+\only<7>{We then get:
+
+\[\alpha_{H_3PO_4} = \frac{[H_3O^+]^3}{[H_3O^+]^3 + [H_3O^+]^2\times K_{a1} + [H_3O^+]\times K_{a1}\times K_{a2} + K_{a1}\times K_{a2} \times K_{a3}} \]
+
+\[\alpha_{H_2PO_4^-} = \frac{[H_3O^+]^2 \times K_{a1}}{[H_3O^+]^3 + [H_3O^+]^2\times K_{a1} + [H_3O^+]\times K_{a1}\times K_{a2} + K_{a1}\times K_{a2} \times K_{a3}}\]
+
+\[\alpha_{HPO_4^{2-}} = \frac{[H_3O^+] \times K_{a1} \times K_{a2}}{[H_3O^+]^3 + [H_3O^+]^2\times K_{a1} + [H_3O^+]\times K_{a1}\times K_{a2} + K_{a1}\times K_{a2} \times K_{a3}}\]
+
+\[\alpha_{PO_4^{3-}} = \frac{ K_{a1} \times K_{a2} \times K_{a3}}{[H_3O^+]^3 + [H_3O^+]^2\times K_{a1} + [H_3O^+]\times K_{a1}\times K_{a2} + K_{a1}\times K_{a2} \times K_{a3}}\]
+}
+\only<8>{
+Each of the equations above can be used to calculate the \textbf{fraction} of an
+individual species in the phosphate system \textbf{at a given pH}. When the
+\(\alpha\) values are plotted over a range of pH values, we have a
+\textbf{distribution diagram}.
+
+\begin{alertblock}{Assumptions}What are the assumptions inherent in the above expressions? One
+assumption is that there is \textbf{no interaction with other species} in the
+system, another assumption is that the \textbf{ionic strength} is not high enough
+to significantly affect the activity coefficients.
+\end{alertblock}
+}
+\only<9>{
+We will model speciation of \([H_3PO_4]\), \([H_2PO_4^-]\),
+\([HPO_4^{2-}]\) and \([PO_4^{3-}]\) as fractions, \(\alpha\), of total
+phosphate species in discrete pH steps of d(pH).
+
+\medskip The model steps from pH 0 to pH 14. Our model is set up in terms of the
+equations above %(Figure \ref{h2po4}).
+}
+\only<10>{\begin{figure} %\label{h2po4}
+\includegraphics[width=.6\textwidth]{../graphics/H2PO4} \caption{Speciation of H\(_3\)PO\(_4\) with pH} \end{figure}
+}
+\end{frame}
+
+%\subsubsection{Phosphate in natural waters}
+
+\begin{frame}{Phosphate in natural waters}
+\only<1>{
+\begin{exampleblock}{Lakes vs Seawater}
+The \(pK_a\) values of phosphoric acid are given in the table above. Use
+them to calculate the dominant form of the phosphate ion in
+
+\textbf{1. A lake with pH = 5.0}\newline \textbf{2. Seawater with pH = 8.0}\newline\smallskip
+The lake pH is higher than \(pK_{a1}\) but lower than \(pK_{a2}\), so
+most of the phosphate will be present as \(H_2PO_4^-\)
+
+\smallskip For the seawater, \(HPO_4^{2-}\) dominates, because the pH is between
+\(pK_{a2}\) and \(pK_{a3}\). 
+
+\medskip Since the lake pH is closer to \(pK_{a2}\)
+than \(pK_{a1}\), the next most abundant form is \(HPO_4^{2-}\), while
+for the seawater, \(H_2PO_4^-\) is the next most abundant form, since
+the pH is closer to \(pK_{a2}\) than to \(pK_{a3}\).
+\end{exampleblock}
+}
+\only<2>{
+\begin{exampleblock}{Lakes vs Seawater}
+The ratios are obtained from the equilibrium expression for the second
+ionisation:\newline\medskip
+
+\(\frac{[HPO_4^{2-}]}{[H_2PO_4]} = \frac{K_{a2}}{[H^+]}\) \newline\medskip
+
+At pH = 5.0, this ratio is \(10^{-7.31}/10^{-5.0} = 10^{-2.31} = 0.0049\), while \newline\newline\medskip
+at pH= 8.0, the ratio is \(10^{-7.31}/10^{-8.0} = 10^{0.69} = 4.9\)
+\end{exampleblock}
+}
+\only<3>{
+\begin{block}{Test your understanding}The phosphoric acid system has \emph{three} buffer zones. Try to plot
+the titration curve\end{block}}
+\end{frame}
+
+\begin{frame}{Phosphates in natural waters}
+
+\begin{alertblock}{Exercise:} If a sample of soil water contains phosphorous at a
+level of 62 \(\mu g L^{-1} \) (as P) and the pH of water is 4.3.
+What are the main phosphorous species found and what are their
+concentrations? (Remember that all concentrations add up to 62 \(\mu g L^{-1} \) P)
+\end{alertblock}
+\end{frame}
+
+
+\part{Buffers and Alkalinity}
+\section{Buffers}
+%\lecture{Buffers}
+\subsection{The pK\(_a\) of a weak acid}
+\begin{frame}
+\frametitle{The pK\(_a\) of a weak acid}
+\only<1>{A weak acid, HA, and its anioin, \(A^-\), make up a \emph{conjugate
+acid-base pair}. They are the same molecular entity, except for one
+proton.
+
+The reason this is important is that a solution containing a conjugate
+acid-base pair has a pH that is close to the negative logarithm of the
+acidity constant, the \(pK_a\):
+
+\[pK_a = -log(K_a)\]
+}
+\only<2>{
+%The \(pK_a\) of a weak acid:
+
+Rearranging Equation \ref{eq1} for acid dissociation constant K\(_a\) gives:
+
+\[[H^+] = \frac{K_a[HA]}{[A^-]}\]
+\newline
+This means that:
+
+\[pH = pK_a - log \left(\frac{[HA]}{[A^-]}\right)\]
+
+So if \([HA] = [A^-]\) then the pH is exactly equal to \(pK_a\). In fact, as
+long as \(\frac{[HA]}{[A^-]}\) is close to 1, the pH will stay close to
+\(pK_a\)\\
+{\tiny The maths: \(log(a*b) = log(a) + log(b)\) ,\quad
+\(log(a/b)  = log(a) - log(b)\) ,\quad
+\(log(1) = 0\)}
+}
+\only<3>{
+\begin{alertblock}{buffer solution}
+We say that the pH is \textbf{buffered} against large
+changes, and a mixture of HA and \(A^-\) constitutes a \emph{buffer}
+solution. It is a solution that resists large changes to pH when and
+acid or a base is added to the solution.
+\end{alertblock}
+}
+\end{frame}
+
+\subsection{pH changes in buffered solutions}
+\begin{frame}{pH changes in buffered solutions}
+\only<1>{
+
+\begin{exampleblock}{Let's look at a titration curve:}
+ 
+\textbf{50ml of 0.1 M Acetic acid titrated by 0.1 M NaOH}\newline
+0.1 M acetic acid, initial pH = 3\newline
+NaOH added\newline
+pure acetic acid, initial [\(H^+\)] = \(10^{-2.88}\), pH = 2.88\newline
+pure sodium hydroxide, 0.1M, pH = 8.88\newline
+\end{exampleblock}
+}
+\only<2>{
+\textbf{Titration for non-chemists}\newline\medskip
+
+The overall reaction: 
+\( CH_3COOH + Na^+ + OH^- \rightleftharpoons Na^+ + CH_3COO^- + H_2O \)\newline\medskip
+
+\begin{tabular}{lccccr}
+
+The reaction & \(CH_3COOH\)  & \(H_2O\) & \(\rightleftharpoons\) & \(H_3O^+\) & \(CH_3COO^-\) \\\hline
+Initial concentration,M. & 0.1  & & & \(\approx 0\) & 0\\
+Changes, M & -x & & & +x & +x\\
+Equilibrium, M & (0.1 - x) & & & x & x\\\hline\medskip
+
+\end{tabular}
+
+From Equation \ref{eq1} for K\(_a\) \(\implies x = \sqrt{K_a\times[CH3COOH]}\)
+}
+\only<3>{
+\smallskip\textbf{Adding NaOH below the equivalence point, e.g. 10 ml:}\newline\medskip
+
+\begin{tabular}{lcccr}
+
+The reaction & \(CH_3COOH\) + & \(OH^-\) & \(\rightarrow\) & \(H_2O + CH_3COO^-\)\\\hline
+Initial amount, \textbf{mmol} & 5 & & & \(\approx 0\)\\
+add, mmol & & 1 & &\\
+Change, mmol & -1 & -1 & &+1\\
+After reaction, mmol & 5-1 = 4 & \(\approx 0\) & & 1\\\hline
+\end{tabular}\\
+\medskip
+
+\[ pH = pK_a + log\left(\frac{[CH_3COO^-]}{[CH_3COOH]}\right)  \]
+\medskip(This is called the Henderson-Hasselbalch equation)
+}
+\only<4>{
+At the half-neutralization point, \(CH_3COOH\) and \(CH_3COO^-\) are
+present in equal amounts, so
+
+\[log\left(\frac{[CH_3COO^-]}{[CH_3COOH]}\right) = 1\] 
+
+therefore 
+
+\medskip \(pH = pK_a + log(1) = pK_a\)
+
+\medskip At the equivalence point, the concentration of \(CH_3CHOOH\) is
+practically zero, because it has reacted with the strong base, and the
+pH is given by the pH of a solution of \(CH_3COONa\) at that
+concentration
+}
+\only<5>{
+Beyond the equicalence point, the pH is determined by the amount of
+excess \(OH^-\), having used up all the initial \(CH_3COOH\). So
+
+\medskip
+\([OH^-] = \frac{0.1 mmol}{(50 + 50)ml} = 0.001 M\) and
+
+\[pH = 14 - pOH = 14 - (-log(0.001)) = 7.09\]
+}
+\medskip
+\end{frame}
+
+\begin{frame}{pH changes when adding base to water and buffered solution} \begin{figure} 
+\includegraphics[width=.6\textwidth]{../graphics/titration} \caption{Titration of Acetic acid with Sodium Hydroxide} \end{figure}
+\end{frame}
+	
+\begin{frame}<article:0>
+\frametitle{What you should know after this lecture if you didn't know it before}
+\begin{itemize}
+\item Calculate pH and pH changes changes in solutions of weak acids
+\item estimate speciation distribution in polyprotic acids from pH
+\end{itemize}
+\end{frame}
+
+
+%\part{Alkalinity}
+\lecture{Alkalinity}{Lecture 5}
+\section{Alkalinity}
+\subsection{The carbonate system}
+
+\begin{frame}{The carbonate system}
+\only<1>{
+\[ CO_2(g) + H_2O \rightleftharpoons H_2CO_3 \rightleftharpoons H^+ + HCO_3^- \rightleftharpoons H^+ + CO_3^{2-} \]
+}
+\only<2>{
+\begin{alertblock}{Example CA assignment:} calculate and plot the speciation diagram
+of the carbonate system, as we did for the phosphoric acid system, above 
+
+%\[ CO_2 + H_2O \leftrightarrows H_2CO_3 \leftrightarrows HCO_3^- + H^+ \leftrightarrows CO_3^{2-} + H^+  \]
+\end{alertblock}
+}
+\end{frame}
+
+\begin{frame}{Inorganic carbon}
+\only<1>{
+The total concentration of inorganic carbon, \([CO_2]_T\), is:
+
+\[ [CO_2]_T = [CO_2(aq)] + [HCO_3^-] + [CO_3^{2-}] \]
+
+And the fraction of any one species is:
+
+\[\alpha_x = \frac{[X]}{[CO_2]_T} \]
+
+And the sum of all fractions, \(\sum\alpha_x = 1\) 
+}
+\end{frame}
+
+\begin{frame}{Carbonate rocks}
+\only<1>{
+In many environmental situations, water is exposed to atmospheric carbon
+dioxide and is also in contact with limestone or other carbonate rocks.
+\[ CaCO_3 (s) +H_2O \rightleftharpoons Ca^{2+} + CO_3^{2-}\]
+
+
+ The \(K_{sp}\) of calcium carbonate in the reaction
+ % \(CaCO_3 \rightleftharpoons Ca^{2+} + CO_3^{2-}\), 
+ is
+
+  \[[Ca^{2+}][CO_3^{2-}] = 4.5709\times 10^{-9} \approx 10^{-8.34}\]
+
+\medskip The solubility of calcium carbonate determines the chemistry of the
+inorganic carbon cycle.\newline
+}
+\end{frame}
+
+\begin{frame}{Solubility of limestone - closed systems}
+\only<1>{
+If the above was the only reaction, the solubility would be
+\(\sqrt{10^{-8.34}} = 10^{-4.17}\)\medskip
+
+But the basic carbonate ions react further with water:\bigskip
+
+\(CO_3^{2-} + H_2O \rightleftharpoons HCO_3^- + OH^-\) \hspace{1cm} \(K_b = 10^{-3.67}\)\bigskip
+
+and is mostly converted to bicarbonate.
+
+\begin{alertblock}{Open and closed systems}
+Refers to whether the soil/rock/water system is in contact with the atmosphere. It is important with respect to
+the oxygen and carbon dioxide concentrations, and as a consequence, the pH and alkalinity of the system and also the Redox potentials.
+\end{alertblock}
+}
+\only<2>{
+\begin{exampleblock}{Example closed system} 
+Calculate the solubility of \(CaCO_3\) in a
+solution not in contact with the atmosphere (no gas-phase \(CO_2\))\medskip
+
+Two main reactions in a \textbf{closed system:}\newline\medskip
+
+Reaction A: \quad \(CaCO_3 = Ca^{2+} + CO_3^{2-}\) \quad (\(K_A = K_{sp} = 10^{-8.34}\))\smallskip
+
+Reaction B:\quad \(CaCO_3 (s) + H_2O = Ca^{2+} (aq) + HCO_3^- (aq) + OH^-\)\bigskip
+
+\qquad \(K_B = K_{eq} = [Ca^{2+}] \times [HCO_3^-] \times [OH^-] = K_{sp}\times K_b = 10^{-12.01}\)
+\end{exampleblock}
+}
+\only<3>{
+\begin{exampleblock}{Example closed system}
+Carbonate reacts with water: \quad \(CO_3^{2-} + H_2O = HCO_3^- + OH^-\)\enspace (\(K_b = 10^{-3.67}\))
+
+\bigskip Mass balance: \qquad \([Ca^{2+}] = [CO_3^{2-}] + [HCO_3^-]\)
+
+\bigskip from Reaction B: \qquad \([OH^-] = [HCO_3^-]\)
+\end{exampleblock}
+}
+\only<4>{
+\begin{exampleblock}{Example}
+Substitute into expression for \(K_{eq}\):
+\([HCO_3^-]^2 = \frac{K_{eq}}{[Ca^{2+}]}\) \medskip
+
+\([HCO_3^-] = \sqrt{\frac{K_{eq}}{[Ca^{2+}]}}\) \medskip
+
+From the solubility product, Reaction B:
+\( [CO_3^{2-}] = \frac{K_{sp}}{[Ca^{2+}]}\) \medskip
+
+Substitute in expression for mass balance:
+\([Ca^{2+}]^2 = K_{sp} + (K_{eq}[Ca^{2+}])^\frac{1}{2}\)
+
+\end{exampleblock}
+}
+\only<5>{
+\begin{exampleblock}{Example closed system}
+Approximation: If the only reaction was Reaction B, then all three ionic
+concentrations would be equal to each other and we could say
+\([Ca^{2+}] = (K_{eq})^{\frac{1}{3}}\) \medskip
+
+Use this as a lower limit, insert in the equation on the right and
+repeat until convergence \(\geq\) \([Ca^{2+}] = 10^{-3.89}\)\medskip
+
+\textbf{What is the pH?}
+
+\(K_{eq} = [Ca^{2+}][OH^-]^2 \implies [OH^-] = \sqrt{\frac{K_{eq}}{[Ca^{2+}]}} = \sqrt{\frac{10^{-12.01}}{10^{-3.89}}} = 10^{-4.06}\)
+
+\(pOH = 4.06 \implies pH = 14 - pOH = 9.94\)
+\end{exampleblock}
+}
+\end{frame}
+
+\subsection{Henry's law and dissolved gases}
+
+\begin{frame}{Solubility of gases in water}
+\only<1>{
+\textbf{Henry's Law describes the equilibrium between gases in air and water}
+
+Assuming there is no chemical reaction between the gas and the water
+after it has been transferred to the aqueous phase, at equilibrium, the concentration of the gas in the water is based on
+the relationship:
+
+\[ P_g = KX_1\]
+
+Where \(P_g\) is the partial pressure of the gas in the bulk atmosphere
+(Pa), K is the Henry's law constant (Pa) (a function of
+temperature as well as the gas and the solvent). \(X_1\) is the
+equilibrium mole fraction.
+}
+\only<2>{
+\begin{columns}[onlytextwidth]
+\begin{column}{.7\textwidth}
+At low concentrations and using molar units for concentration in aqueous
+solution.
+
+\[[G]_1 = K_HP_g\]
+
+where \([G]_1\) is the equilibrium concentration of solute in the
+aqueous phase (\(mol L^{-1}\)), \(K_H\) is the Henry's law constant
+(\(mol L^{-1} Pa^{-1}\)), and \(P_g\) is the partial pressure of the gas
+in the atmosphere (Pa).\newline\smallskip
+\end{column}
+\begin{column}{.3\textwidth}
+\begin{tabular}{lc}
+Gas & \(K_H (mol L^{-1} Pa^{-1})\)\\\hline
+\(O_2\) & \(1.3\times10^{-8}\)\\
+\(N_2\) & \(6.4\times10^{-9}\)\\
+\(CO_2\) & \(3.3\times10^{-7}\)\\
+\(SO_2\) & \(1.2\times10^{-5}\)\\\hline
+\end{tabular}
+\end{column}
+\end{columns}
+}
+\only<3>{
+\smallskip\textbf{The concentration of Oxygen in natural waters} is a very important
+environmental parameter. We will talk about that in connection with
+Biological Oxygen Demand and Redox-chemistry\newline\medskip
+
+\textbf{Carbon dioxide} plays an extremely important role in
+environmental chemistry and atmospheric \(CO_2\) is dissolved in natural
+waters:
+}
+\end{frame}
+
+\subsection{Solubility of CO\(_2\) and Limestone in natural waters}
+\begin{frame}{Solubility of CO\(_2\) in water}
+\only<1>{
+
+The principal acidic constituent of today's atmosphere is \(CO_2\). The
+pH of the oceans is about 8, because of the basic nature of the minerals
+it is in contact with.\newline
+
+\(CO_2\) dissolves readily at this pH and the
+carbonic acid is converted to bicarbonate. Since the \(pK_a\) of
+\(HCO_3^-\) is 10.33, the ratio \(\frac{[CO_3^{2-}]}{[HCO_3^-]}\) at pH
+8 is \(10^{-2.33}\), or 0.0005, so \textbf{only a small fraction of the carbon
+is present as \(CO_3^{2-}\)}. 
+}
+\only<2>{
+\begin{exampleblock}{Example - Henry's Law and CO\(_2\) in water}
+What is the \(CO_2\) concentration in water in equilibrium with the
+atmosphere if the mixing ratio of \(CO_2\) in the atmosphere is 370 ppm?
+
+\medskip The overall equilibrium constant for the reaction
+\(CO_2(g) + H_2O \leftrightharpoons H_2CO_3(aq)\) is equal to
+\(3.162 \times 10^{-2} \approx 10^{-1.5}\) ,\enspace  
+\(K_s = \frac{[H_2CO_3]}{P_{CO_2}} = 10^{-1.5} \frac{M}{atm}\), and
+
+\medskip \(P_{CO_2} = 370 \times 10^{-6}\) or \(10^{-3.4}\) atm and therefore
+\([H_2CO_3] = K_sP_{CO_2} = 10^{-1.5} x 10^{-3.4} = 10^{-4.9} M \)
+\end{exampleblock}
+\begin{alertblock}{This means that rainwater is a dilute solution of carbonic acid. }
+The acid dissociates
+partially (as a weak acid) to oxonium ions and bicarbonate ions:
+\(H_2CO_3 + H_2O \rightleftharpoons H_3O^+ + HCO_3^- \)
+\end{alertblock}
+}
+\only<3>{
+The equilibrium constant for the reaction is
+
+\[K_{a1} = \frac{[H_3O^+][HCO_3^-]}{[H_2CO_3]} = 10^{-6.40} M\]
+
+We can calculate the pH from
+
+\[[H_3O^+]^2 = K_{a1}[H_2CO_3] = 10^{-6.4}\times10^{-4.9} = 10^{-11.3} M^2\]
+
+\[[H_3O^+] = 10^{-5.7} M \implies pH = 5.7\]
+
+So atmospheric \(CO_2\) reduces the pH in pure water by 1.3 units from
+neutrality. Rainwater is naturally acidic, in the absence of atmospheric
+bases. (Ammonia is the only basic species naturally present in the
+atmosphere).
+}
+\end{frame}
+
+\begin{frame}{Solubility of limestone - open systems}
+\only<1>{
+So when the system is exposed to the atmosphere, there is more acidic
+\(CO_2\) dissolved and more bicarbonate is produced:\bigskip
+
+\begin{center}\(CO_3^{2-} + H_2CO_3 \rightleftharpoons 2HCO_3^-\) \qquad (\(K = \frac{K_{a1}}{K_{a2}} = 10^{3.93}\))\end{center}\bigskip
+
+The constant is large and the equilibrium is far to the right, so the
+solubility of \(CaCO_3\) is increased a lot.\medskip
+}
+
+\only<2>{
+When \(Ca^{2+}\)
+enters the ocean from weathering or rocks, calcium carbonate
+precipitates (mostly as shells of sea creatures).\newline\medskip
+
+And when \(CO_2\) is dissolved in the oceans, it dissolves limestone by
+neutralising the carbonate ions, converting limestone to soluble calcium
+bicarbonate:
+
+\begin{equation} \label{caco3} CO_2 + H_2O + CaCO_3 \rightleftharpoons Ca^{2+} + 2HCO_3^- \end{equation} 
+
+One consequence of this is that if the atmospheric \(CO_2\) increses, it
+is more difficult for sea creatures to produce their calcium carbonate
+shells. 
+}
+\only<3>{
+So when water is in \textbf{equilibrium with limestone and atmospheric \(CO_2\)}, the concentrations
+of all important species in the water are given by the equilibria:
+
+\begin{itemize}
+\item
+  \( K_H = \frac{[CO_2]}{P_{CO_2}} = 3.3\times10^{-7}\)
+\item
+  \(K_{a1} = \frac{[HCO_3^-][H_3O^+]}{[CO_2]} = 4.5 \times 10^{-7}\)
+\item
+  \(K_{a2} = \frac{[CO_3^{2+}][H_3O^+]}{[HCO_3^-]} = 4.7 \times 10^{-11}\)
+\item
+  \(K_{sp} = [Ca^{2+}][CO_3^{2-}] = 4.5709 \times 10^{-9}\)
+\end{itemize}
+\begin{block}{}
+Only in systems open to the atmosphere does the first expression above
+play a role, because of the equilibrium with atmospheric \(CO_2\) by
+\textbf{Henry's law}.
+\end{block}
+}
+\end{frame}
+
+\begin{frame}
+\begin{exampleblock}{Example - limestone solubility in open system}
+Calculate the solubility of \(CaCO_3\) in water exposed to the
+atmosphere with a \(CO_2\) concentration of 370 ppm.
+
+\smallskip In a solution exposed to the atmosphere the important reaction is :
+\(CaCO_3 + H_2CO_3 = Ca^{2+} + 2HCO_3^-\)
+
+\smallskip The equilibrium constant for the reaction is:
+\[K = \frac{[Ca^{2+}][HCO_3^-]^2}{[H_2CO_3]} = \frac{K_{sp}K_{a1}}{K_{a2}} = 10^{-4.41}\]
+
+Also, a valid approximation in the pH range of 6-9 is
+\([HCO_3^-] = 2[Ca^{2+}]\), so we can
+write \(K=\frac{4[Ca^{2+}]^3}{[H_2CO_3]}\), \quad and \([H_2CO_3]\) is fixed by
+the atmospheric \(CO_2\) concentration. Therefore \([Ca^{2+}] =
+\left(\frac{10^{-4.41} * 10^{-4.9}}{4}\right)^\frac{1}{3} = 10^{-3.30} M\)
+\end{exampleblock}
+\end{frame}
+
+\subsection{Types of alkalinity}
+\begin{frame}{Why is alkalinity important?}
+Alkalinity is a measure of the ability of a water body to neutralise
+acidity
+
+\medskip The most important species in defining alkalinity of natural waters are:
+
+\[alkalinity = [OH^-] + [HCO_3^-] + 2[CO_3^{2-}] - [H_3O^+]\]
+
+\medskip This definition of alkalinity is \textbf{different from acid neutralising capacity (ANC)} ANC 
+is a broader concept and takes into account the fact that a
+wide range of other proton-accepting species may be present in water of
+different origins, including natural organic matter, silicates and
+phosphates.
+\end{frame}
+
+\begin{frame}{Total and carbonate alkalinity}
+What is the difference between \emph{Carbonate alkalinity} and
+\emph{total alkalinity} ? 
+
+\medskip Alkalinity is measured by titration of water
+sample with acid. The endpoint for the carbonate to hydrogen carbonate
+plus hydroxyl to water part of the titration occurrs near \textbf{pH 8}, and this
+gives the value for \textit{carbonate alkalinity}. 
+
+\medskip If the titration is
+continued to \textbf{pH 4.5}, the hydrogen carbonate is further protonated to
+form aqueous carbon dioxide and titration to this pH yields a value for
+\textbf{total alkalinity}. This is really a method for determining ANC.
+\end{frame}
+
+\begin{frame}{Carbonate buffering}
+How do carbonate species act as a buffer in water systems?
+
+\medskip Moving from low to high pH, there are three carbonate species, \(CO_2\),
+\(HCO_3^-\) and \(CO_3^{2-}\), and the distribution depends on the pH,
+but the system has capacity to resist a change in pH because a weak
+acid, \(HA^-\) and it's anion, \(A^-\), constitute a \emph{conjugate
+acid-base pair}. 
+
+\medskip A mixture of the two has a pH close to the \(pK_a\)
+(negative logarithm of the acidity constant) and the pH is
+\emph{buffered} against large changes.
+\end{frame}
+
+\begin{frame}
+\begin{exampleblock}{Calculate the change in \(pH\) of two samples of water
+on adding 1.0 \(mmol L^{-1}\) of \(H_3O^+\)}
+The first (i) is pure \(H_2O\) and the second (ii) has sufficient carbonate species to give an
+alkalinity of \(2000 \mu mol L^{-1}\).  Both have \(pH = 7\) initially. 
+
+\smallskip Adding 1.0 \(mmol L^{-1}\) to pure water will give a final pH of 3.0 \newline
+Adding 1.0 \(mmol L^{-1} H_3O^+\) to 2000 \(\mu mol L^{-1} HCO_3^-\), a
+reaction to produce 1.0 mmol \(L^{-1}\) of dissolved \(CO_2\) occurs:
+
+\[ HCO_3^- (aq) + H_3O^+ (aq) \rightarrow CO_2 (aq) + 2H_2O \] 1.0 mmol
+\(L^{-1}\) remains. the concentration of \(H_3O^+\) can then be
+calculated from:
+\[ [H_3O^+] = \frac{K_{a1} * [CO_2(aq)]}{[HCO_3^-]} = \frac{4.5*10^{-1} * 1 * 10^{-3}}{1*10^{-3}} = 4.5*10^{-7} mol L^{-1} \]
+this corresponds to a \emph{pH of 6.35}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The alkalinity of a natural water body in terms of
+\(CaCO_3\)}
+\only<1>{
+Sensitivity classification of lakes can be expressed in
+terms of alkalinity using units of mol \(L^{-1}\) proton-accepting
+capacity. 
+
+\medskip An alternative way of reporting alkalinity uses the
+stoichiometric neutralisation reaction between carbonate and protons,
+and gives values in mg \(L^{-1} CaCO_3\) or mg \(L^{-1}\) Ca. 
+
+\medskip The relation between alkalinity expressed as proton-accepting capacity and
+calcium carbonate (molar mass = 100 g/mol) is based on the following
+reasoning/calculation: \begin{equation*} 1 mg \  CaCO_3 = 1000 \mu g \end{equation*}
+}
+\only<2>{
+which, on a molar basis, is 1000 \(\mu g\) / (100 g /mol) = 10
+\(\mu mol ~CO_3^{-2}\) since each carbonate is capable of neutralising
+two hydronium ions, 10 \(\mu mol CO_3^{2-}\) is equivalent to 20
+\(\mu mol\) proton-accepting capacity. 
+
+\medskip Therefore, the alkalinity of a
+solution containing 20 \(\mu mol L^{-1}\) of proton-accepting species
+could also be reported as 1 mg/L \(CaCO_3\).
+}
+\end{frame}
+
+\begin{frame}{pH and alkalinity}
+\begin{alertblock}{pH and alkalinity of natural waters are not equivalent}
+For example, a water sample with no carbonate can have a higher pH than a water sample
+containing carbonate species, but it has no capacity to neutralise acidity. 
+
+\medskip The pH can be considered an \emph{intensity factor} that
+measures the concentration of alkali or acid immediately available for
+reaction. 
+
+\medskip The alkalinity is a \emph{capacity factor} that is a measure
+of the ability of a water body to sustain reaction with added acids or
+base.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Summary The Carbonate system}
+\begin{itemize}
+\item  Buffers natural waters
+\item Carbonates and bicarbonates form complexes and ion pairs with metals such as
+\(Ca^{2+}\ and\ Mg^{2+}\) 
+\item Are important to the \emph{Alkalinity} of the
+water 
+\item Participates in biological processes of 
+\begin{itemize}
+\item Respiration (\(CO_2\) produced) 
+\item Biosynthesis by photosynthesis (\(CO_2\) consumed)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}<article:0>
+\frametitle{Now you should be able to:}
+\begin{itemize}
+\item Work out the buffering capacity of natural waters open to atmosphere in contact with limestone
+\item Calculate concentration of dissolved oxygen and carbon dioxide in natural water systems
+\item Define and calculate the alkalinity of natural waters
+\item Explain the difference between total alkalinity and carbonate alkalinity
+\end{itemize}
+\end{frame}
+
+\part{Acid-Base Chemistry of Natural Environments}
+\lecture{The earth as a reactor}{Lecture 6}
+
+\section{Earth as an acid-base reactor}
+\begin{frame}{Earth, Wind and Water}
+\only<1>{Or \textbf{Atmosphere, water and rocks: }
+
+\smallskip The atmosphere and the oceans are formed by compounds like
+\(H_2O, HCl, CO_2, SO_2\) and \(N_2\). These are generally acidic.
+
+\medskip The minerals in the earth's litosphere tend to be basic, such as the
+alkaline earth metals; Na, K, Mg and Ca. These are common in the Earth's
+crust.
+
+\medskip These minerals form basic oxides that are incorporated into the silicate
+framework of mineral phases.
+
+\medskip Calcium Carbonate, or \emph{limestone}, is abundant in the Earth's
+crust, and carbonate is a basic anion.
+}
+\only<2>{\begin{figure}
+\includegraphics[width=.6\textwidth]{../graphics/ptable}
+\caption{http://www.rsc.org/periodic-table}\label{Periodic Table}\end{figure}
+}
+\only<3>{
+\medskip On the left of the \textbf{periodic table} are elements that form ionic bonds.
+Their compounds are non-volatile ionic solids.
+
+\medskip Elements on the right of the periodic table are acid-forming and tend to
+form covalent bonds. They produce volatile molecules more readily.
+
+\medskip The medium in which these two groups of elements get to react is through
+the \emph{hydrosphere}. The natural processes are like a gigantic
+titration experiment.
+
+\medskip Rock is eroded by reaction with the atmosphere and the hydrosphere.
+}
+\end{frame}
+
+\subsection{Soil neutralisation and cation exchange capacity}
+\begin{frame}{Soil neutralisation}
+\only<1>{
+When rain hits the ground, it first reacts with the topsoil, which
+contains a lot of \(CO_2\) from bacterial decomposition. So the pH
+decreases initially. Plants also produce a lot of organic acids and the
+decay of organic matter also produces acids. So the pH in topsoils are
+often below 5.\par
+
+\smallskip The water percolates into the mineral layers and neutralisation
+reactions become important. In soils with limestone, neutralisation
+occurs by the equation \(CO_2 + H_2O + CaCO_3 \rightleftharpoons Ca^{2+} + 2HCO_3^-\), which raises the pH towards 8.3
+(\emph{why?})
+
+\smallskip When there is no (more) limestone (left), neutralisation occurs via a
+different mechanism; \emph{exchange of protons} on ion exchange sites of
+clay particles and humic material. Base cations
+(\(Ca^{2+}, Mg^{2+}, K^+\)) in the soil are replaced by protons, thereby
+releasing the cations into solution.
+}
+\only<2>{\begin{columns}[T,onlytextwidth] \begin{column}{.7\textwidth}
+\begin{figure}\includegraphics[width = .7\textwidth]{../graphics/cec} \caption{Cation Exchange in Soils} \end{figure}\end{column}
+\begin{column}{.3\textwidth} The number of available cation sites defines the \textbf{cation
+exchange capacity (CEC)} of the soil. This is measured in units of acid
+equivalents (\emph{eq}) per square meter of soil. \end{column} \end{columns}
+}
+\only<3>{
+The fraction of these sites that is occupied by base cations, rather
+than by \(H^+\), is called the \emph{base saturation} (\(\beta\)).
+
+\medskip These ion exchange sites are anionic O-atoms bound to the silica lattice
+(or organic anions) and they are less basic than the carbonate ion. So
+the pH increases much less in soils without limestone (non-calcerous
+soils). Typical pH is about 5.5
+
+\medskip The ion exchange sites are on the surface of the soil particles, the
+exchange capaicity is limited and the neutralising capcacity of these
+soils is much less than in calcerous soils. But it is slowly replenished
+by weathering of silicate minerals.
+}
+\end{frame}
+
+\subsection{Weathering and solubility}
+\begin{frame}{Weathering and solubility}
+\only<1>{
+Many ionic compounds are sparingly soluble because the forces that hold
+the ions together are stronger than the forces between the ions and the
+water. When the ions arrange themselves in a crystalline lattice this
+can also be energetically favourable to staying in the solid.
+
+\medskip The stability of the lattice is greater when the positive and negative
+ions have equal size and/or charge. For this reason, both sodium
+carbonate and calcium nitrate are highly soluble because the positive
+and negative ions differ in charge.
+}
+\only<2>{
+However, calcium carbonate is sparingly soluble because both the cation
+and anion are doubly charge and have a high lattice energy. \par Magnesium
+carbonate is more soluble than calcium carbonate and sodium silicates
+are more soluble than potassium silicates, because the smaller cations
+fit the lattice less well and interact more strongly with water. \par This is
+the reason why magnesium and sodium are much more abundant in seawater
+than calcium and potassium, despite similar abundance in the Earth's
+crust.
+}
+\only<3>{
+\textbf{The solubility of a soluble salt is governed by the equilibrium
+constant, the solubility product, \(K_{sp}\)}.
+
+\medskip Barium sulfate dissolves with a solubility product, \(K_{sp}\), of
+\(10^{-10}\):
+
+\[BaSO_4 (s) \rightleftharpoons Ba^{2+} (aq) + SO_4^{2-} (aq)\]
+\[K_{sp} = [Ba^{2+}][SO_4^{2-}] = 10^{-10} M^2\]
+
+\medskip The solid phase does not appear in the equation because it is constant
+as long as there is any solid phase in equilibrium with the solution. If
+the concentration product of the two ions is higher than the constant
+\(K_{sp}\), then barium sulfate will precipitate.
+}
+\only<4>{
+\begin{exampleblock}{Calculate the solubility of barium sulfate in a) pure water and
+b) one millimolar solution of sodium sulfate in water} 
+For pure water in
+equilibrium with barium sulfate, the concentration of sulfate and barium
+ions are equal:
+
+\[[Ba^{2+}] = [SO_4^{2-}] = \sqrt{K} = 10^{-5} M\] so the solubility is
+\(10^{-5}\) M. When one of the ions is present already, the solubility
+is the concentration of the other one, which decreases in inverse
+proportion to the excess concentration of the first one. 
+\end{exampleblock}
+}
+\only<5>{
+\begin{exampleblock}{Barium sulfate cont/d}
+So when
+\([SO_4^{2-}] = 1\times10^{-3} M\), the solibility is:
+\[[Ba^{2+}] = \frac{K_{sp}}{[SO_4^{2-}]} = \frac{10^{-10}}{10^{-3}} = 10^{-7}\]
+\end{exampleblock}
+The acid-base reactions of silicate rocks are more complicated and we
+will return to them later if we have time.
+}
+\end{frame}
+
+\subsection{Watershed buffering}
+\begin{frame}{Watershed buffering}
+\only<1>{
+The atmosphere receives SO\(_2\) and NO from natural and anthropogenic sources. Atmospheric oxidation reactions result in the formation of sulfate and nitrate which end up in atmospheric aerosols, or particles. The particles are ultimately removed from the atmosphere through wet or dry deposition. 
+
+\medskip If these gases accumulated in the atmosphere, the air would be toxic. 
+
+\medskip The nitrates and sulfates are transferred to soil and water. 
+
+\medskip Soils act as \textbf{chemical filters} and adsorb, neutralise or retain pollutants. But the \textbf{buffering capacity of soils and waters} can eventually get \textbf{depleted} and the pH can suddenly drop. When that happens, pollutants that are retained in the soil can be released to rivers and lakes, or groundwater, and eventually reaching the oceans and sea bed.
+}
+\only<2>{
+The effectiveness of the soil as a chemical filter depends on its \textbf{buffering capacity}. Even if soils have sufficient buffering capacity to neutralise naturally occurring acids, the capacity can become overwhelmed by too much acid deposition. The course of acidification of a soil/water system is illustrated in the next figure
+
+\medskip There are three different buffer regions. If limestone is present, the pH is initially maintained at around 8, through dissolution of carbonate. When the limestone is dissolved away, the pH drops to about 5.5 as the acid is displacing the base cations in the soil. When the CEC is depleted, the pH drops to around 4, when the  Al(OH)\(_3\) is gradually dissolved. 
+}
+\only<3>{
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.7\textwidth}
+\begin{figure} \includegraphics[width = .9\columnwidth]{../graphics/soilacidification.png} \caption{Buffering ranges in soils} \end{figure}
+\end{column}
+\begin{column}{.3\textwidth}
+The soil is titrated by protons and goes through three buffer regions.
+\end{column}
+\end{columns}
+}
+\only<4>{
+\begin{columns}[onlytextwidth]
+\begin{column}{.6\textwidth}
+\begin{figure} \includegraphics[width=.9\columnwidth]{../graphics/soil-acidity-33-728.png} \caption{Buffering ranges and acidity in soils} \end{figure}
+\end{column}
+\begin{column}{.3\textwidth}
+\medskip A watershed that is subject to continuous input of acid, can have a fairly constant pH for a long time, at one of the buffer pH values. The pH can then drop rapidly when the buffering capacity is exceeded. It is hard to know exactly when the system pH will drop.
+\end{column}
+\end{columns}
+}
+\end{frame}
+
+\lecture{Redox chemistry}{Lecture 8}
+\part{Redox Chemistry and chemistry of living systems}
+\section{Redox chemistry}
+
+\begin{frame}{Redox half-reactions}
+\only<1>{
+Redox reactions are thought of as two half-reactions; proceeding in opposite directions. The oxidation of
+hydrogen by oxygen:
+\begin{equation*} 
+2H_2 + O_2 = 2H_2O 
+\end{equation*}
+can be divided into
+\begin{equation*} 
+\begin{split}
+O_2 + 4e^- + 4H^+ &= 2H_2O\\
+4H^+ + 4e^- &= 2H_2
+\end{split} 
+\end{equation*}
+
+Each of these reactions can proceed individually at separate electrodes in a hydrogen-oxygen fuel cell. If they
+are connected through an electric circuit the electrons will flow between them, because there will develop a
+potential difference between the electrodes.
+}
+\only<2>{
+For this reaction at 25 C and 1 atmosphere pressure the potential difference is 1.24 Volts.
+The potential difference, E, is the energy of the electrochemical cell per unit of charge; 1 V = 1 J/C (V = Volt, J
+= Joule, C = Coulomb). A Coulomb is the amount of charge that passes a fixed point in an electric circuit when
+a current of one ampere flows for one second. One coulomb of charge requires \(6.24\times 10^{18}\) electrons.
+
+\medskip \(\Delta E\) is related to the free energy of the cell reaction by the relationship:
+
+\begin{center} \(\Delta G = -nF\Delta E\) \end{center}
+
+\smallskip F (Faraday) is the charge in a mole of electrons (96,500 C) and \textit{n} is the number of electrons transferred in the
+reaction.
+}
+\only<3>{
+In the reaction, four electrons are transferred from 2H\(_2\) to O\(_2\) and
+
+\( \Delta G = -4\times 96,500 \times 1.24 = -479,000 J = - 479 kJ \)
+
+Each of the half-reactions can be coupled with different half-reactions, and there are many possible
+combinations in electrochemical cells. Therefore we talk about standard potentials, \(E^\circ\), for each electrode by
+referencing it to the hydrogen electrode. The standard potential of the hydrogen electrode is defined as zero.
+This means the standard potential for the oxygen electrode, \(E^\circ _{O_2} = 1.24V\)
+
+\medskip For many half-reactions the electron transfer is too slow to be measured at an electrode, but the potentials can
+be calculated from the free energy of the redox reactions.
+}
+\only<4>{
+\begin{exampleblock}{Example redox reaction}
+The formation of NO from N\(_2\) and O\(_2\) is a redox reaction:
+
+\[O_2 + N_2 = 2NO\]
+
+with the half-reactions:
+\begin{equation*}
+\begin{split}
+O_2 + 4e^- + 4H^+ &=2H_2O\\
+2NO + 4e^- + 4H^+ &= N_2 + 2H_2O
+\end{split}
+\end{equation*}
+
+The free energy of the overall reaction is 173.4kJ, which gives a cell potential of -0.45 V, because \( 173,400 = -4\times 96,500 \times \Delta E \implies \Delta E = \frac{173,500}{-4\times 96,500}\)
+
+Using the standard potential of the oxygen electrode (1.24 V), we can calculate that the standard potential
+for the second half-reaction above is 1.69 V even though it can't be measured directly (because it is too
+slow)
+\end{exampleblock}
+}
+\end{frame}
+
+\subsection{The connection with pH}
+
+\begin{frame}{pE/pH diagrams}
+\only<1>{Just like we say the pH is the negative logarithm of the H\(^+\) concentration (or actually the activity), we define pE
+as the negative logarithm of electron activity.
+
+\smallskip \( pE = -log(a_e)\)
+
+\begin{itemize}
+\item A large negative value of pE indicates a high electron activity in solution and reducing conditions. \\
+\quad e.g. swamps
+\item A large positive value of pE indicates low electron activity in solution and oxidising conditions\\
+\quad well-aerated surface waters
+\end{itemize}
+
+pE is \textit{calculated}, not measured.
+}
+\only<2>{
+\begin{exampleblock}{Example:}
+\begin{equation*}
+\begin{split}
+Fe^{3+} (aq) + e^- \rightleftharpoons Fe^{2+} (aq) \\
+K_{eq} = \frac{a_{Fe^{2+}}}{a_{Fe^{3+}} \times a_{e^-}}\\
+\frac{1}{a_{e^-}} = \frac{K_{eq} \times a_{Fe^{3+}}}{a_{Fe^{2+}}}\\
+\end{split}
+\end{equation*}
+
+Take the logarithm on both sides and get:
+
+\[pE = -log(a_e) = logK_{eq} + log(\frac{a_{Fe^{3+}}}{a_{Fe{2+}}})\]
+\end{exampleblock}
+}
+\only<3>{
+\begin{exampleblock}{cont/d}
+And we also know the relationships:
+
+\smallskip \(\Delta G^\circ = -nFE^\circ\) and \( \Delta G^\circ = RT\times ln(K_{eq}) \implies \Delta G^\circ = -2.303 RT \times log(K_{eq})\)
+
+\smallskip \fbox{because \(ln(X) = -2.303 \times log_{10}(X)\)}
+
+\smallskip where \(n\) has the same meaning as above. So in the following example we calculate pE at 298K.
+
+\smallskip R = 8.314 \(JK^{-1} mol^{-1}\) and F = 96,485 \(Cmol^{-1}\) so 
+
+\smallskip \(log(K_{eq}) = \frac{nFE^\circ}{2.303RT} = \frac{nE^\circ}{0,0591}\)
+
+\smallskip \fbox{0.0591 is the value of 2.303\(\times\)RT/F at 25\(^\circ\)}
+\end{exampleblock}
+}
+\only<4>{
+
+if n = 1: \[ log(K_{eq}) = \frac{E^\circ}{0.0591}\] and
+\[ pE = \frac{E^\circ}{0.0591} + log \frac{a_{Fe^{3+}}}{a_{Fe^{2+}}}\]
+
+but with standard conditions \(a_{Fe^{3+}} = a_{Fe^{2+}}\), so
+\(log \frac{a_{Fe^{3+}}}{a_{Fe^{2+}}} = 0\), and
+
+\[pE = pE^\circ = \frac{E^\circ}{0.0591}\] for non-standard conditions
+
+\[pE = pE^\circ + log \frac{a_{Fe^{3+}}}{a_{Fe^{2+}}}\]
+}
+\only<5>{
+    A general reaction:\\
+\[aA + ne^- \rightleftharpoons bB\]
+
+where A is the oxidised form and B is the reduced form of the redox
+couple.
+
+The reaction quotient (Q) is:\\
+
+\[Q = \frac{a_B^b}{a_A^a} \approx \frac{[B]^b}{[A]^a}\]
+
+The reaction quotient has the form of an equilibrium constant.
+\emph{Concentration} is used as an approximation for \emph{activity}.
+}
+\only<6>{
+The general form of the equation becomes:\\
+
+\[pE = pE^\circ - \frac{1}{n}log Q\]
+
+Values of \(pE^\circ\) for most half-reactions are known, so pE can be
+found under any conditions.
+
+The definition of "standard conditions" also includes a standard pH
+equal to 0. This is not environmentally relevant, so a redefined
+standard value at pH = 7 is denoted \(pE^\circ (w)\)
+
+\textbf{Three ways of calculating} p\(E^\circ\):
+\[pE^\circ = \frac{E^\circ}{0.0591} = \frac{log K_{eq}}{n} = \frac{-\Delta G^\circ}{2.303 RTn}\]
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{finding p\(E\) when p\(E^\circ\) is known}
+\begin{exampleblock}{Example: Chromium in tannery wastes}
+\only<1>{
+Suppose wastewater from a tannery contains 26 mg/L chromium in the Cr\(^{3+}\) state. Dissolved oxygen downstream of the effluent can cause Cr\(^{3+}\) to be oxidised to Cr\(_2\)O\(_7^{2-}\).
+
+\smallskip Calculate the extent of oxidation if the oxygen in the stream water is in equilibrium with the atmosphere and has a pH of 6.5 (\(a_{H_3O^+} = 10^{-6.5}\))
+
+\smallskip The first step is to calculate p\textit{E} and then from that calculate the concentrations of Cr\(^{3+}\) and Cr\(_2\)O\(_7^{2-}\) (at equilibrium).
+}
+\only<2>{
+Step 1\newline
+In a \textit{well-aerated} system:
+\[O_2\ (g)\ + 4H_3O^+ (aq) + 4e^- \rightleftharpoons 6H_2O\]
+\[E^\circ = 1.23 V\]
+\[pE^\circ = \frac{1.23\ V}{0.0591\ V} = 20.8\]
+using the general form of the equation :
+\[ pE = pE^\circ - \frac{1}{n}log\frac{1}{P_{O_2}/P^\circ \times (a_{H_3O^+})^4} = 20.8 - \frac{1}{4}log\frac{1}{0.209\times(10^{-6.5})^4} = 14.1\]
+}
+\only<3>{
+The pressure is given as a ratio \(P_{O_2} / P^\circ = atmospheres\)
+\smallskip Oxygen makes up 20.9 \% of the atmosphere, so \(P_{O_2}=21200 Pa\). \(P^\circ = 101325 Pa\).
+
+\smallskip Step 2:\newline
+\[Cr_2O_7^{2-}\ (aq) + 14H_3O^+\ (aq) + 6e^- \rightleftharpoons 2Cr^{3+}\ (aq) + 2H_2O\]
+\begin{center} \(E^\circ = 1.36V\) and \(pE^\circ = 23.0\) \end{center}
+\[pE = pE^\circ - \frac{1}{6}log\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}](a_{H_3O^+})^{14}} = 14.1\]
+Since the chromium and oxygen systems and in equilibrium, pE is the same for both
+}
+\only<4>{
+\begin{align*} 14.1 &= 23.0 - \frac{1}{6}log\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}](10^{-6.5})^{14}}\\
+&= 23.0 - \frac{1}{6}log\frac{1}{(10^{-6.5})^{14}} - \frac{1}{6}log\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}]}\\
+&= 7.8 - \frac{1}{6}log\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}]}\\
+log\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}]} &= -37.8\\
+\frac{[Cr^{3+}]^2}{[Cr_2O_7^{2-}]} &= 1.6\times10^{-38}
+\end{align*}
+}
+\only<5>{
+What that ratio means is that practically all of the Cr\(^{3+}\) would be oxidised to Cr\(_2\)O\(_7^{2-}\). This has serious environmental consequences.
+
+\smallskip Chromium (III) is actually a required trace element for mammals, but chromium (IV) is carcinogenic and toxic to mammals and toxic to plants.
+}
+\end{exampleblock}
+\only<5>{
+\begin{alertblock}{Removal of chromium}
+One method for removal of chromium(III) from tannery waste involves using \textit{Sargassum seaweed}. The chromium is removed through \textbf{cation exchange} at carboxylic acid sites on the seaweed.
+\end{alertblock}
+}
+\end{frame}
+
+\subsection{Environmentally important redox reactions}
+\subsubsection{Water stability boundaries}
+\begin{frame}{Water stability boundaries}
+\only<1>{
+    Water itself can hydrolyse and it can be reduced or oxidised. there are
+limits to the range of pH and pE where it is stable.\\
+At low pE (\textbf{reducing conditions}), water is reduced and hydrogen
+gas is produced:
+
+\[2H_2O + 2e^- \rightleftharpoons H_2(g) + 2OH^- (aq)\]
+
+where
+
+\[E^\circ = -0.828V\] \[pE\circ = -14.0\]
+
+from the above:
+\[pE = pE^\circ - \frac{1}{2}log (P_{H_2}/P^\circ \times (a_{OH^-})^2)\]
+}
+\only<2>{
+For a gas-liquid boundary, the condition is
+\[P_{H_2} = P^\circ = 101,325 Pa\]
+
+\[pE = -14.0 - log(a_{OH^-}) = -14.0 + pOH\]
+
+Because \(pH + pOH = 14\), we can say \[pE = -pH\]
+
+This is a line that defines the boundary for water stability with
+respect to reduction.\\
+Where the pE value is less than the pH value, water is unstable.
+}
+\only<3>{
+In highly \textbf{oxidising} conditions (high pE), water is also
+unstable and oxygen gas is produced:
+
+\[6H_2O \rightleftharpoons 4H_3O^+ (aq) + O_2 (g) + 4e^-\]
+
+where \(E^\circ = 1.229\) V and \(pE^\circ = E^\circ / 0.0591 = 20.80\)
+
+The line for this reaction is:
+
+\[pE = pE^\circ - \frac{1}{4}log(1 / ((P_{O_2} / P^\circ)\times(a_{H_3O^+})^4))\]
+
+The boundary conditions requires gas to equal atmospheric
+pressure:\(P_{O_2} = P^\circ = 101,325 Pa \implies pE = 20.80 - log(1/a_{H_3O^+}) =\)
+20.80 - pH
+}
+\only<4>{\begin{figure}
+\includegraphics[width = .7\textwidth]{../graphics/PourbaixWater2.png} \caption{Water stability boundaries} \end{figure}
+}
+\only<5>{\begin{figure}
+\includegraphics[width = .5\textwidth]{../graphics/PourbaixWater.png} \caption{Water stability boundaries} \end{figure}
+}
+\end{frame}
+
+\begin{frame}{Natural aqueous systems}
+The figure indicates typical conditions in different
+environments.
+
+\begin{figure}
+\centering
+\includegraphics[width=.55\textwidth]{../graphics/Pourbaixenviron.png} \label{envcon}
+\caption{Typical environmental pE/pH conditions}
+\end{figure}
+
+In environmental situations, pH and pE are key properties determining
+chemical speciation in aqueous systems. The pE/pH diagram is therefore
+an important tool in assessing speciation and mobility
+
+For further (directed) study, see \textit{Suggested Readiing}
+\end{frame}
+
+
+\subsubsection{The sulfur system}
+\begin{frame}{Sulfur speciation regions}
+\only<1>{
+In the same way as we can draw the water stability boundaries, we can
+determine the boundaries between the difference sulfur species if we
+know the reduction potentials and the equilibrium constants and free
+energies, which are all known from the literature.
+
+\textbf{The \(SO_4^{2-} / HSO_4^-\) boundary:}
+\(SO_4^{2-} (aq) + H_3O^+ (aq) \rightleftharpoons HSO_4^- + H_2O\)
+
+\textbf{The \(HSO_4^- / S^\circ\) boundary:}
+\(HSO_4^- (aq) + 7H^+ (aq) + 6e^- \rightleftharpoons S^\circ (s) + 4H_2O\)
+
+\textbf{The \(SO_4^{2-} / S^\circ\) boundary:}
+\(SO_4^{2-} (aq) + 8H^+ (aq) + 6e^- \rightleftharpoons S^\circ (s) + 4H_2O\)
+
+\textbf{The \(S^\circ / H_2S\) boundary:}
+\(S(s) + 2H^+ (aq) + 2e^- \rightleftharpoons H_2S (aq)\)
+
+\textbf{The \(SO_4^{2-} / H_2S\) boundary:} \(SO_4^{2-} (aq) +
+10H^+ (aq) = 8e^- \rightleftharpoons H_2S (aq) + 4H_2O \)
+
+\textbf{The \(H_2S / HS^-\) boundary:}
+\(H_2S (aq) \rightleftharpoons HS^- (aq) + H^+ (aq)\)
+
+\textbf{The \(SO_4^{2-} / HS^-\) boundary:}
+\(SO_4^{2-} (aq) + 9H^+ (aq) + 8e^- \rightleftharpoons HS^- (aq) + 4H_2O\)
+}
+\only<2>{
+Using the different relationships for calculating p\(E^\circ\), we can calculate the different boundaries:
+
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{../graphics/PourbaixSulfur.png} \caption{Sulfur stability boundaries, using \(pE = pE^\circ - \frac{1}{n}log Q\)}
+\end{figure}
+}
+\only<3>{
+With reference to the sulfur system in the figure we can say the
+following about two specific environmental situations:
+
+\begin{itemize}
+\item
+  For mine wastes that are exposed to the atmosphere are well aerated
+  (oxidising) and have low pH. This corresponds to the point X in the
+  sulfur pE/pH diagram. The most important sulfur species would be
+  sulfate. Even if the original material contained sulfide ore, the
+  sulfur might originally enter as sulfide, but will be oxidised to
+  sulfate.
+\item
+  In a swamp or paddy field the soil contains a lot of organic matter,
+  which acts as reducingt agent and creates low pE conditions. The soil
+  might have pH = 6 but pE = -3 (point Y in the figure). It is likely
+  that the interstitial water in the sediment contains \(H_2S\).
+\end{itemize}
+}
+\end{frame}
+
+\subsection{Potential and pH in different environmental
+situations}
+
+\begin{frame}<article:0>
+\frametitle{what you should know how to do}
+\begin{itemize}
+\item Calculate the electron activity, or pE, in an aqueous system
+\item Use the pE/pH diagrams to assess the state of an environment
+\item Determine the dominant species in a distribution using pE/pH diagrams
+\end{itemize}
+\end{frame}
+
+%\part{Chemistry and Life interactions}
+\section{Earth, water and life}
+\lecture{Biological redox reactions}{Lecture 7}
+\subsection{Eutrophication and productivity}
+
+\begin{frame}{Biological productivity}
+\only<1>{
+Biological productivity depends on \emph{primary producers}; these are
+organisms that fix carbon via photosynthesis and provide food for the
+animal food chain.
+
+\[CO_2 + H_2O \rightarrow (CH_2O)_n + O_2\]
+}
+\only<2>{
+In water, primary producers are the cyanobacteria, phytoplankton and
+algae. They are dependent on sunlight and live in the \emph{euphotic
+zone}, where sunlight can penetrate. Most biological activity takes
+place here in a cycle of photosynthesis and respiration.
+
+Some dead organisms sink down below the euphotic zone where bacterial
+decomposition continues but photosynthesis does not. The deeper waters
+become enriched in carbon and the other elements of life. Thermal
+stratification means that there is usually little mixing between the
+warmer surface water and the colder deeper layers. Carbon and nutrients
+are transferred from the surface to the bottom.
+}
+\only<3>{
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{../graphics/thermalstratificationline.png}
+\caption{thermocline}
+\end{figure}
+}
+\only<4>{
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{../graphics/thermalstratification.png}
+\caption{thermocline}
+\end{figure}
+}
+\only<5>{
+This produces a gradient in the concentration of nutrients, carbon and
+oxygen with depth. \(O_2\) is high at the surface and is reduced sharply
+over the first few hundred metres (in the oceans). Nitrate and iron levels decrease
+at the surface, due to uptake by growing organisms, but
+increases with depth as organisms are decomposed.
+
+\medskip In freshwater lakes, there is a dynamic balance that is easily
+disturbed. \(O_2\) falls with increasing distance from the surface and
+its the same in soils. Aerated soils support oxygen-utilising microbes
+and higher life forms. Deeper in the soil, the \emph{saturated zone},
+where the soil pores are filled with water, anaerobic bacteria dominate
+and utilize progressively lower \(E^\circ\) redox couples.
+}
+\only<6>{
+In lakes, the sediments are usually depleted in oxygen and rich in
+anaerobic organisms while in the water column the \(O_2\) concentration
+increases towards the surface.
+
+The concentration of \(O_2\) at the surface is increased because - the
+surface is in contact with the air, but also because - the surface
+waters support growth of vegetation and algae, which release \(O_2\) as
+a product of photosynthesis
+}
+\only<7>{
+\begin{figure}
+\centering
+\includegraphics[width=.4\textwidth]{../graphics/oxygendepthprofile.png}
+\caption{Oxygen concentration at different depths}
+\end{figure}
+}
+\end{frame}
+
+%\subsubsection{Seasonal cycles}
+\begin{frame}{Seasonal cycles}
+\only<1>{
+The biological productivity of a lake varies in an annual cycle. In
+winter, the surface water is heated less by the sun and cools down. the
+thermal stratification of the lake breaks down and mixing by wind and
+waves brings nutrient-rich water to the surface. So the nutrient supply
+is high, but temperature and light levels are low.
+
+\medskip In the Spring, there is sunlight and more heat, and this leads to a
+bloom of phytoplankton and water plants. Continued growth diminishes the
+nutrient supply and activity drops. Bacteria decompose dead matter and
+replenishes the nutrient supply so there is typically a second peak of
+phytoplankton acitvity in the Autumn.
+}
+\only<2>{
+\begin{figure}
+\centering
+\includegraphics[width=.4\textwidth]{../graphics/seasonal.png}
+\caption{seasonal cycles}
+\end{figure}
+}
+\only<3>{
+In unpolluted waters, the \emph{Biological Oxygen Demand} rarely exceeds
+the available oxygen
+
+But if the lake receives wastewater or agricultural runoff the added
+nutrients can support more phytoplankton production and produce algal
+blooms. When they die, their decomposition can deplete the oxygen supply
+in the lake, killing fish and other life.\\
+If the oxygen is depleted, the bacterial population can switch from
+aerobic bacteria to predominantly anaerobic bacteria, which generate
+noxious products of anaerobic metabiolism like \(NH_3, CH_4\) and
+\(H_2S\). This is called \emph{eutrophication}.
+}
+\end{frame}
+\subsection{Oxygen in natural waters}
+\begin{frame}{Oxygen concentrations}
+\only<1>{
+The oxygen concentration in water is a very important environmental
+parameter. Water in contact with the atmosphere can take up oxygen up to
+an equilibrium concentration.
+
+\medskip The value of Henry's law constant gives us the maximum concentration of
+oxygen dissolved in water at a given temperature.
+
+\medskip The amount of oxygen has to be known for the \emph{moist} atmosphere,
+i.e. it depends on the amount of water vapour.
+
+\medskip If we take a mixing ratio of oxygen in the atmosphere to be 20.9 \% that
+is a fractional mixing ratio of 0.209 and this is the mole fraction of
+oxygen in a \emph{dry} atmosphere.
+}
+\only<2>{
+We can subtract the partial pressure of water from the total pressure
+and the difference is the dry pressure (\(P_{dry}\)) of the components
+in the atmosphere.
+
+\medskip We multiply \(P_{dry}\) by the mixing ratio of oxygen to get the partial
+pressure of oxygen in the actual atmosphere.
+
+\medskip \(P_{dry} = P^\circ - P_{H_2O}\) , \quad \(P_{O_2} = P_{dry} X_{O_2}\)\\ where
+\(P^\circ\) is the atmospheric pressure at \(25^\circ\). \(P_{H_2O}\) at
+\(25^\circ\) is \( 3.2\times10^3\) Pa.\\
+
+\medskip \(P_{O_2} = (1.01\times10^5 - 3.2\times10^3)Pa\times0.209\)
+
+\medskip \([O_2]_{aq} = 1.3\times10^{-8} mol L^{-1}Pa^{-1}\times2.04\times10^4 Pa = 2.7\times10^{-4} mol L^{-1} = 8.5 mg L^{-1}\)
+}
+\end{frame}
+
+\subsection{Energy for life}
+
+\begin{frame}{Biological energy sources}
+\only<1>{
+Life is powered by redox reactions. Redox reactions are chemical
+reactions in which electrons are transferred from one molecule to
+another, and energy is released in the process.\\
+The energy is channeled by the biological machinery, through proteins
+and membranes, into biochemical pathways that support life.
+
+\medskip If there is oxygen present, i.e. in an aerobic environment, the most
+important redox process is respiration:
+
+\[ (CH_2O) + O_2 = CO_2 + H_2O\]
+
+Carbohydrate molecules provide electrons for the reduction of \(O_2\).
+Oxygen is the \emph{terminal electron acceptor} \(\Rightarrow\)
+This provides energy for the organism.
+}
+\only<2>{
+Not all life forms obtain their energy via respiration. Many other redox
+processes can provide energy for life and bacteria have eveloved to
+exploit just about any redox process that is available in nature.\\
+
+\medskip As long as there is a supply of oxidisable molecules and molecules
+capable of oxidizing them in the same environment, there is likely
+bacteria present that can utilise the potential redox reaction.\\
+
+\medskip A good example is the oxidation of \(FeS_2\) by \emph{thiobacillus
+ferrooxidans}, see \textit{acid mine drainage}.
+}
+\subsubsection*{How much energy is released?}
+\only<3>{
+The most energetic reaction is the one involving oxygen. This provides
+the most energy and organisms that can utilise oxygen for respiration
+will grow faster and dominate in an aerobic environment.
+
+\medskip But when water is depleted of oxygen, these organisms can no longer
+survive and anaerobic bacteria take over. They utilise oxidants other
+than Oxygen, which produce less energy but allow life to go on in
+environmental conditions that are too hostile to aerobic organisms.
+
+\medskip The oxidising power of \textbf{anaerobic environment} is mainly
+determined by \emph{five} molecules. In decreasing order of energy
+released, they are:\\
+Nitrate, \(NO_3^-\) - Manganese dioxide, \(MnO_2\) - Ferric hydroxide,
+\(Fe(OH)_3\) - Sulfate, \(SO_4^{2-}\) - Carbon dioxide!, \(CO_2\)
+}
+\only<4>{
+The oxidising power depends on the specific reaction and is measured as
+the \emph{reduction potential} associated with the reduction of the
+oxidant.\\
+
+\medskip \emph{Reduction} refers to the process of a molecule \emph{accepting}
+electrons. Oxygen is \emph{reduced} in resipration because it is the
+\emph{terminal electron acceptor} in the reaction. The Molecule
+providing the electrons is \emph{oxidised}.
+
+\medskip \textit{Oxidation} is Losing -- \textit{Reduction} is Gaining.
+}
+\only<5>{
+\smallskip \textbf{Thermodynamic sequence for reduction of important environmental
+oxidants (pH 7, 25\(^\circ C\))}
+\medskip 
+
+\small
+\begin{tabular}{lrl}
+
+Reaction & Eh(V) & Redox couple\\\hline
+
+Disappearance of \(O_2\): \(O_2 + 4H^+ + 4e^- \rightleftarrows 2H_2O\) & 0.812 & \(O_2/H_2O\)\\
+
+Reduction of \(NO_3^-\) to \(N_2\):
+\(NO_3^- + 6H^+ + 5e^- \rightleftarrows \frac{1}{2}N_2 + 3H_2O\) & 0.747 & \(NO_3^-/N_2\)\\
+
+Reduction of \(MnO_2\) to \(Mn^{2+}\): 
+\(MnO_2 + 4H^+ + 2e^- \rightleftarrows Mn^{2+} + 2H_2O\) & 0.526 & \(MnO_2/Mn^{2+}\)\\
+
+Reduction of \(Fe^{3+}\) to \(Fe^{2+}\):
+\(Fe(OH)_3 + 3H^+ + e^- \rightleftarrows Fe^{2+} + 3H_2O\) & -0.047 & \(Fe(OH)_3/Fe^{2+}\)\\
+
+Formation of \(H_2S\):
+\(SO_4^{2-} + 10H^+ + 8e^- \rightleftarrows H_2S + 4H_2O\) & -0.221 & \(SO_4^{2-}/HS^-\)\\
+
+Formation of \(CH_4\):
+\(CO_2 + 8H^+ + 8e^- \rightleftarrows CH_4 + 2H_2O\) & -0.244 & \(CO_2/CH_4\)\\\hline
+
+\end{tabular}
+}
+\end{frame}
+
+\begin{frame}<article:0>{Now you are able to:}
+\begin{itemize}
+\item Explain how biological activity changes the chemistry of water
+\item Explain how the chemistry of water provides energy for biological activity
+\item Estimate the availability of oxygen in a water body
+\item Describe the molecules that provide oxidising power in anaerobic environments
+\end{itemize}
+\end{frame}
+
+\lecture{Biological oxidation and oxygen demand}{Lecture 9}
+\begin{frame}
+\only<1>{\medskip Electron transfer proceeds through microbial activity on a timescale
+that can involve hours or days.
+
+\medskip Microbial populations will first use the oxidant that produces the most
+energy until it is depleted; only then another molecule becomes the
+dominant oxidant.
+
+\medskip The oxidants are successively consumed for the conversion of reduced
+carbon to \(CO_2\) and the reduction potential falls to successively
+lower levels corresponding to the redox couples. The redox potential of
+a body of water falls in a stepwise pattern.
+}
+\only<2>{
+\begin{figure}
+\centering
+\includegraphics[width=.8\textwidth]{../graphics/redoxsteps.png}
+\caption{Redox steps}
+\end{figure}
+}
+\end{frame}
+
+\subsection{Biological oxidation}
+\begin{frame}{Biological oxidation}
+\only<1>{
+Bacteria catalyse oxidation of reduced substances my molecular oxygen.
+They channel reactions that occur spontaneously in an anerobic
+environment and utilise the energy released.
+
+\medskip Oxidation of \(HS^-\) to \(SO_4^{2-}\) is catalysed by sulfate
+oxidisers, bacteria that manage to extract energy from the
+\(HS^-/SO_4^{2-}\) and \(O_2/H_2O\) redox couples.
+
+\medskip Another important oxidation process is \emph{nitrification}, which is
+the conversion of \(NH_4^+\) to \(NO_3^-\).\\
+\medskip Plants take up and utilize nitrogen mainly in the form of nitrate, this
+is a very important reaction in nature. Ammonium salts are a component
+of fertilizers.
+}
+\only<2>{
+The process occurs in two steps:
+
+\[NH_4^+ + 2H_2O \rightleftarrows NO_2^- + 8H^+ + 6e^-\]
+
+\[NO_2^- + H_2O \rightleftarrows NO_3^- + 2H^+ + 2e^-\]
+
+The half-reactions are catalysed by separate groups of bacteria.
+\emph{Nitrosomonas} and \emph{Nitrobacter}, both using \(O_2\) to
+extract energy from the process.
+
+\smallskip Changes in redox potentials have consequences for environmental
+pollution..
+}
+\end{frame}
+
+\subsection{Dissolved Oxygen Demand}
+\begin{frame}{Dissolved Oxygen Demand}
+\only<1>{
+Respiration provides redox energy to life when oxygen is present. In
+liquid water, the solubility is limited by \textit{Henry's Law}. 
+
+\medskip At 20\(^\circ\), the solubility of \(O_2\) in the water is about 9 mg/L,
+and less at higher temperatures. In rapidly flowing strems the oxygen
+can be replenished reasonably quickly, but in stagnant water or
+water-logged soils the diffusion of oxygen is slow compared to the speed
+of microbial metabolism and the oxygen is used up.
+
+\medskip A parameter called \emph{Biological Oxygen Demand} (BOD) is a
+measureable property of the water that says something about the reducing
+power of water containing organic carbon. 
+
+\medskip BOD is expressed as the number
+of milligrams of \(O_2\) required to carry out the oxidation of organic
+carbon in one litre of water. Some typical values for industrial wastes
+and sewage are given in the table.
+}
+\only<2>{
+\medskip\begin{tabular}{rr}
+\textbf{Type of effluent} & \textbf{BOD (mg \(O_2\)/L wastewater)}\\\hline
+Domestic sewage & 165\\
+All manufaturing & 200\\
+Chemicals and allied products & 314\\
+Paper & 372\\
+Food & 747\\
+Metals & 13\\\hline
+\end{tabular}
+}
+\only<3>{
+\begin{exampleblock}{Example:}
+\medskip 10 mg of sugar (empirical formula \(CH_2O\) is
+dissolved in 1 litre of water at 20\(^\circ\).
+
+One mole of \(CH_2O\) requires one mole of \(O_2\) (because
+\(CO_2 + H_2O \rightarrow (CH_2O)_n + O_2\)), so
+
+\[\frac{amount \ of \ sugar}{molecular \ weight \ of \ CH_2O} \times molecular \ weight \ O_2= \frac{10 mg}{30 g} \times 32 g/mol = 10.7 mg/L\]
+
+This is about 20 percent more than the \(O_2\) solubility
+\end{exampleblock}
+}
+
+\only<4>{
+\medskip Water quality can be described in terms of its BOD values:
+
+\medskip \begin{tabular}{rr}
+\textbf{Water Quality} & \textbf{BOD}\\\hline
+Very clean & <1 mg/L \(O_2\)\\
+Fairly clean & 1-3 mg/L \(O_2\)\\
+Doubtful purity & 3-5 mg/L \(O_2\)\\
+Contaminated & >5 mg/L \(O_2\)\\
+\end{tabular}
+}
+\only<5>{
+\medskip A related concept is \emph{Chemical Oxygen Demand} (COD), which is a
+faster way of assessing amount of oxidisable organic carbon in the water
+through chemical reactions. The chemical oxidant used is acidified
+potassium dichromate.
+
+\[3(CH_2O) + 16H^+ (aq) + 2Cr_2O_7^{2-} (aq) \rightarrow 4Cr^{3+} (aq) + 3CO_2 + 27H_2O\]
+}
+\end{frame}
+\subsection{Oxygen depletion}
+\begin{frame}{Anoxia}
+\only<1>{
+Anoxia can become a problem in freshwater lakes, estuaries, and even
+fjords with restricted circulation between deep and surface waters. If
+biomass productivity is high, there is a lot of organic material sinking
+to deeper waters where aerobic bacteria consume the oxygen.
+
+\medskip Because seawater contains sulfate salts, the favoured reaction under
+anoxic conditions is sulfate reduction to hydrogen sulfide (\(H_2S\)).
+This is extremely toxic to fish and humans.\\
+\medskip During storms, the deeper anoxic layers in seawater can mix with surface
+layers and expose aquatic life to it.\\
+\smallskip This can cause fish kill events, but the underlying cause is not the
+storms, it is the nutrient enrichment caused by runoff, sewage and
+discharge, or atmospheric deposition.
+
+\medskip Pollution adds both nitrogen and phosphorous to the system.
+}
+\end{frame}
+
+\subsection{Nitrogen and Phosphorous}
+\begin{frame}{Seasonal nutrient cycles: Nitrogen}
+\only<1>{
+In coastal marine waters a typical seasonal cycle can be as follows:\\
+\textbullet  In winter, cold temperatures and little biological activity allows
+\(O_2\) concentration to increase \\
+\textbullet  At the same time, nitrogen input is
+high because winter is a period of high freshwater flow - sedimentation
+removes phosphorous from the water column, through precipitation with
+manganese and iron oxides. These are insoluble under aerobic conditions.\\
+\textbullet  In late Spring and early Summer, oxygen levels decline due to high
+biological activity\\
+\textbullet  Nitrogen concentrations also decrease because nitrogen is taken up in biomass and sinks \(\Rightarrow\) little nitrogen is
+introduced as runoff \(\Rightarrow\) nitrogen is depleted because increasingly anoxic
+conditions cause a switch from oxygen to nitrate as oxidant for energy.
+}
+\end{frame} 
+\begin{frame}{Seasonal nutrient cycles: Phosphorous}
+\only<1>{
+The opposite happens with phosphorous - under anaerobic conditions
+phosphorous is liberated from the sediments because manganese and ferric
+oxides become \(Mn^{2+}\) and \(Fe^{2+}\). 
+
+\medskip In these states they are
+soluble and release the bound phosphorous -- the phosphorous is mixed
+with surface layers in turbulent estuarine environments -- so as
+conditions switch from anaerobic to aerobic and back, phosphorous is
+recycled between water and sediments. \\
+\textbullet  During anaerobic periods \(\implies\) phosphates are released to the water to be used by
+microorganisms\\
+\textbullet  During aerobic periods \(\implies\) phosphates are
+returned to sediments.
+}
+\only<2>{
+\medskip The amount of phosphate trapped in this cycle is much greater than the
+quantities entering from sewage or other sources, because it is the
+cumulative inputs over many years. This means that the limiting nutrient
+in coastal marine waters is often nitrogen.\\
+\bigskip Nitrogen inputs are difficult to control because of atmospheric
+deposits.
+}
+\end{frame}
+
+\begin{frame}{Eutrophication}
+\only<1>{
+Natural eutrophication depends on the nutrient dynamics of the aquatic
+ecosystem.\\
+\medskip Nutrients are assimilated by the primary producers; which are food for
+the \emph{secondary producers}, e.g. fish.\\
+\medskip When plants and animals die, the nutrients are restored to the water
+through bacterial decomposition.
+
+\medskip The growth of the primary producers are controlled by the
+\emph{limiting} nutrient. There is always one nutrient that is available
+in \emph{least abundance} relative to its required abundance to the
+organisms.\\
+\medskip This is therefore the nutrient that controls the growth of the primary
+producers. When it is depleted, they stop growing.
+}
+\only<2>{
+\medskip But if the limiting nutrient suddenly becomes more abundant, there can
+be explosive growth and we see algal blooms. This happens typically as a
+result of pollution.
+
+\medskip The major nutrient elements are carbon, nitrogen and phosphorous. they
+are required in the atomic ratios \textbf{106:16:1}, which reflect the average
+composition of molecules in biological tissues.\\
+\medskip Of course, several other elements are also required; sulfur, silicon,
+chlorine, iodine and many metals, but these are required in such small
+amounts that they are generally always available in sufficient abundance
+in natural waters. They are not limiting.\\
+}
+\only<3>{
+\medskip Carbon is always available as \(CO_2\). Only in extreme cases of rapid growth
+during algal blooms can phytoplankton outrun the supply of \(CO_2\).
+
+\bigskip\textbf{Question:} What consequence would that have for the carbonate
+system and the pH of the water?
+}
+\only<4>{
+The limiting nutrient is normally either \textbf{N or P}.
+
+\medskip Nitrogen makes up 80\% of the atmosphere, but it is only available
+through the activity of \(N_2\) fixing bactria. On land, these are rare
+enough to make N the limiting nutrient in most conditions.
+
+\medskip In water, \(N_2\)-fixing algal species are common, and nitrate ions are
+often abundant because of runoff rom the land.
+
+\medskip Consequently, nitrogen is not usually limiting in freshwater, but it can
+be limiting in the oceans, where nitrate concentrations are low.
+}
+\end{frame}
+
+\begin{frame}{Phosphate sources}
+\only<1>{
+\subsubsection{Sources of phosphate in natural waters}
+So Phosphorous is often the element that limits growth. Phosphorous
+has no atmospheric supply because there is no naturally occurring
+gaseous phosphorous compound.
+
+\medskip Phosphate ions have multiple negative charges and are bound strongly to
+mineral particles in the soil. This limits the runoff from land to
+water.
+
+\medskip Phosphorous availability depends on recycling of biomass by bacteria.\\
+Some is lost to deeper waters and sediments when dead organisms sink to
+the bottom.\\
+When a lake turns over in the winter, the phosphorous is carried to the
+surface and supports plankton blooms in the spring.
+
+\medskip At the bottom, phosphorous can be bound to particles of iron and
+manganese oxide. When the sediment becomes anoxic, the metal ions are
+reduced to divalent forms, the oxides dissolve and the phosphate is
+released into solution.
+}
+\only<2>{\small
+Phosphate solubility is also increased through acidification, because at
+successively lower pH values, \(HPO_4^{2-}, H_2PO^-\) and \(H_3PO_4\)
+are formed (see \textit{polyprotic acids}).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.6\textwidth]{../graphics/lakenutrientcycles.png}
+\caption{phosphorous cycling}
+\end{figure}
+}
+\only<3>{
+Human input of phosphorous also lead to enhanced biological production
+and possible oxygen depletion. 
+
+\smallskip Biomass will increase. \(\Rightarrow\)
+
+\smallskip The increased
+biomass increases the BOD of the water. 
+
+\smallskip As the BOD increases, oxygen
+becomes depleted and there will be anoxia and anerobic conditions.
+}
+\end{frame}
+
+\begin{frame}<article:0>{What you now know}
+\begin{itemize}
+\item How to calculate the biological oxygen demand in a water sample
+\item How to assess water quality from BOD values
+\item To describe the sequence of changes that occur when a water body receives too much of a limiting nutrient (Primary production \(\Rightarrow\) Increased BOD \(\Rightarrow\) Oxygen depletion \(\Rightarrow\) Reducing conditions \(\Rightarrow\) Recycling of Phosphate from sediments and/or reduction of sulfates to toxic hydrogen sulfide
+\item Describe the natural seasonal nutrient/chemical cycles
+\ Describe some differences between seawater and freshwater
+\end{itemize}
+\end{frame}
+
+\lecture{Pollution}{Lecture 10limesto}
+\part{Environmental pollution}
+\section{Common causes of acidification}
+\subsection{Acid rain}
+\begin{frame}[<-+>]{Acid Rain}
+\uncover<1->{Apart from carbon dioxide, there are other acidifying species in the
+atmosphere, particularly \(HNO_3\) and \(H_2SO_4\).} These can be formed
+both naturally and from anthropogenic emisisons. 
+\uncover<2->{\(\mathbf{HNO_3}\) is produced
+from NO, which can originate from \textbf{lightning and forest fires}, but
+\textbf{combustion}, especially road transport and power plants, are major
+anthropogenic sources.}
+\uncover<3->{ \(\mathbf{H_2SO_4}\) can originate from \(SO_2\) emissions
+by \textbf{volcanoes and biogenic sulfur} compounds, but \textbf{heavy fuel oil and coal
+combustion} are also major anthropogenic sources.
+}
+\uncover<4->{In Polluted areas these species can reduce the pH of the rainwater
+significantly over extended regions and create what is called \emph{acid
+rain}.
+
+\medskip Due to long-range transport, acid rain can fall quite far from the
+sources of pollution, e.g. downwind of coal-fired power plants.}
+\end{frame}
+
+%\begin{frame}
+%\begin{picture}
+%
+%\end{picture}
+%\end{frame}
+
+\subsection{Acid mine drainage}
+\begin{frame}{Mine drainage}
+\only<1>{
+Coal mines can release sulfuric acid and iron hydroxide into streams.
+The first step is the oxidation of pyrite (\(FeS_2\))\\
+\[FeS_2 + \frac{7}{2}O_2 + H_2O \rightleftharpoons Fe^{2+} + 2HSO_4^-\]\\
+This is similar to the generation of acid rain. It is mediated in
+aerobic conditions by the bacterium \emph{thiobacillus ferrooxidans},
+which uses \(FeS_2\) as an energy source like other aerobic bacteria
+oxidise organic carbon.
+
+In the second step, the ferrous iron (\(Fe^{2+}\)) combines with oxygen
+and water in the reactions:
+
+\[Fe^{2+} + \frac{1}{4}O_2 + \frac{1}{2}H_2O \rightleftharpoons Fe^{3+} + OH^-\]
+\[Fe^{3+} + 3H_2O \rightleftharpoons Fe(OH)_3 + 3H^+\]
+}
+\only<2>{
+The overall reaction is:\\
+\[FeS_2 + \frac{15}{4}O_2 + \frac{7}{2}H_2O \rightleftharpoons Fe(OH)_3 (s) + 2H^+ + 2HSO_4^-\]
+
+So one mole of pyrite produces two moles of sulfuric acid. The ferric
+hydroxide precipitates and is brown in colour.\\
+Streams receiving this drainage can get a pH as low as 3.
+}
+\end{frame}
+
+\section{Why is acidification a problem?}
+\begin{frame}{Problems with acidification}
+\only<1>{\textbf{Sensitivity of freshwater species to acid conditions. }\\
+Populations of salmon start to decrease below pH 6.5, perch below pH 6.0
+and eels below pH 5.5 and little life is possible below pH 5.0.\\
+Just 1 pH unit decrease can eradicate life in a water system.
+
+\medskip \textbf{Chemical effects of acidification}\\
+A decrease in pH changes the solubility of metals. The weathering of
+limestone and other minerals by water becomes more rapid at lower pH.
+
+\medskip In normal weathering reactions of silicate minerals, \(Al^{3+}\) is
+released from the aluminosilicate framework of clays. Because
+\(Al(OH)_3\) has very low solubility, it will precipitate at pH above
+4.2 and stay bound to soil particles. 
+}
+\only<2>{
+However, if soil acidification
+exceeds the \emph{CEC}, then the pH drops below 4.2 and aluminium is
+solubilised:
+
+\[ Al(OH)_3 + 3H^+ \rightarrow Al^{3+} + 3H_2O \]
+
+\textbf{Ecosystem effects of acid rain}\\
+- Reduction of minerals, like Calcium and Magnesium in soils reducing
+vegetation growth - Release of aluminium, which can block nutrient
+uptake by plants - Acid fog and rain have been found to leach calcium
+directly from spruce needles, leaving trees susceptible to drought and
+insects - Release of heavy metals in the soil solution
+}
+\only<3>{Damage from acidification is worse when soils are polluted by toxic
+metals such as cadmium, copper, nickel, lead and zinc.\\
+As cations, they compete with hydrogen and the base cations for cation
+exchange sites.\\
+\medskip At high pH, the metals are generally retained at the exchange sites and
+their concentrations in soil solution are low.\\
+At lower pH, the leaching increases and ions migrate through the soil
+much faster.\\
+\medskip So at neutral pH the soil accumulates heavy metals, but when the soil
+acidifices they are released to the aqueous phase again and become
+biologically active and get transported to lakes or groundwaters or
+taken up by vegetation.
+}
+\end{frame}
+
+\section{Metal pollutants}
+\begin{frame}{Heavy metals}
+\only<1>{Some of the heavy metals are among the most harmful of the elemental pollutants
+and are of particular concern because of their toxicities to humans. 
+
+\medskip These elements are in general the transition metals, and some of the representative elements,
+such as lead and tin, in the lower right-hand corner of the periodic table.
+Heavy metals include essential elements like iron as well as toxic metals like cadmium
+and mercury. 
+
+\medskip Most of them have a tremendous affinity for sulfur and disrupt
+enzyme function by forming bonds with sulfur groups in enzymes. Protein
+carboxylic acid (--CO\(_2\)H) and amino (--NH\(_2\)) groups are also chemically bound by
+heavy metals. 
+
+\medskip Cadmium, copper, lead, and mercury ions bind to cell membranes,
+hindering transport processes through the cell wall. Heavy metals may also precipitate
+phosphate biocompounds or catalyze their decomposition.
+}
+\only<2>{
+Inorganic chemicals manufacture has the potential to contaminate water with
+trace elements. Among the industries regulated for potential trace element pollution
+of water are those producing \textbf{chlor-alkali, hydrofluoric acid, sodium dichromate
+(sulfate process and chloride ilmenite process), aluminum fluoride, chrome pigments,
+copper sulfate, nickel sulfate, sodium bisulfate, sodium hydrosulfate, sodium
+bisulfite, titanium dioxide, and hydrogen cyanide}.
+
+\medskip The biosphere has evolved in association with the elements and as a
+result, most elements are required for life, but in small doses. When
+the supply of an essential element is insufficient, it limits the
+viability of the organism, but when it is present in excess, it can have
+toxic effects. There is an \textbf{optimal dose} for all essential elements.
+}
+\only<3>{
+For non-essential elements, the viability decreases steadily with
+increasing dose, \emph{the optimum dose is zero}.
+
+\medskip All metals cycle naturally through the environment; they are released
+from rock by weathering and transported by many different mechanisms,
+including uptake by plants and microorganisms.
+
+\medskip The \textbf{natural biogeochemical cycles of the metals are perturbed} by mining
+and metallurgy. The cycles are completed by sedimentation and burial of
+the metals in the earth's crust, but this process takes eons, so the
+extraction of and dispersal of metals increase the amount in
+circulation.
+}
+\only<4>{Changes in the \textbf{redox potential} has consequences for pollution
+and solubility of metals such as cadmium, lead and nickel.\\
+\smallskip \textit{The solubility of heavy metals is greatest in oxidising and acidic
+environments.}
+
+\medskip At neutral to alkaline pH in oxidising environments, they often adsorb
+onto the surface of insoluble \(Fe(OH)_3\) and \(MnO_2\), especially
+when phosphate is present as a bridging ion.
+
+\medskip When the redox potential shifts to slightly oxidising or slightly
+reducing conditions due to microbial action, and the pH shifts towards
+acidic, \(Fe(OH)_3\) and \(MnO_2\) are reduced and solubilised.
+}
+\only<5>{
+The adsorbed metal ions are also solubilised and enter the groundwater
+or the water column.
+
+\medskip If sulfate is reduced microbially to \(HS^-\), metal ions are
+immobilised as \emph{insoluble sulfides}.
+
+\medskip If sulfide-rich sediments are exposed to air (e.g. drainage or
+dredging), then \(HS^-\) is oxidised back to sulfate and the heavy metal
+ions are re-released.
+}
+\end{frame}
+
+\subsection{Mercury}
+\begin{frame}{Mercury pollution}
+\only<1>{A very important example of biological redox influence on heavy-metal
+pollution is the case of mercury.
+
+\medskip Inorganic mercury in the common valence states \(Hg^\circ\),
+\(Hg_2^{2+}\) and \(Hg^{2+}\) is not toxic, it just passes through the
+digetive system. \(Hg^\circ\) is very toxic if inhaled, though.
+
+\medskip Sulfate-reducing bacteria convert any mercuric ions they encounter to
+the highly toxic methylmercury, \((CH_3)Hg^+\).\\
+This is soluble and enters the aquatic food chain and it
+bio-accumulates.
+
+\medskip Other bacteria developed the ability to break the methylmercury bond
+(using enzymes) and to reduce the mercuric ion to elemental mercury,
+which volatilises and is removed from the acquatic ecosystem.
+}
+\only<2>{
+Because of its toxicity, mobilization as methylated forms by anaerobic bacteria,
+and other pollution factors, mercury generates a great deal of concern as a heavy metal
+pollutant. 
+\smallskip Mercury is found as a trace component of many minerals, with
+continental rocks containing an average of around 80 parts per billion, or slightly
+less, of this element. Cinnabar, red mercuric sulfide, is the chief commercial mercury
+ore. Fossil fuel coal and lignite contain mercury, often at levels of 100 parts per
+billion or even higher, a matter of some concern with increased use of these fuels for
+energy resources.
+
+\medskip Metallic mercury is used as an electrode in the electrolytic generation of chlorine
+gas, in laboratory vacuum apparatus, and in other applications. Significant quantities
+of inorganic mercury(I) and mercury(II) compounds are used annually. Organic mercury
+compounds used to be widely applied as pesticides, particularly fungicides.
+}
+\only<3>{
+\medskip These mercury compounds include aryl mercurials such as phenyl mercuric
+dimethyldithiocarbamate (formerly used in paper mills as a slimicide and as a mold retardant for paper), and
+alkyl-mercurials such as ethylmercuric chloride, C\(_2\)H\(_5\)HgCl, that was used as a seed
+fungicide. 
+
+\medskip Because of their resistance to degradation and their mobility, the alkyl
+mercury compounds are generally considered to be more of an environmental threat
+than either the aryl or inorganic compounds.
+}
+\only<4>{
+\medskip Mercury enters the environment from a large number of miscellaneous sources
+related to human use of the element. These include \textbf{discarded laboratory chemicals,
+batteries, broken thermometers, amalgam tooth fillings, and formerly lawn fungicides
+and pharmaceutical products}. 
+
+\medskip Taken individually, each of these sources may
+not contribute much of the toxic metal, but the \textbf{total effect can be substantial}. Sewage
+effluent sometimes contains up to 10 times the level of mercury found in typical
+natural waters.
+}
+\end{frame}
+\begin{frame}{Effects}
+\only<1>{Among the toxicological effects of mercury are \textbf{neurological damage, including
+irritability, paralysis, blindness, or insanity; chromosome breakage; and birth
+defects}. The milder symptoms of mercury poisoning such as depression and irritability
+have a psychopathological character. Because of the resemblance of these
+symptoms to common human behavior, mild mercury poisoning may escape detection.
+Some forms of mercury are relatively nontoxic and were formerly used as medicines,
+for example, in the treatment of syphilis. Other forms of mercury, particularly
+organic compounds, are highly toxic.
+}
+\only<2>{
+\medskip Because there are \textbf{few major natural sources of mercury}, and since most inorganic
+compounds of this element are relatively insoluble, it was assumed for some
+time that mercury was not a serious water pollutant. However, in 1970, alarming
+mercury levels were discovered in fish in Lake Saint Clair located between Michigan
+and Ontario, Canada. A subsequent survey by the U.S. Federal Water Quality
+Administration revealed a number of other waters contaminated with mercury. It was
+found that several chemical plants, particularly caustic chemical manufacturing
+operations, were each releasing up to 14 or more kilograms of mercury in
+wastewaters each day.
+}
+\only<3>{
+The unexpectedly high concentrations of mercury found in water and in fish
+tissues result from the formation of \textbf{soluble monomethylmercury ion, CH\(_3\)Hg\(^+\), and
+volatile dimethylmercury, (CH\(_3\))\(_2\)Hg}, by \textit{anaerobic bacteria in sediments}. Mercury
+from these compounds becomes concentrated in fish lipid (fat) tissue and the
+concentration factor from water to fish may exceed 103. The methylating agent by
+which inorganic mercury is converted to methylmercury compounds is methylcobalamin,
+a vitamin B12 analog:
+
+\[HgCl_2 \xrightarrow{\text{Methylcobalamin}} CH_3HgCl + Cl^-\]
+}
+\only<4>{
+\medskip It is believed that the bacteria that synthesize methane produce methylcobalamin as
+an intermediate in the synthesis. Thus, waters and sediments in which anaerobic
+decay is occurring provide the conditions under which methylmercury production
+occurs. In neutral or alkaline waters, the formation of dimethylmercury, (CH\(_3\))\(_2\)Hg, is
+favored. This volatile compound can escape to the atmosphere.
+}
+\only<5>{
+\begin{exampleblock}{Minamata Bay} 
+The toxicity of mercury was tragically illustrated in the Minamata Bay area of
+Japan during the period 1953-1960. 
+%\begin{figure}
+\includegraphics[width=1in]{../graphics/cats}
+%\end{figure}
+
+\medskip A total of \textbf{111 cases of mercury poisoning} and
+\textbf{43 deaths} were reported among people who had consumed seafood from the bay that
+had been contaminated with \textbf{mercury waste from a chemical plant} that drained into
+Minamata Bay. Congenital defects were observed in 19 babies whose mothers had
+consumed seafood contaminated with mercury. The level of metal in the contaminated
+seafood was 5-20 parts per million.
+
+\end{exampleblock}
+}
+\end{frame}
+
+\begin{frame}{Consider this}
+The process from sediment to water soluble to bioaccumulation in fish.
+How is it pH-dependent?
+\end{frame}
+
+\subsection{Iron}
+\begin{frame}{Iron and its effects}
+\only<1>{Nitrogen and phosphorous are the limiting nutrients near land, but in
+the open ocean it has been observed that it is sometimes \emph{iron}
+that limits production. Iron is a trace metal required in small amounts,
+but is the one required in the greatest amount among the trace metals.
+
+\medskip Iron is abundant in the earth's crust and is not usually in short
+supply. But the concentrationin the ocean is low because of the low
+solubility of \(Fe(OH)_3\) in alkaline seawater.
+
+\medskip Dust from atmospheric deposition usually provides enough iron for
+growth. But there are large areas of ocen that are quite dust-free, in
+the Pacific Ocean and the Southern Ocean. These areas have an excess of
+nitrogen and phosphorous and addition of iron would cause algal blooms.
+}
+\only<2>{
+Iron (III) exists in pure water as an aquo complex, \(Fe(H_2O)^{3+}_6\),
+which is an \(Fe^{3+}\) surrounded by 6 coordinated water molecules.\\
+\smallskip Because it is a +3 ion, there is a tendency for deprotonation. This
+first produces \(Fe(H_2O)_5(OH)^{2+}\) and in the next deprotonation
+step it forms \(Fe(H_2O)_4(OH)_2^+\). 
+\smallskip There is also a bridged dimer that
+can be formed from two of the second deprotonated iron species.
+
+\smallskip The simplified form of the first deprotonated species is \(Fe(OH)^{2+}\)
+and the simplified form of the second species is \(Fe(OH)_2^+\). The
+bridged form of the second species has the simplified form
+\(Fe_2(OH)_2^{4+}\)
+}
+\only<3>{
+Now we have four species and we will calculate their concentrations in
+water at pH = 7.0:
+
+\[Fe(OH)_3 \rightleftharpoons Fe^{3+} + 3OH^-, \space \space \space K_{sp} = 1.6 \times10^{-39}\]
+
+\[Fe^{3+} + 2H_2O \rightleftharpoons FeOH^{2+} + H_3O^+, \space \space \space K_{a1} = 6.3 \times 10^{-3}\]
+
+\[FeOH^{2+} + 2H_2O \rightleftharpoons Fe(OH)_2^+ + H_3O^+, \space \space \space K_{a2} = 3.2\times10^{-4}\]
+
+\[2Fe^{3+} + 4H_2O \rightleftharpoons Fe_2(OH)_2^{4+} + 2H_3O^+, \space \space \space K_{ad} = 1.3\times10^{-3}\]
+}
+\only<4>{
+we have from the first reaction:\\
+\[[Fe^{3+}][OH^-]^3 = K_{sp}\]
+
+\[[Fe^{3+}][10^{-7.00}]^3 = 1.6\times10^{-39}\]
+
+\[[Fe^{3+}] = 1.6\times10^{-18}\]
+
+plug this in to the next reaction:\\
+\[\frac{[FeOH^{2+}][H_3O^+]}{[Fe^{3+}]} = 6.3 \times 10^{-3} \implies\]
+
+\[[FeOH^{2+}] = \frac{6.3\times10^{-3} \times 1.6\times10^{-18}}{1.0\times10^{-7}} = 1.0\times10^{-13}\]
+}
+\only<5>{
+and for the two other species:\\
+\[[Fe(OH)_2^+] = 3.2\times10^{-10} mol/L\]
+
+\[[Fe_2(OH)_2^{4+}] = 3.3\times10^{-25} mol/L\]
+
+The total concentration of the aquo species of \(Fe^{3+}\) in water at
+pH=7.00 is \(3.2\times10^{-10} mol/L = 1.8\times10^{-8} g/L = 0.018\)
+ppb. The main species is \(Fe(OH)_2^+\)
+}
+\only<6>{
+Iron(III) is extremely insoluble in water. The solubility is higher for
+the Iron(II) species, so reducing conditions lead to increased
+concentrations of iron in the hydrosphere. Oxygen depletion leads to
+more reducing conditions and more iron solubilised.
+}
+\end{frame}
+\bigskip The process from sediment to water soluble to bioaccumulation in fish.
+How is it pH-dependent?
+
+\subsection{Cadmium}
+\begin{frame}{Cadmium in water}
+\only<1>{Pollutant cadmium in water may arise from industrial discharges and mining
+wastes. Cadmium is widely used in metal plating. Chemically, cadmium is very
+similar to zinc, and these two metals frequently undergo geochemical processes
+together. Both metals are found in water in the +2 oxidation state.
+
+\medskip The effects of acute cadmium poisoning in humans are very serious. Among
+them are high blood pressure, kidney damage, destruction of testicular tissue, and
+destruction of red blood cells. It is believed that much of the physiological action of
+cadmium arises from its chemical similarity to zinc. Specifically, cadmium may
+replace zinc in some enzymes, thereby altering the stereostructure of the enzyme and
+impairing its catalytic activity. Disease symptoms ultimately result.
+}
+\only<2>{
+Cadmium and zinc are common water and sediment pollutants in harbors
+surrounded by industrial installations. Concentrations of more than 100 ppm dry
+weight sediment have been found in harbor sediments. Typically, during periods of
+calm in the summer when the water stagnates, the anaerobic bottom layer of harbor
+water has a low soluble Cd concentration because microbial reduction of sulfate
+produces sulfide,
+
+\[2(CH_2O) + SO_4^{2-} + H^+ \rightarrow 2CO_2 + HS^- + 2H_2O\]
+
+which precipitates cadmium as insoluble cadmium sulfide:
+
+\[ CdCl^+ \ (chloro\ complex\ in\ seawater) + HS^- \rightarrow CdS(s) + H^+ + Cl^-\]
+}
+\only<3>{
+Mixing of bay water from outside the harbor and harbor water by high winds during
+the winter results in desorption of cadmium from harbor sediments by aerobic bay
+water. 
+\smallskip This dissolved cadmium is carried out into the bay where it is absorbed by
+suspended solid materials, which then become incorporated with the bay sediments.
+\smallskip This is an example of the sort of complicated interaction of hydraulic, chemical
+solution-solid, and microbiological factors involved in the transport and distribution
+of a pollutant in an aquatic system.
+}
+\end{frame}
+
+\subsection{Lead}
+
+\begin{frame}{Lead pollution}
+\only<1>{
+Inorganic lead arising from a number of industrial and mining sources occurs in
+water in the +2 oxidation state. Lead from leaded gasoline used to be a major source
+of atmospheric and terrestrial lead, much of which eventually entered natural water
+systems. In addition to pollutant sources, lead-bearing limestone and galena (PbS)
+contribute lead to natural waters in some locations.
+
+\medskip Despite greatly increased total use of lead by industry, evidence from hair samples
+and other sources indicates that body burdens of this toxic metal have decreased
+during recent decades. This may be the result of less lead used in plumbing and other
+products that come in contact with food or drink.
+}
+\only<2>{
+Acute lead poisoning in humans causes severe dysfunction in the kidneys,
+reproductive system, liver, and the brain and central nervous system. Sickness or
+death results. Lead poisoning from environmental exposure is thought to have
+caused mental retardation in many children. Mild lead poisoning causes anemia. The
+victim may have headaches and sore muscles, and may feel generally fatigued and
+irritable.
+
+\medskip Except in isolated cases, lead is probably not a major problem in drinking water,
+although the potential exists in cases where old lead pipe is still in use. Lead used to
+be a constituent of solder and some pipe-joint formulations, so that household water
+does have some contact with lead. Water that has stood in household plumbing for
+some time may accumulate significant levels of lead (along with zinc, cadmium, and
+copper) and should be drained for a while before use.
+}
+\end{frame}
+
+\begin{frame}<article:0>{Important things to know}
+\begin{itemize}
+\item Explain the sources and impacts of acid pollution
+\item Explain the effects of acid pollution on the distribution of metal species
+\item Describe sources and fates of heavy metal pollution
+\end{itemize}
+\end{frame}
+
+\subsection{Chemical Time Bombs}
+\includepdf[pages=2-5,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/CTB.pdf}
+
+%\subsubsection[Speciation and Distribution]{Speciation and mobility of Al, Fe, Ca, Cu, Hg, Pb, Ni, Cd and organic species}
+
+%\section{organic matter in water}
+
+%\section{The hydrological cycle}
+
+%\section[Introduction to the Hydrosphere]{Chemical composition of sea, rain, river and lake waters}
+
+%\section{Sampling, sample stabilisation and analytical methods}
+
+%\section{Water quality analysis}
+\subsection{Microplastics}
+
+This course has not covered microplastics, because technically it is more of a physical pollutant than a chemical one, but it is emerging as one of the most pervasive pollutants in all the waters of the earth. 
+
+\mode<article>{
+\section{Suggested Reading}
+All material on Blackboard
+\subsection{From the Library}
+
+The material in these notes is mostly extracted from the following books:
+\begin{itemize}
+\item
+  \textit{"Environmental Chemistry"}, Gary W. vanLoon \& Stephen J. Duffy,
+  Oxford University Press, \textbf{2011}, Part B - The Hydrosphere
+\item
+  \textit{"Environmental chemistry : a modular approach"}, Ian Williams,
+  New York : J. Wiley, \textbf{2001}
+\item \textit{``Chemistry of the Environment''}, Thomas G. Spiro \& William M. Stigliani, Prentice Hall, New Jersey, \textbf{2003}
+\end{itemize}
+
+
+%\subsection{Relevant Research Articles - optional reading}
+%\includepdf[pages=-,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/sum12270.pdf}
+%
+%\includepdf[pages=-,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/poultrysci78-0674.pdf}
+%
+%\includepdf[pages=-,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/Limiting_nutrients.pdf}
+%
+%\includepdf[pages=-,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/Irving_1925.pdf}
+%
+%\includepdf[pages=-,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/Fukushima_2009.pdf}
+%
+%\includepdf[pages=-,frame=true, pagecommand={\thispagestyle{empty}},scale=0.9]{../Literature/55327.pdf}
+}
+
+\end{document}
+
+
+\begin{frame}
+\frametitle{A Theorem on Infinite Sets}
+\begin{theorem}<1->
+There exists an infinite set.
+\end{theorem}
+\begin{proof}<2->
+This follows from the axiom of infinity.
+\end{proof}
+\begin{example}<3->[Natural Numbers]
+The set of natural numbers is infinite.
+\end{example}
+\end{frame}

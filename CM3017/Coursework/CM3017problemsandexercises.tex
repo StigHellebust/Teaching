@@ -1,0 +1,122 @@
+%\documentclass[ignorenonframetext]{beamer}
+%\documentclass[a4paper,12pt,titlepage]{article}
+%\usepackage{beamerarticle}
+\documentclass[addpoints,12pt]{exam}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+%\usepackage{fancyhdr,url}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization,shapes,arrows}
+\usepackage{smartdiagram}
+\usepackage[version=4]{mhchem}
+
+\setlength{\parskip}{1em}
+\boxedpoints
+\printanswers
+
+
+\begin{document}
+\begin{center}
+\includegraphics{../graphics/UCCchem}
+
+\fbox{\fbox{\parbox{5.5in}{\centering
+CM3017 statistical thermodynamics practice problems\\
+\center{\tiny{version 2021.01.1}}}}}
+\end{center}
+\vspace{0.1in}
+
+\begin{questions}
+\question A sample consisting of five molecules has a total energy, 5\(\varepsilon\). Each molecule is able to occupy states of energy, j\(\varepsilon\) = 0,1,2,...
+
+a) calculate the weight of the configuration in which the molecules share the energy equally
+
+b) draw up a table with columns headed by the energy of the states and write beneath them all configurations that are consistent with the total energy.  Calculate the weights of each configuration and identify the most probable configurations
+
+\begin{solution} a) If the molecules share the energy equally that means that they are all in the same energy state. So they are all in state \textit{i} and the population of state \textit{i} is n\(_i = 5\). It doesn't matter which of the states \textit{i} is, because the population of the other states are 0 and the weight, \(W = \frac{5!}{5!0!0!0!...} = 1\)
+
+b) 
+
+\begin{tabular}{lccccccccc}
+ & \(0\varepsilon\) & \(1\varepsilon\) & \(2\varepsilon\) & \(3\varepsilon\) & \(4\varepsilon\) & \(5\varepsilon\) & E & N & W\\\hline
+  & 2 & 2 & 0 & 1 & 0 & 0 & 5 \(\varepsilon\) & 5 & \(W=\frac{5!}{2!2!0!1!0!0!}\)\\\\[-1em]
+  & 2 & 1 & 2 & 0 & 0 & 0 & 5 \(\varepsilon\) & 5 & \(W=\frac{5!}{2!1!2!0!0!0!}\)\\\\[-1em]
+ & 4 & 0 & 0 & 0 & 0 & 1 & 5 \(\varepsilon\) & 5 & \(W=\frac{5!}{4!0!0!0!0!1!}\)\\\\[-1em]
+ & 3 & 1 & 0 & 0 & 1 & 0 & 5 \(\varepsilon\) & 5 & \(W=\frac{5!}{3!1!0!0!1!0!}\)\\\\[-1em]
+ & 3 & 0 & 1 & 1 & 0 & 0 & 5 \(\varepsilon\) & 5 & \(W=\frac{5!}{3!0!1!1!0!0!}\)\\\\[-1em]
+ & 0 & 5 & 0 & 0 & 0 & 0 & 5 \(\varepsilon\) & 5 & \(W=\frac{5!}{0!5!0!0!0!0!}\)\\\hline
+\end{tabular}
+
+Can you find any more possibilities?
+\end{solution}
+
+\question For a sample of nine molecules draw up a table of configurations for N=9, total energy 9\(\varepsilon\) in a system with energy levels j\(\varepsilon\) (as in question 1).
+
+Calculate the weights and identify the most probably configuration.
+
+\begin{solution}
+
+\begin{tabular}{lccccccccccccc}
+& \(0\varepsilon\) & \(1\varepsilon\) & \(2\varepsilon\) & \(3\varepsilon\) & \(4\varepsilon\) & \(5\varepsilon\) & \(6\varepsilon\) & \(7\varepsilon\) & \(8\varepsilon\) & \(9\varepsilon\) & E & N & W\\\hline\\[-1em]
+& 4 & 2 & 2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 8 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 7 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 7 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 6 & 2 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 7 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 6 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 7 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+& 7 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 9\(\varepsilon\) & 9 \\\\[-1em]
+\hline
+\end{tabular}
+
+can you think of any other configurations? Calculate the weights from the usual formula \(W=\frac{N!}{n_0!n_1!n_2!n_3! ...}\)
+
+\end{solution}
+
+\question A certain molecule can exist in either a non-degenerate singlet state or a triplet state (with degeneracy 3). The energy of the triplet exceeds that of the singlet by \(\varepsilon\). Assuming the molecules are distinguishable (localized) and independent, 
+
+a) obtain the expression for the molecular partition function
+
+b) Find expressions in terms of \(\varepsilon\) for the molar energy, molar heat capacity and molar entropy of such molecules and calculate their values at T=\(\varepsilon /k\)
+
+\begin{solution} a) So we have one molecule and two states, one of which has degeneracy = 3. The energy spacing between them is \(\varepsilon\). 
+
+When we calculate a partition function, the energies of the levels are expressed relative to 0 for the state of lowest energy. The triplet state is triply  degenerate, and the partition function for this molecule is given by \(q = \sum_{levels}g_ne^{-\beta\varepsilon_n}\), where \(g_n\) is the degeneracy of level n, so \(q = 1 + 3e^{-\beta\varepsilon_n}\)
+
+\medskip b) The internal energy is given by (see lecture 4 slide 32) \[U = U(0) - N\left(\frac{\delta ln(q)}{\delta\beta}\right)_V = U(0) - \frac{N}{q}\left(\frac{\delta q}{\delta\beta}\right)_V\]
+where U(0) is the internal energy when T=0. We add this because the energy levels in the partition function are relative to zero. Remember that \(\varepsilon = kT\) in this problem, and that \(\beta = (kT)^{-1}\).
+
+\medskip Heat capacity is given by definition \(C_V=\left(\frac{\delta U}{\delta T}\right)_V\)
+
+\medskip Entropy is given by \(S=\frac{U}{T} + klnQ\), where \(Q=q^N\) for distinguishable particles.
+\end{solution}
+
+\question Determine the weight associated with the following card hands:
+
+a) having any five cards
+
+b) having five cards of the same suit (known as a "flush")
+
+\begin{solution} To find the number of permutations of five cards from a stack of 52, we use the formula \(P(n,j) = \frac{n!}{(n-j)!}\), but we do not care about which order they come in, so what we want is the number of possible \textit{configurations} of a subset of \textit{j} cards out of \textit{n}, which is given by \(C(n,j) = \frac{P(n,j)}{j!} = \frac{n!}{j!(n-j)!}\). 
+
+a) So any five cards from 52 has \(\frac{52!}{5!47!} \approx 2.1\times10^6\) possible configurations.
+
+b) Now we have to consider the probabilities of getting the same suit every time. The first card can be any one out of 52 possible, the second one will be drawn form the remaining 51 cards, but now it has to be the same suit as the first one. So the probability of getting the same suit as the fist one is 12/51, because there are 12 cards left in the same suit. The probability of getting the same suit for the third card is 11/50, and so forth. So we get the number of configurations in a) reduced by the accumulated probabilities \(\frac{12\times11\times10\times9}{51\times50\times49\times48}\), and we get 5148 possible configurations
+\end{solution}
+
+\question For two non-degenerate energy levels separated by an amount of energy \(\frac{\varepsilon}{k}=500\) K. At what temperature will the population in the higher-energy state be 1/2 that of the lower-energy state?
+
+\begin{solution} We will use the Boltzmann distribution, \(n_i = \frac{Ne^{-\beta\varepsilon_i}}{q}\) and the facts that \(\frac{n_1}{n_0} = 1/2\) and \(\Delta E = k\times500K\), so
+
+\(\frac{n_1}{n_0} = \frac{\frac{Ne^{-\beta\varepsilon_1}}{q}}{\frac{Ne^{-\beta\varepsilon_0}}{q}} = e^{-\beta\Delta E} = e^{-\frac{1}{kT}\Delta E} = e^{-\frac{500K}{T}} = \frac{1}{2}\)
+
+So now ln(1/2) = -500/T and we get T = 500K/ln(2) = 721 K
+\end{solution}
+
+\end{questions}
+
+\end{document}

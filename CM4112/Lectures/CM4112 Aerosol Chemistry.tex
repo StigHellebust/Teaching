@@ -1,0 +1,2318 @@
+﻿\documentclass[ignorenonframetext]{beamer}
+%\documentclass[a4paper,titlepage]{article}
+%\usepackage{beamerarticle}
+
+%\includeonlylecture{Lecture 7}
+%\includeonlyframes{current}
+
+\usepackage{graphicx}
+\usepackage[space]{grffile}
+\usepackage[english]{babel}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pdfpages}
+\usepackage{textcomp}
+\usepackage{fancyhdr,url}
+\usepackage{ulem}
+\usetikzlibrary{datavisualization}
+\usepackage[version=4]{mhchem}
+
+%\graphicspath{{C:/Users/Stig/OneDrive - University College Cork/Documents/Teaching/CM4112/graphics/}}
+%\graphicspath{{D:/OneDrive - University College Cork/Documents/Teaching/CM4112/graphics/}}
+
+\mode<article>{
+\usepackage[a4paper, top=1.5in]{geometry}
+\usepackage[absolute]{textpos}
+%\pagestyle{headings}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CM4112}
+\chead{Atmospheric Chemistry and Air Pollution}
+\rhead{S1 2022-2023}
+\cfoot{Aerosol Chemistry, Carbonaceous Aerosols and Source Apportionment \newline \tiny{Version 2022.01}}
+\rfoot{\thepage}
+}
+\mode<presentation>{
+\logo{\includegraphics[height=1cm]{../graphics/crac}}
+\AtBeginLecture{\frame{\Large \insertshortlecture \insertlecture}
+\begin{frame}<beamer>[allowframebreaks]
+\frametitle{Outline}
+\tableofcontents %[hideallsubsections]
+\end{frame}
+}
+%\AtBeginPart{\frame{\partpage}}
+\usetheme{CambridgeUS}
+%\setbeamercovered{transparent}
+\usepackage[absolute,overlay]{textpos}
+}
+
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right, rightskip=1mm, leftskip=1mm]{titlelike}
+        \inserttitle\hfill\insertauthor\hfill\insertframenumber%
+    \end{beamercolorbox}
+}
+
+\title{CM4112 -- Atmospheric Chemistry and Air Pollution}
+\subtitle{Section: Aerosol Chemistry, Carbonaceous Aerosol and Source Apportionment}
+\author{Stig Hellebust}
+\institute{School of Chemistry \\ University College Cork}
+\date{Semester 1 2022/2023}
+
+\renewcommand*\contentsname{}
+
+\setlength{\parskip}{.5cm plus 4mm minus 3mm}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\mode<article>{
+\maketitle
+\tableofcontents
+}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section*{Scope of this document}
+This document contains \emph{all} the material relevant to the aerosol chemistry section of the CM4112 Exam, \emph{including} directed study material. What that means is that everything that is covered in the lectures is contained in this document, and some additional material not covered by lectures, which makes up the directed study section. 
+
+In other words, this is the only document that is mandatory reading. But the optional reading material provided separately is recommended to assist your understanding of the material.
+
+
+\part{Collection and analysis of aerosols}
+
+\lecture[Lecture 1]{Collection, extraction and concentrations}{Lecture 1}
+
+\section{Collection of aerosols on filters}
+
+\begin{frame}
+\frametitle{Aerosols}
+\only<1>{
+Aerosols are in the air all around us -- but what do we know about them?
+
+They are visible:
+
+\includegraphics[width=.3\textwidth]{../graphics/haze}\hspace{1in}
+\includegraphics[width=.4\textwidth]{../graphics/dubsmog}
+}
+
+\only<2>{
+They scatter and absorb light:
+
+\includegraphics[width=.4\textwidth]{../graphics/scatter}
+\includegraphics[width=.4\textwidth]{../graphics/absorbing}
+
+And because of this we can see them as a haze or smoke
+}
+
+\only<3>{
+Extinction = sum of
+scattering and absorption
+
+The main process limiting visibility in the troposphere is scattering of light
+
+Scattering usually increases the Earth's albedo
+
+They also have invisible consequences, which are linked to their chemical composition.
+
+We need to analyse them chemically
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Low volume filter sampling}
+\only<1>{A common method for collecting particles is through the use of a partisol sampler
+
+
+The device is used for the manual sampling of PM10 and PM2.5
+
+The newer machines collect PM1
+
+Air is drawn through inlets	(normally at a rate of 16.7 L min-1) located on the top of the samplers.	
+
+The inlets are designed to limit the size of the particulate matter reaching the filters. Particles are collected onto filter papers
+}
+
+\only<2>{
+\includegraphics[width=.4\textwidth]{../graphics/partisol}
+\includegraphics[width=.5\textwidth]{../graphics/insidepartisol}
+}
+
+\only<3>{
+The filters are pre-weighed before going into the partisol
+sampler
+
+The normal sampling time is for 24 hours but 12 hour sampling is possible also
+
+Choice of filter is important and is based on the following:
+
+\begin{itemize}
+\item Retention of correct particle size range
+\item Absence of trace impurities on the filter
+\item Compatibility with subsequent analytical procedures
+\end{itemize}
+}
+
+\only<4>{
+Each sampler can hold up to 16 filters for both PM10  and PM2.5
+
+The filters need only be changed every 2 weeks
+
+They are then taken back to the lab and weighed again
+
+Now know the amount of both PM10  and PM2.5 collected on any one day (24 hours)
+
+Still know nothing about what the particles contain
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hi-volume filter sampling}
+\only<1>{
+Sampling on filters: 500 litres per minute (720 \(m^3\) per day)
+
+\includegraphics[width=.4\textwidth]{../graphics/hivol1}
+\includegraphics[width=.4\textwidth]{../graphics/hivol2}
+}
+
+\only<2>{
+\begin{columns}[onlytextwidth]
+\begin{column}{.5\textwidth}
+\includegraphics[width=\linewidth]{../graphics/hivolfilt}
+\end{column}
+\begin{column}{.5\textwidth}
+
+Higher volume = more sample
+\end{column}
+\end{columns}
+}
+
+\only<3>{
+Sampling with impactors: high-volume cascade impactor -- 1100 litres per minute (1584 \(m^3\) per day)
+
+\includegraphics[width=.4\textwidth]{../graphics/hivolpuf}
+\includegraphics[width=.4\textwidth]{../graphics/hivolpuf2}
+}
+\only<4>{\centering
+\includegraphics[width=.3\textwidth]{../graphics/hvciparts}
+\includegraphics[width=.33\textwidth]{../graphics/hvcihead}
+\includegraphics[width=.3\textwidth]{../graphics/hvcischeme}
+}
+\end{frame}
+
+
+\section{Extraction and analysis of aerosol filter samples}
+
+\begin{frame}
+\frametitle{Extraction of filter samples}
+\only<1>{
+Now have a filter paper or a substrate containing particles
+
+What is in the particles?
+
+Metals, inorganic material, organic material etc
+
+These samples are not suitable for direct analysis because of their
+complexity or incompatability with analytical instruments
+
+Sample preparation methods are required for conditioning the
+samples before the detection/determination step
+}
+
+\only<2>{
+The majority of trace element analytical techniques require the sample to be in solution form
+
+Dissolution procedure: ability to dissolve the sample completely, quickly, safely with no possible sources of sample loss and total elimination of sample contamination from the reagents used in the process
+}
+
+\only<3>{
+Acid digestion using Microwave extraction very popular for analysis of metal component of aerosols, total mineralisation of samples
+
+\includegraphics[width=.5\textwidth]{../graphics/aciddigest} 
+}
+
+\only<4>{
+Organic component can be extracted Soxhlet extraction or Ultrasonic bath
+
+\includegraphics[width=.15\textwidth]{../graphics/soxhlet}\hspace{1in}
+\includegraphics[width=.4\textwidth]{../graphics/USbath}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analysis of inorganic compounds}
+\only<1>{
+The ideal analytical technique for measuring trace metals must offer very low detection limits, wide linear dynamic range, simple interference free data and low cost determination
+
+Useful methods include:
+\begin{itemize}
+\item X-ray fluorescence (XRF) 
+\item Atomic Absorption Spectroscopy (AAS) 
+\item Inductively Coupled Plasma – Mass Spectroscopy (ICP-MS)
+\item Proton Induced X-ray emission (PIXE)
+\item Ion Chromatography (IC)
+\end{itemize}
+
+Main limitations are sensitivity or precision problems due to interferences and sample matrix effects
+}
+\only<2>{
+XRF -- employs electromagnetic radiation for generating inner shell vacancies in the atoms of the analyte elements in the sample and then produces the characteristic x-rays resulting from the deactivation of the induced vacancies
+
+These fluorescent x-rays photons are emitted with characteristic energies
+which can be used to identify the nucleus
+
+The energy of the photons is unique to each element, and the number of photons is proportional to the concentration of the element
+}
+\only<3>{\begin{center}
+\includegraphics[width=.8\textwidth]{../graphics/XRFscan.jpg}
+\end{center}
+}
+
+\only<4>{
+AAS -- an element in its atomic form is introduced into a light beam of appropriate wavelength causing the atom to absorb light and enter an excited state
+
+At the same time there is a reduction in the intensity of the light beam which can be measured and directly correlated with the concentration of the elemental species
+
+Few matrix and interference effects
+
+Limitations -- one element at a time, can get interferences from other elements or chemical species and this can reduce atomisation and depress absorption thereby reducing sensitivity
+}
+\only<5>{
+ICP-AES -- a sample solution is introduced in to the core of an Inductively-Coupled
+Argon Plasma (ICP) at a temp of 8000\(^\circ\)C
+
+All elements become thermally excited and emit light at their characteristic wavelengths
+
+Many elements can be determined simultaneously in a single sample analysis
+
+Limitations -- emission spectra are complex and interelement interferences possible
+
+Rigid temp and humidity control is required
+}
+
+\only<6>{
+ICP-MS -- similar to above only ions are produced which are then introduced into
+the MS
+
+The ions are then separated and collected according to their m/z ratio
+
+Highly sensitive and good for wide range of elements, working range over several
+orders of magnitude
+
+Limitations -- some doubly charged ionic species cause problems
+}
+
+\only<7>{
+PIXE -- Sample filter placed in a proton beam resulting in x-ray emission
+
+X-rays photons are emitted with characteristic energies which can be used to identify the element
+
+Number of photons is proportional to the concentration of the element
+
+\includegraphics[width=.5\textwidth]{../graphics/pixe}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analysis of organic compounds}
+\only<1>{
+The ideal analytical technique for measuring organic compounds must offer very low detection limits, wide linear dynamic range, simple interference free data and low cost determination
+
+\begin{itemize}
+\item High Performance-Liquid Chromatography (HPLC)
+\item Gas Chromatography (GC)
+\item Gas Chromatography-Mass Spectrometry (GCMS)
+\item Liquid Chromatography-Mass Spectrometry (LCMS)
+\end{itemize}
+
+Main limitations are sensitivity or precision problems due to interferences and sample matrix effects
+}
+\only<2>{
+HPLC -Separation occurs on the column
+
+The stationary phase is composed of \(\mu\)m size porous particles and a high pressure pump is required to move the mobile phase through the column.
+
+The chromatographic process begins by injecting the solute onto the top of the column. Separation of components occurs as the analytes and mobile phase are pumped through the column. Each component then elutes from the column as a narrow band (or peak).
+
+The response of the detector to each component is displayed on a chart recorder or computer screen and is known as a chromatogram. To collect, store and analyze the chromatographic data, computers, integrators, and other data processing equipment are frequently used.
+}
+\only<3>{\begin{center}
+\includegraphics[width=.8\textwidth]{../graphics/hplc}
+\end{center}
+}
+
+\only<4>{
+HPLC - Pros:
+\begin{itemize}
+\item Applicable to most classes of organic compounds including polar and ionic molecules
+\item Sensitive selective detectors
+\item Both stationary and mobile phase can be selected to effect separation
+\item Separated compounds can usually be collected
+\end{itemize}
+
+HPLC - Cons:
+\begin{itemize}
+\item Chromatographic resolution is somewhat limited
+\item No sensitive universal detector
+\item Not easily interfaced to a mass spectrometer
+\end{itemize}
+}
+
+\only<5>{
+GC - involves a sample being vapourised and injected
+onto the head of the chromatographic column.
+
+\begin{center} \includegraphics[width=.6\textwidth]{../graphics/gcscheme} \end{center}
+}
+
+\only<6>{
+The sample is transported through the column by the flow of inert, gaseous mobile phase.
+
+There are many detectors which can be used in gas chromatography. 
+
+Different detectors will give different types of selectivity
+
+A \textbf{non-selective detector} responds to all compounds except the carrier gas, a \textbf{selective detector} responds to a range of compounds with a common physical or chemical property and a \textbf{specific detector} responds to a single chemical compound
+}
+
+\only<7>{
+Common GC detectors
+
+\begin{description}
+\item[Flame ionization (FID)] most organic compounds, detectability - 100 pg
+\item[Electron capture (ECD)] halides, nitrates, nitriles, peroxides, anhydrides, organometallics, detectability - 50 fg
+\item[Photo-ionization (PID)] aliphatics, aromatics, ketones, esters, aldehydes, amines, heterocyclics, organosulphurs, some organometallics, detectability - 2 pg
+\end{description}
+}
+
+\only<8>{
+GC -- Pros
+\begin{itemize}
+\item Very high chromatographic resolving power
+\item Good selection of stationary phases
+\item Sensitive universal and selective detector
+\item Readily interfaced to a mass spectrometer
+\item Useful for many classes of organic contaminants
+\end{itemize}
+
+GC -- Cons
+\begin{itemize}
+\item Compounds must be sufficiently volatile
+\item Compounds must be thermally stable
+\item Limited to nonpolar and slightly polar molecules (20\% organic compounds)
+\end{itemize}
+}
+
+\only<9>{
+How does the GC-MS work?
+
+The GC-MS instrument is made up of two parts -- The gas chromatography (GC) portion separates the chemical mixture into pulses of pure chemicals and the mass spectrometer (MS) identifies and quantifies the chemicals
+
+The chemicals in the mixture separate based on their volatility, or ease with which they evaporate into a gas.
+
+In general, small molecules travel more quickly than larger molecules.
+}
+
+\only<10>{
+The MS is used to identify chemicals based on their structure
+
+Ion Source: After passing through the GC, the chemical pulses continue to the Mass Spectrometer. 
+
+The molecules are blasted with electrons, which cause them to break into pieces and turn into positively charged particles called ions.
+
+This is important because the particles must be charged to pass through the filter.
+}
+
+\only<11>{
+As the ions continue through the MS, they travel through an electromagnetic field that filters the ions based on mass. 
+
+The scientist using the instrument chooses what range of masses should be allowed through the filter. 
+
+The filter continuously scans through the range of masses as the stream of ions come from the ion source.
+
+Detector - A detector counts the number of ions with a specific mass. This information is sent to a computer and a mass spectrum is created. 
+
+The mass spectrum is a graph of the number of ions with different masses that traveled through the filter.
+}
+
+\only<12>{
+LC-MS - has become an indispensable tool for problem solving in virtually all analytical fields requiring ``information rich'' chemical analysis.	
+
+In the next decade, the LC/MS instrument market is projected to grow at more than twice the rate of the broader instrument market and will likely surpass GC/MS as the leader of the so-called hyphenated techniques.
+
+Major advantage - samples don't need to be vapourised first
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analysis - from extract to ambient}
+\only<1>{
+Every analysis starts with a sample -- e.g. a filter, a substrate
+
+Weighed/pre-weighed? -- is the weight of PM known?
+
+Full sample/part of it? -- how much is needed? (what is the calibration range?)
+
+What are the detection limits?
+
+Absolute or relative concentrations -- is the volume of air known?
+}
+
+\only<2>{
+Calibration -- example
+
+%\begin{tikzpicture} 
+%\datavisualization [
+%	scientific axes = clean, 
+%	visualize as scatter, 
+%	x axis = {include value = 1200,label={Na (ppb)}}, 
+%	y axis={include value = 3500000, label={Intensity}}
+%	]
+%data {
+%x, y
+%0, 11852
+%50,  131876
+%100, 246272
+%250, 614882
+%500, 1221902
+%1000, 2491822
+%};
+%\end{tikzpicture}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[
+    title={Calibration curve for Na},
+    xlabel={Na (ppb)},
+    ylabel={Intensity (instrument response)},
+    xmin=0, xmax=1200,
+    ymin=0, ymax=3500000,
+    xtick={0,50,100,250,500,1000},
+    ytick={12000,130000,250000,615000,1220000,2500000},
+%    legend pos=north west,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+ 
+\addplot+[
+	only marks,
+	scatter,
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (0,11852)(50,131876)(100,246272)(250,614882)(500,1221902)(1000,2491822)
+    };
+%    \legend{CuSO$_4\cdot$5H$_2$O}
+ 
+\end{axis}
+\end{tikzpicture}
+\end{center}
+}
+
+\only<3>{
+1. Extract a section of sample substrate \(\rightarrow\) 2. run replicate samples \(\rightarrow\) average of replicates = 3304556
+
+\(\Rightarrow\) Concentration in extract = \(\frac{Intensity - intercept}{Slope} = 1332.255\)
+
+Correct for blanks and substrate contamination: 
+
+Analyse extracts of substrate \(\rightarrow\) calibration curve \(\rightarrow\) substrate contribution = \(\frac{intensity - intercept}{slope} = 362\)
+}
+
+\only<4>{
+Concentration of analyte in extract: 1332 - 362 = 969.6 ng/ml
+
+Total amount extracted = concentration in extract \(\times\) volume of extract = 969.6 * 28 = 27149.36 ng
+
+We now know the total amount of analyte in one \textbf{section} of the substrate (this section is 16.5\% of the total)
+
+Total amount of analyte collected: \(\frac{27149.36 \times 100}{16.5\%} = 163427.3\) ng collected in total
+}
+
+\only<5>{
+Ambient concentrations or relative concentrations?
+
+Do we know the total mass of PM collected? (This example: 21.5 mg)
+
+Yes \(\rightarrow\) Relative concentration can be estimated
+
+\medskip \(=\frac{total\ analyte\ collected}{total\ PM\ mass} = \frac{164327.35\ ng}{21.5\ mg} = 7644 \frac{\mu g}{g}\)
+}
+
+\only<6>{
+Do we know the total volume collected? (This example: 3762 m\(^3\))
+
+Yes \(\rightarrow\) ambient concentration can be estimated
+
+\medskip Ambient concentration \(=\frac{164327.35\ ng}{3762\ m^3} = 43.68 \frac{ng}{m^3}\)
+}
+
+\only<7>{
+What if we know the volume but not the mass?
+
+Analyse a section of a filter, e.g 1 cm\(^2\)
+
+a 150 mm filter has approximately 135 cm\(^2\) collectable area
+
+Find total amount of analyte on filter section area: \(mass_{section}\) \(\rightarrow\) find total amount of analyte collected on entire filter:
+
+\(mass_{filter} = mass_{section} \times \frac{A_{total}}{A_{section}} \rightarrow\) find ambient concentration from total volume of air:
+
+ \(C_{ambient} = \frac{mass_{filter}}{V_{air}}\)
+}
+
+\only<8>{
+Example: 720 m\(^3\) air collected, 1 cm\(^2\) filter section analysed, 100 ng analyte on section
+
+\[C_{air} = \frac{100\ ng \times \frac{135\ cm^2}{1\ cm^2}}{720\ m^3} =18.75\ \frac{ng}{m^3}\]
+}
+\end{frame}
+
+\lecture[Lecture 2]{Composition, enrichment factors and source profiles}{Lecture 2}
+\section{Chemical composition of aerosols}
+
+\begin{frame}
+\frametitle{Chemical profiles of fine and coarse particles}
+\only<1>{
+\begin{itemize}
+\item 
+Composition of tropospheric aerosols is not uniform.	It varies with particle
+size and source of particles
+\item Ultrafine particles -- from homogeneous nucleation;
+usually sulphates and organics
+\item Aitken nuclei and accumulation mode -- from combustion processes, coagulation, and condensation;
+carbon, sulphates, nitrates, polar organics
+\item Coarse particles -- from mechanical processes;
+mainly elements in soil, sea salt
+\end{itemize}
+}
+
+\only<2>{
+Typical chemical profiles of fine and coarse particles are different.
+Particles contain both \textbf{inorganic} compounds and \textbf{organic} compounds
+
+\centering
+\includegraphics[width=.9\textwidth]{../graphics/chemicalpie}
+}
+\end{frame}
+
+\section{Enrichment factors}
+
+\begin{frame}
+\frametitle{Inorganic species Enrichment Factors}
+\only<1>{
+A change in the concentration of elements in aerosols compared to the
+earth's crust is often seen
+
+\begin{center}
+\fbox{\parbox{.8\textwidth}{
+Enrichment factor, EF\textsubscript{crust}:
+\[EF_{crust} = ^{\left(\frac{X_{Air}}{Al_{Air}}\right)}/_{\left(\frac{X_{crust}}{Al_{crust}}\right)}\]
+Using concentration of Al as a reference element, because it is abundant in the earth's crust}}
+\end{center}
+
+EF = 1 \(\rightarrow\) same concentration as if formed by erosion of earth's surface\newline
+EF \(<10 \rightarrow\) Natural/erosion sources
+}
+
+\only<2>{
+\begin{columns}[onlytextwidth]
+\begin{column}{.5\textwidth}
+\begin{tabular}{ccc}
+Element & MMD & EF\\\hline
+\textcolor{red}{Al} & \textcolor{red}{4.54} & \textcolor{red}{1}\\
+Pb & 0.55 & 1500\\
+Hg & 0.61 & 560 \\
+Br & 0.89 & 1900\\
+Fe & 3.42 & 2.1\\
+Na & 3.78 & 2.1 \\
+Cl & 3.04 & 740\\
+Si & 3.90 & 0.79 \\
+Mg & 6.34 & 2.4 \\\hline
+\end{tabular}
+
+\textit{MMD = aerodynamic mass\\ median diameter}
+\end{column}
+\begin{column}{.5\textwidth}
+Common elements (e.g. Si, Al, Mg, Fe, Na):\newline
+Typically occur in coarse particles (MMD \(> 3 \mu m\)), EF usually \(< 3\)\newline
+
+Some elements (e.g. Pb, Hg, etc.):\newline
+\textbullet \enspace associated with fine particles\newline
+\textbullet \enspace greatly enhanced concentrations (EF = \(10^2 - 10^3\))
+\end{column}
+\end{columns}
+}
+
+\only<3-4>{
+\begin{example}[Enrichment Factors]
+\visible<3>{\small The table shows concentrations of some elements in an aerosol sample and typical concentrations in the earth's crust. Calculate enrichments factors for each element in the aerosol sample and indicate which ones are likely to originate from anthropogenic sources.}
+
+\smallskip
+\resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
+\textbf{Element} & \textbf{\shortstack{Crustal average\\ (g/kg)}} & \textbf{\shortstack{Aerosol conc.\\ (mg/g)}}\visible<4>{\color{red} &\color{red}\(A=\left(\frac{x}{ref}\right)_{aerosol}\) &\color{red}\(C=\left(\frac{x}{ref}\right)_{crust}\)  &\color{red} \textbf{EF=A/C}} \\\hline
+Si & 277.2 & 1.466 \visible<4>{&\color{red} 3.0227 & \color{red} 3.4096 &\color{red} 0.8865}\\
+Al & 81.3 & 0.485 \visible<4>{&\color{red} 1 &\color{red} 1 &\color{red} 1}\\
+Fe & 50 & 0.338 \visible<4>{&\color{red} 0.6969 &\color{red} 0.6150 &\color{red} 1.1332} \\
+Ca & 36.3 & 67.15 \visible<4>{&\color{red} 138.4536 &\color{red} 0.4465 &\color{red} 310.09} \\
+Na & 28.3 & 26.54 \visible<4>{&\color{red} 54.7217 &\color{red} 0.3481 &\color{red} 157.204}\\
+K & 25.9 & 981.12 \visible<4>{&\color{red} 2022.928 &\color{red} 0.3186 &\color{red} 6349.96}\\\hline
+\end{tabular}}
+\end{example}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Chemical composition of aerosols}
+\only<1>{
+\underline{Sea salt particles}\newline
+\begin{itemize}
+\item In marine areas, particles are characteristic of sea salt
+\item Formed by wave action with approximate composition of sea water. Concentration and size distribution depend strongly on meteorology, esp. wind speed.
+\item Evaporation of water in droplets may occur at low relative humidity \(\rightarrow\) solid salt particles
+
+\item Organic molecules are often enriched at surface of sea (fatty alcohols,
+acid salts, sterols, etc.) -- also tend to attach to droplets
+\item Marine aerosols important in global distribution of several elements,
+e.g., B
+\end{itemize}
+}
+\only<2>{
+\underline{Organic components:}\newline
+\begin{itemize}
+\item Organics form a significant component of tropospheric aerosols. Composition is typically complex with large numbers of possible compounds.
+\item Differentiating biogenic from anthropogenic sources can be done on the basis of the carbon preference index, CPI.
+\item CPI = (sum of odd carbon number alkanes)/(sum of even carbon number alkanes)
+\item Nonurban aerosols have a preference for odd numbers of carbon atoms in n-alkanes, especially for C\textsubscript{15}  -- C\textsubscript{35}
+\item Other CPIs based on n-alkanoic acids and n-alkanols are also used to
+distinguish biogenic and anthropogenic sources
+\end{itemize}
+}
+\only<3>{
+\begin{itemize}
+\item Biogenically derived organics may influence climate by acting as cloud
+condensation nuclei \(\rightarrow\) such organics may be water soluble
+	\begin{itemize}
+	\item e.g., fatty acids and carboxylic acids
+	\end{itemize}
+\item Anthropogenic organics are also very complex:
+	\begin{itemize}
+	\item e.g., Cars and trucks are sources of n-alkanes, n-alkanoic acids, aromatic aldehydes, aromatic acids, polycyclic aromatic hydrocarbons (PAHs), oxidised PAH derivatives, etc.
+	\end{itemize}
+\item Oxidation of organics may produce low volatility compounds -- these exist
+mainly as particles \(\rightarrow\) secondary organic aerosols
+\item Difficult to identify sources of organics -- complexity of organics and multiple primary and secondary sources are likely.
+\item Significant amounts of organics may be from secondary sources -- from 5 -- 50\%
+\end{itemize}
+}
+\only<4>{\begin{center}
+\fbox{\parbox{.8\textwidth}{\underline{\textbf{Reactivity of elements in particles}}\newline
+
+Most elements are relatively involatile and chemically inert. Exceptions include the halogens:\newline
+
+\ce{HNO3 (g) + NaCl (s) -> NaNO3 (s) + HCl (g)}\newline
+\ce{H2SO4 (g) + 2NaCl (s) -> Na2SO4 (s) + 2HCl (g) }}}
+
+\fbox{\parbox{.8\textwidth}{
+Reaction of other nitrogen oxides (\ce{NO2}, \ce{N2O5}, \ce{ClONO2}) with NaCl also form \ce{NaNO3}:\newline
+\begin{center} \ce{2NO2 (g) + NaCl (s) -> NaNO3 (s) + ClNO (g)} \end{center}
+
+Br and I also react in the same way as Cl, but in much lower concentrations}}
+\end{center}
+}
+\only<5>{
+\underline{\textbf{Sulfates:}}\newline
+\textbullet \enspace  Sulphates occur in coarse and fine particles. In \textbf{coarse} particles it is often attributed to sea salt, in \textbf{fine} particles it is typically from \ce{SO2} or Dimethylsulfate (DMS) oxidation
+\begin{center}
+\fbox{\parbox{.8\textwidth}{Sulfates are ubiquitous in both remote and polluted troposhpere, e.g.:
+\newline
+\textbullet \enspace 90\% of particles in upper troposphere contain sulfates\newline
+\textbullet \enspace 95\% of particles in rural Maryland contain sulfate}}
+\end{center}
+}
+\only<6>{
+\underline{\textbf{Nitrates:}}\newline
+\textbullet \enspace Nitrates are difficult to determine accurately because the are affected by both positive and negative artefacts.
+
+\begin{description}
+\item[+ve:] \ce{HNO3 (g)} taken up by samples during sampling \(\rightarrow\) formation of \ce{NaNO3} etc.
+\item[-ve:] Volatilisation of \ce{NH4NO3} during sampling
+\end{description}
+
+\ce{NO3} occurs in both coarse and fine particles.
+
+Coarse particles -- often through reaction of \ce{HNO3}\newline
+\smallskip
+Fine particles -- especially in polluted environments
+}
+
+\only<7>{
+\underline{\textbf{Sources of elements}}\newline
+\textbullet \enspace The elemental composition of aerosols can be related to likely sources by considering various trace elements\newline
+
+\quad \textbullet \enspace V, Ni \hfill indicative of oil combustion\\
+\quad \textbullet \enspace As, Se \hfill coal burning and smelter operation\\
+\quad \textbullet \enspace Mn/V and Fe/Mg ratios \hfill indicative of coal burning
+
+\textbullet \enspace Interpretation is difficult, owing to other downwind sources
+
+\medskip \textbullet \enspace \textbf{Source apportionment} models use the concentration of components of particles to estimate the contributions of different sources\newline
+\textbullet \enspace Methods include chemical mass balance, factor analysis, multiple linear regression analysis and Lagrangian modelling.
+}
+
+\only<8>{\begin{center}
+\includegraphics[width=.7\textwidth]{../graphics/sourcetable}
+\end{center}
+}
+
+\only<9>{
+We are interested in distinguishing between \textbf{internal and external mixtures} of compounds:
+\begin{description}
+\item[internal mixture] two or more species in the same particle
+\item[external mixture] species found in separate particles in the same sample
+\end{description}
+\begin{center}
+\includegraphics[width=.6\textwidth]{../graphics/mixingstates}
+\end{center}
+}
+\end{frame}
+
+\section{Sources of aerosols and source profiles}
+
+\begin{frame}
+\frametitle{Sources of aerosols}
+\begin{itemize}
+\item Aerosols present in the atmosphere can originate from natural or
+anthropogenic sources.
+\item Particles can be released directly into the atmosphere, or may be
+generated in situ through chemical reactions.
+\item Particles injected directly into the atmosphere are termed \textbf{primary
+emissions}
+\item Those formed in the atmosphere due to chemical processing are
+termed \textbf{secondary emissions}
+\item Both natural and anthropogenic emissions have primary and
+secondary components
+\item Aerosol composition varies depending on the location e.g urban vs. remote
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Natural sources}
+Natural sources of atmospheric aerosols include:
+\begin{itemize}
+\item biogenic emissions
+	\begin{itemize}
+		\item seeds, pollen, spores, bacteria, protozoa, fungi, viruses, algae,
+fragments of animals and plants
+		\item biogenic emissions of Volatile Organic Compounds (VOCs)
+	\end{itemize}
+\item mineral dust
+\item sea spray \hspace{1in} \includegraphics[height=1cm]{../graphics/seaspray}
+\item volcanic eruptions \hspace{1in} \includegraphics[height=1cm]{../graphics/volcano}
+\item lightning
+\item wildfires \hspace{1in} \includegraphics[height=.5in]{../graphics/forestfire}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Anthropogenic sources}
+Anthropogenic sources of atmospheric aerosols include:
+\begin{itemize}
+\item traffic \hspace{2in} \includegraphics[height=2cm]{../graphics/traffic}
+\item industrial activities
+\item domestic fuel burning
+\item power generation
+\item incineration
+\item shipping \hspace{2in} \includegraphics[height=1cm]{../graphics/shipplume}
+\item mining
+\item construction
+\item agricultural
+\end{itemize}
+\end{frame}
+
+\subsection{Secondary aerosols}
+
+\begin{frame}
+\frametitle{Primary/secondary aerosols}
+\setlength{\fboxrule}{0.8pt}
+\fbox{\parbox{.37\textwidth}{PRIMARY\newline
+Injected directly into the air
+e.g. volcanoes, deserts, ocean spray,
+forest fires and fuel combustion}}
+\fbox{\parbox{.57\textwidth}{SECONDARY\newline
+Formed from reaction of gas-phase species (e.g. Nitro-PAHs, \(\alpha\)-Pinene) that are emitted  directly into the atmosphere.
+Secondary Inorganic Aerosol e.g. Ammonium sulfate}}
+\begin{center} \includegraphics[width=.7\textwidth]{../graphics/montage} \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Formation of secondary aerosols in the atmosphere}
+\only<1>{
+\includegraphics[width=\textwidth]{../graphics/soaprocesses}
+}
+\only<2>{
+Nucleation and formation
+
+\begin{columns}[onlytextwidth]
+\begin{column}{.4\textwidth}
+\includegraphics[width=2in]{../graphics/sulfuriccluster}
+
+\scriptsize
+J. Elm, Dept. Physics, University of Helsinki, Finland
+\end{column}
+
+\begin{column}{.5\textwidth}
+\textbullet \enspace E.g. sulfuric acid + diamines\newline
+\textbullet \enspace Secondary Inorganic Aerosols:\newline
+{\footnotesize \ce{2NO + O2 -> 2NO2}\newline
+\ce{SO2 + OH -> HOSO2}\newline
+\ce{HOSO3 + H2O -> H2SO4}\newline
+many pathways, in liquid phase, solid phase or in gas phase\newline
+
+\ce{HNO3 + NH3 -> NH4NO3}\newline
+\ce{H2SO4 + 2NH3 -> (NH4)2SO4}}\newline
+
+\textbullet \enspace Secondary Organic Aerosols:\newline
+\footnotesize VOC (g) + OH \(\rightarrow\) OOA (s)
+\end{column}
+\end{columns}
+}
+\end{frame}
+
+\lecture[Lecture 3]{Source Profiles and online analysis}{Lecture 3}
+\subsection{Source Profiles}
+
+\begin{frame}
+\frametitle{Source Profiles}
+\only<1>{
+Particles from different sources will have different chemical composition -- this provides a way of identifying the major sources in a location based on analysis of aerosol chemical composition
+
+The chemical composition of a source can be presented as its \textit{source profile}
+
+This is the relative concentration of chemical species
+
+Some species are very specific to a source type, some species are very common
+
+So sources will have many chemical species in common, but the ratio between the amounts of different species will be typical of each source.
+
+\tiny{\url{https://source-apportionment.jrc.ec.europa.eu/Specieurope/index.aspx}}
+}
+
+\only<2>{
+\includegraphics[width=\textwidth]{../graphics/exhaustprofile}
+}
+
+\only<3>{
+\includegraphics[width=\textwidth]{../graphics/spruceprofile}
+}
+
+\only<4>{
+\includegraphics[width=\textwidth]{../graphics/secondaryammprofile}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sea Salt profile}
+\includegraphics[width=\textwidth]{../graphics/seasaltprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Wood smoke profile}
+\includegraphics[width=\textwidth]{../graphics/woodburningprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Crustal material profile}
+\includegraphics[width=\textwidth]{../graphics/crustalprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fossil Fuel burning profile}
+\includegraphics[width=\textwidth]{../graphics/fossilfuelprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Vehicle exhaust profile}
+\includegraphics[width=\textwidth]{../graphics/vehicleprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{industrial emissions profile}
+\includegraphics[width=\textwidth]{../graphics/industryprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ammonium Nitrate (secondary) profile}
+\includegraphics[width=\textwidth]{../graphics/ammnitprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ammonium Sulfate (secondary) profile}
+\includegraphics[width=\textwidth]{../graphics/ammsulfprofile}
+\end{frame}
+
+\begin{frame}
+\frametitle{Overlap between source profiles}
+Some sources can be difficult to distinguish from each other
+
+\includegraphics[width=\textwidth]{../graphics/crustalroadoverlap}
+\end{frame}
+
+\begin{frame}
+\frametitle{So how do we recognise a source from its profile?}
+We refer to known source profiles and known \textit{source markers}:
+
+\centering \includegraphics[width=.6\textwidth]{../graphics/sourcetable2}
+\end{frame}
+
+\section{Online Analysis of aerosols}
+
+\begin{frame}
+\frametitle{On-line analysis of aerosol}
+\begin{itemize}
+\item No filter collection or extraction procedures necessary
+\item No evaporative losses of particle species during sampling
+\item On-line instruments provide much higher temporal resolution, on
+the order of minutes
+\item This allows for much more accurate identification of PM\textsubscript{2.5} sources
+when combined with meteorological data such as wind direction
+\item On-line aerosol instruments can now simultaneously measure
+particle size and composition in real time
+\end{itemize}
+\end{frame}
+
+\subsection{Determination of PM mass}
+
+\begin{frame}
+\frametitle{Tapered Element Oscillatiing Microbalance -- TEOM}
+\only<1>{
+Gives real-time information on particle mass in \(\mu g/m^3\)
+
+\begin{columns}[onlytextwidth]
+\begin{column}{.5\textwidth}
+\includegraphics[width=\textwidth]{../graphics/teom}
+
+\end{column}
+\begin{column}{.5\textwidth}
+\begin{itemize}
+\item Measures frequency of oscillation\newline
+\item Relates to the mass of PM on a filter
+\item Constant flow, Real-time PM measurement
+\end{itemize}
+\end{column}
+\end{columns}
+}
+\only<2>{
+\begin{itemize}
+\item Filter-based, direct mass measurements are considered the standard technique for determining particulate mass concentration
+\item TEOM instruments is a filter-based systems with real-time data output and real-time mass measurement capability
+\item Particles from a sampling head are deposited on a filter at the top of a narrow end of the tapered, oscillating glass tube
+\item Deposition of particles alters the tube mass, and thus its resonant frequency
+\item The change in oscillating frequency is monitored and is directly proportional to the added mass on the tube
+\end{itemize}
+}
+\only<3>{
+\begin{itemize}
+\item The instrument is microprocessor controlled and can report concentration values in \(\mu g m^{-3}\) at standard averaging times between 10 min and 24 h
+\item The inlet system is kept at 50\(^\circ\)C since the fraction of volatile species (water, nitrates, organics) in the aerosol is a function of temperature
+\item Comparative data for TEOM and Partisol samplers have shown that the TEOM sampler constantly underestimates PM\textsubscript{10} by around 30\% 
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beta-Attenuation Monitor}
+\only<1>{
+\begin{center}
+\includegraphics[width=.8\textwidth]{../graphics/bam}
+\end{center}
+}
+
+\only<2>{
+The number of beta particles passing through the sample decrease exponentially with the mass they must pass through
+
+\[I = I_0e^{-\mu x}\]
+I = beta ray intensity (counts/t), \(\mu\): absorption cross-section (cm\(^2\)/g), x: mass density of sample (g/cm\(^2\))
+}
+\end{frame}
+
+\includepdf[pages=-,frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/BAMprinciple}
+
+\begin{frame}
+\frametitle{Optical Particle Counters}
+\only<1>{
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=.6\textwidth]{../graphics/ops}\\
+Size range: \(0.3 - 10 \mu m\) depends on wavelength of light
+\end{center}
+\end{figure}
+}
+\only<2>{
+Light scattering \(\implies\) particle numbers and sizes measured \(\implies\) total volume estimated (assuming spherical particles \(\implies\) particle mass estimated (using assumed value for densities)
+
+\[V = \frac{\pi}{6} \int_0^\infty D^3_p n_N (D_p)dD_p \]
+
+\bigskip \tiny{Consult aerosol physics notes}
+}
+\end{frame}
+
+\includepdf[pages=-,frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/OPScalc}
+
+
+\lecture[Lecture 4]{Introduction to source apportionment}{Lecture 4}
+
+\subsection{Determination of Chemical composition}
+
+\subsubsection{AMS}
+
+\begin{frame}
+\frametitle{Aerosol Mass Spectrometer}
+\only<1>{
+Allows the size-resolved, quantitative measurement of organic carbon and inorganic ions contained in ambient particles in real time
+
+\includegraphics[width=.4\textwidth]{../graphics/ams}
+}
+\only<2>{
+\begin{itemize}
+\item The AMS couples size-resolved particle sampling with mass spectrometry techniques
+\item Particles enter the instrument through a critical orifice and pass through an aerodynamic lens where they are accelerated into a beam. A chopper (rotating disc) is used to selectively allow groups of particles through to an impactor. The time taken for particles to pass from the chopper to the impactor is used to calculate their size.
+\item Particles are volatilised at the heated impactor before entering the mass spectrometry region in the gas phase.
+\item An electron beam is then used to generate ions which are subsequently detected to generate mass spectra (as for GC-MS)
+\item However the mass spectra are complex because they contain a mixture of several organic and inorganic species
+\end{itemize}
+}
+\only<3>{
+\includegraphics[width=\textwidth]{../graphics/amsscheme}
+}
+\only<4>{
+\textbf{Advantages}
+
+\textbullet \enspace Quantitative measurement of organic carbon, nitrate, sulphate, ammonium and chloride. Thus
+the fraction of PM\textsubscript{2.5}  that consists of these species can be calculated\newline
+\textbullet \enspace Unlike filter-based collection, this quantitative method does not suffer from evaporative losses of species during sampling\newline
+\textbullet \enspace Very high temporal resolution
+
+\textbf{Disadvantages}
+
+\textbullet \enspace Cannot measure refractory material (elemental carbon and metals)\newline
+\textbullet \enspace Provides very limited information on the organic compounds present due to the complexity of the mass spectra produced\newline
+\textbullet \enspace Measures several particles at a time and thus cannot produce individual particle mass spectra
+}
+\end{frame}
+
+\subsubsection{ATOFMS}
+
+\begin{frame}
+\frametitle{Aerosol Time-of-Flight Mass Spectrometer}
+\only<1>{
+Allows the measurement of the size and chemical composition of \textit{individual} ambient particles in real time in the size range 100-3000 nm
+
+\includegraphics[width=.7\textwidth]{../graphics/atofms}
+}
+\only<2>{
+\begin{itemize}
+\item The ATOFMS measures the size and chemical composition of individual ambient
+particles in real time.
+\item Particles enter the instrument through a critical orifice and are accelerated through an
+aerodynamic lens before reaching the sizing region.
+\item In the sizing region, the time taken for individual particles to pass between two sizing lasers (532 nm) is used to calculate their size
+\item Particles then enter the mass spectrometry region where they are desorbed/ionised using a higher energy UV laser (266 nm)
+\item Two time-of-flight mass spectrometers are then used to measure the ions formed; one for positive ions and one for negative ions
+\item The time taken for ions to pass through the mass spectrometers is used to calculate their mass. A positive and negative ion mass spectrum is produced for each particle
+\end{itemize}
+}
+\only<3>{
+\begin{columns}[onlytextwidth]
+\begin{column}{.4\textwidth}
+\includegraphics[width=\linewidth]{../graphics/atofmsparts}
+\end{column}
+\begin{column}{.5\textwidth}
+\textbullet \enspace Aerodynamic lens
+
+\textbullet \enspace Sizing Region
+(2 sizing lasers 532 nm)
+
+\textbullet \enspace Ionization laser
+(266 nm)
+
+\textbullet \enspace Positive and negative
+time-of-flight
+mass spectrometers
+\end{column}
+\end{columns}
+}
+
+\only<4>{
+\includegraphics[width=\textwidth]{../graphics/atofmsscheme}
+
+\tiny{\url{http://atofms.ucsd.edu/ATOFMS}}
+}
+\only<5>{
+\textbf{Advantages}
+
+\textbullet \enspace Can detect metals, inorganic ions, organic carbon and elemental carbon in the size range 100 - 3000 nm.\newline
+\textbullet \enspace Can measure the chemical composition of individual particles in real time -- very useful for identifying local and regional sources of PM\textsubscript{2.5}\newline
+\textbullet \enspace Mass spectra much less complex than those generated by AMS\newline
+\textbf{Disadvantages}
+
+\textbullet \enspace No quantitative capabilities- we only know what is present, not how much\newline
+\textbullet \enspace Some species do not absorb the 266 nm UV laser and so are not detected by the instrument, for
+example pure ammonium sulfate particles\newline
+\textbullet \enspace The desorption/ionisation process can also produce matrix effects; different signals can be
+observed for the same species depending on the surface they are adsorbed to
+}
+\end{frame}
+
+\subsection{Online analysis of Biological particles}
+
+\begin{frame}
+\frametitle{Wideband Integrated Bioaerosol Sensor}
+\only<1>{
+Combines particle UV fluorescence, particle sizing \& ‘shape’ assessment in
+one sensor
+\begin{columns}[onlytextwidth]
+\begin{column}{.5\textwidth}
+\textbullet \enspace UV Excited Particle Fluorescence: - reveals the
+presence of bio-fluorophores in the particle
+
+\textbullet \enspace Diode laser scatter signal gives particle size (1.5-30 mm) and Asymmetry Factor (“shape”), the AF value: 0-20/spherical; 50-100/rod-like
+
+\end{column}
+\begin{column}{.5\textwidth}
+\includegraphics[width=\linewidth]{../graphics/wibs}
+\end{column}
+\end{columns}
+}
+
+\only<2>{
+\begin{itemize}
+\item Measures size, shape (asymmetry) and intrinsic fluorescence from
+individual particles when excited sequentially at two UV wavebands.
+
+\item Excitation wavebands centred on 280 nm and 370 nm, selected to excite specific bio-fluorophores tryptophan (280 nm) and NAD(P)H (370 nm).
+
+\item Particle size range measured: \(\approx 0.6\mu m\) to \(31 \mu m\)
+
+\item Maximum throughput for full fluorescence measurement is 125 particles /second (limited by xenon recharge time), corresponds to all particles for concentrations up to \( 2 \times10^4\)/litre. Particles in excess of this rate are counted only.
+\end{itemize}
+}
+\only<3>{
+\includegraphics[width=\linewidth]{../graphics/wibsscheme}
+}
+\end{frame}
+
+%\lecture[Lecture 4]{Vehicle emissions}{Lecture 4}
+
+\part{Source apportionment methods}
+\section{What is source apportionment?}
+
+\begin{frame}
+\includegraphics[width=\textwidth]{../graphics/corkharbour}
+% introduce an example problem illustrating why we need SA
+\end{frame}
+
+\begin{frame}
+\frametitle{What is source apportionment?}
+\only<1>{
+\begin{quote} Source Apportionment (SA) is the practice of
+deriving information about pollution sources
+and the amount they contribute to ambient air
+pollution levels. \end{quote}
+
+\medskip In other words, it gives us \textit{Source Contribution Estimates (SCE)}
+}
+
+\only<2>{
+This task can be accomplished using three main approaches: 
+\begin{enumerate}
+\item emission inventories,
+\item source-oriented models and 
+\item receptor-oriented models.
+\end{enumerate}
+
+\bigskip Receptor-oriented models are based on measurements of aerosol mass and chemical composition in a given location , i.e. the \textit{receptor}
+}
+
+\only<3>{
+Receptor-oriented models (also known as receptor
+models -- RMs) apportion the measured mass
+of an atmospheric pollutant at a given site,
+called the receptor, to its emission sources by
+using \textbf{multivariate analysis} to solve a \textbf{mass balance
+equation}. 
+}
+
+\only<4>{
+These tools have the \textbf{advantage}
+of providing information derived from \textbf{real-world
+measurements}, including estimations of output
+uncertainty.
+
+\bigskip It starts with the chemistry and ends up as a numbers game
+}
+
+\only<5>{
+We need Effective strategies for Improving air quality!!!
+
+We need effective Air quality plans
+
+But there are many emission sources 
+
+\hfill \includegraphics[height=1in]{../graphics/powerstation}
+
+Which ones do we need to tackle first?
+}
+
+\end{frame}
+
+\subsection{Source contribution estimates}
+
+\begin{frame}
+\frametitle{Source Contribution Estimates (SCEs)}
+\only<1>{
+Why can't we just measure the SCEs?
+
+\textbullet \enspace No ``control sites'' \newline
+\textbullet \enspace Local variations and long range influence\newline
+\textbullet \enspace High temporal resolution \newline
+\quad \textbullet \enspace every day, hour, minute, seconds over days, weeks or months
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{What can we learn from one sample?}
+\begin{center} \includegraphics[width=.7\textwidth]{../graphics/chemicalpie} \end{center}
+
+\textbullet \enspace Chemical composition for a specific time and location\newline
+\textbullet \enspace Particle concentration for a specific time and location\newline
+\textbullet \enspace Toxicity of particles at a given time and location
+\end{frame}
+
+\begin{frame}
+\frametitle{What can we learn from multiple samples?}
+\only<1>{
+There are many chemical species -- ions, metals, organic compounds -- and many samples!
+
+\begin{center} \includegraphics[height=2in]{../graphics/datamatrix} \end{center}
+}
+
+\only<2>{
+e.g. we can look at 
+\begin{itemize}
+\item Correlation between chemical species \includegraphics[width = .2\textwidth]{../graphics/corramnit}
+\item Important peak pollution events
+\item Average levels for a period
+\item Compare with legal limits for daily and annual average levels
+\item Co-variance between species (we'll talk more about co-variance later)
+\end{itemize}
+
+But we can also do more than that
+}
+\end{frame}
+
+\subsection{Correlation and co-variance}
+
+\begin{frame}
+\frametitle{Correlation}
+\only<1>{
+Ammonium ions are highly correlated with Nitrate ions:
+
+\begin{center}\includegraphics[width=.7\textwidth]{../graphics/corramnit}\end{center}
+}
+
+\only<2>{
+But Ammonium is also correlated with Sulfate:
+
+\begin{center} \includegraphics[width=7cm]{../graphics/corramsulf} \end{center}
+}
+
+\only<3>{
+Correlation coefficients
+
+\[r = \frac{\sum (x - \bar{x})(y - \bar{y})}{\sqrt{\sum (x-\bar{x})^2\sum (y-\bar{y})^2}}\]
+
+\begin{center}
+\begin{figure}[h!]
+\includegraphics[width=.4\textwidth]{../graphics/perfcorr}
+\includegraphics[width=.4\textwidth]{../graphics/VvsNi}
+\caption{perfect correlation \(\implies r = 1\); \(r \in [0,1]\)}
+\end{figure}
+\end{center}
+}
+
+\only<4>{
+In fact, many species are correlated with more than one other:
+
+\begin{center}\includegraphics[width=.9\textwidth]{../graphics/correlationmap}\end{center}
+}
+
+\only<5>{
+There are usually more than one factor influencing each species
+
+\begin{center}\includegraphics[width=.9\textwidth]{../graphics/CavsMn}\end{center}
+}
+
+\only<6>{
+A linear regression model produces an equation, an estimate of the goodness-of-fit and an estimate of the strength of the dependency: r and \(R^2\)
+
+\includegraphics[width=.4\textwidth]{../graphics/VvsNifit} \quad r = 0.605, \(R^2\) = 0.367
+
+\(R^2\) is called the \textit{Coefficient of determination}, and in this case it is equal to the square of the correlation coefficient \textit{and} it is also equal to the \textit{variance explained} (to follow below)
+}
+\end{frame}
+
+\subsection{Explained variance and what it means}
+
+\begin{frame}
+\frametitle{Coefficient of Determination, \(R^2\)}
+\only<1>{
+The average of the dependent variables are: \(\bar{y} = \frac{1}{n}\sum_i^n y_i\)
+
+\medskip The total sum of squares: \(SS_{tot} = \sum_i (y_i - \bar{y})^2\)
+
+\medskip Explained sum of squares: \( SS_{reg} = \sum_i (f_i-\bar{y})^2\)
+
+\medskip Residual sum of squares: \(SS_{res} = \sum_i(y_i-f_i)^2 = \sum e_i^2\)
+
+\medskip \(R^2 = 1 - \frac{SS_{res}}{SS_{tot}}\) \qquad \(SS_{res} + SS_{reg} = SS_{tot}\)
+}
+
+\only<2>{
+\includegraphics[width=\textwidth]{../graphics/residuals}
+
+For a straight line graph, \(r^2 = R^2 \)
+
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Standard deviation and variance}
+\only<1>{
+\begin{align*}
+\sigma &= \sqrt{\frac{1}{N}\sum_{i=1}^N (x_i - \bar{x})^2}\\
+\sigma^2 &= variance
+\end{align*}
+
+The variance is a measure of how close, or far apart, the values are from each other.
+
+%Bell curve examples
+}
+
+\only<2>{
+\begin{center}\includegraphics[width=.8\textwidth]{../graphics/variances}\end{center}
+
+Vanadium has higher variance because the values are numerically greater
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Explained variance}
+\only<1-2>{
+But we saw that the correlation coefficient between V and Ni was 0.605 and the \(R^2\) was 0.367. 
+
+\medskip This means that the variation in Vanadium concentration explains \(\approx \) 37\% of the variance in the Nickel concentration and the Nickel is modeled by Vanadium concentration according to: 
+\[C_{Ni_{estimated}}\ (ng/m^3) = 0.19\times C_V + 0.5\ (ng/m^3)\]
+
+\visible<2>{But there will be a remainder as well, because it is not a perfect fit:
+
+\[C_{Ni} = C_{Ni_{estimated}} + Remainder\]}
+}
+
+\only<3-4>{
+So what if we remove the variance in Nickel that is due to the Vanadium?
+\begin{center} \(Remainder = C_{Ni} - C_{Ni_{estimated}}\)
+
+\visible<4>{\includegraphics[width=\textwidth]{../graphics/remainingvariance}
+}\end{center}
+}
+
+\only<5>{
+The variance for Nickel in the original data was 0.0834
+
+The variance of Nickel after removing the ``contribution'' dependent on Vanadium was 0.0528
+
+So the estimated Nickel concentrations modeled from the linear dependency on Vanadium concentrations removed \(100\times\frac{0.0834-0.052834}{0.0834} = 36.7\) \% of the original variance. 
+
+We say that \(approx\) 37\% of the Nickel variance is \textit{explained} by the model.
+}
+
+\only<6>{
+But how significant is that dependency?
+
+%F-statistic and p-values (for this model p-value = 1.19e-13
+}
+\end{frame}
+
+\subsection{Statistical significance}
+
+\begin{frame}
+\frametitle{Significance}
+\only<1>{
+The linear model y = ax + b can describe a real relationship where y depends on x as described by the equation
+
+\medskip but there can also be other variables that influence y, e.g.: \(y = ax_1 + bx_2 + c\)
+
+\medskip and there can be random variation in y
+
+\medskip so even if the linear relationship is true, x may only influence part of the variation in y, or we can say that x explains some of the variance in y
+
+\medskip in the example with V and Ni we saw that the linear model suggested that V explains 36.7\% of the variance in Ni, because \(R^2 = 0.367\)
+}
+
+\only<2>{
+But how can we be sure that this linear relationship is not just due to random variation making it seem as if there is a relationship?
+
+If, for example, we just \underline{happened} to have higher values of y when we had higher values of x due to \textit{random variation}?
+
+We have to work out the \textit{probability} that such random variation could make it look as if there was a relationship
+
+The lower that probability is, the more \textit{significant} the result is
+}
+
+\only<3>{
+in our V-Ni example, the correlation coefficient, \textit{r}, was 0.605 and the coefficient of determination, \(R^2\), was 0.367
+
+\medskip in the fictitious example below, the correlation coefficient is 0.544 and the coefficient of determination is 0.296, But the model is very much less convincing than the first one - why?
+
+\includegraphics[width=\textwidth]{../graphics/randommodel}
+}
+
+\only<4>{
+The difference is the significance of the fit. In the V-Ni example, the probability that the linear relationship had occurred by chance was extremely low (the p-value was \(1.19\times10^{-13}\) ). In the second example, probability was 10\% (p-value 0.104)
+
+It is therefore not as unlikely that the linear relationship has occurred by chance in the second model.
+
+\medskip So we need to pay attention to both the goodness of fit (correlation coefficient) and the strength of the model (p-value)
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Making use of correlation}
+\only<1>{
+\includegraphics[width=\textwidth]{../graphics/alltimeseries}
+}
+
+\only<2>{
+\includegraphics[width=\textwidth]{../graphics/corrtable}
+}
+
+\only<3>{
+\begin{center}
+\includegraphics[width=.8\textwidth]{../graphics/corrtable2}
+\end{center}
+}
+\end{frame}
+
+\lecture[Lecture 5]{Source Apportionment by receptor models -- PCA}{Lecture 5}
+
+\section{Receptor Models}
+\subsection{Principal Component Analysis -- PCA}
+
+\begin{frame}
+\frametitle{Co-variance}
+\only<1>{
+\[cov(X,Y) = \sum_{i=1}^N \frac{(x_i - \bar{x})(y_i-\bar{y})}{N}\]
+
+A measure of how two variables vary together. If they have no common variation then the co-variance should be close to zero
+}
+
+\only<2>{\begin{center}
+\begin{figure}[h!]
+\includegraphics[width=.4\textwidth]{../graphics/NiVtemp}
+\includegraphics[width=.4\textwidth]{../graphics/NiVtemp2}
+\caption{Left: Correlation, r = 0.61, co-variance = 3183; Right: correlation, r = 0.55, co-variance = 3212. Correlation decreases, but co-variance increases}
+\end{figure}\end{center}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{From content to sources}
+\only<1>{
+\includegraphics[width=\textwidth]{../graphics/chemicalpie2}
+}
+
+\only<2>{
+\begin{description}
+\item[OC] = Burning + Traffic + Cooking + Secondary Organic Aerosols + ... 
+\item[EC] = Burning + Traffic + ...
+\item[Sulfate] = Diesel + Coal + Regional + Secondary Inorganic Aerosol ...
+\item Etc.
+\end{description}
+
+\medskip Total PM = OC + EC + Sulfate + Ammonium + Nitrate + Metals + Ions + ...
+}
+
+\only<3>{
+But 
+
+Total PM\textsubscript{2.5} = PM\textsubscript{Source1} + PM\textsubscript{Source2} + PM\textsubscript{Source3} + PM\textsubscript{Source4} + ... + PM\textsubscript{SourceX}
+
+\medskip We know the total because we can measure it but we cannot measure the different contributions PM\textsubscript{SourceX}
+}
+
+\only<4>{
+\includegraphics[width=\textwidth]{../graphics/sourcepie}
+}
+
+\only<5>{
+How do we go from one to the other?
+
+\begin{itemize}
+\item We need multiple samples
+\item We need to look at correlation and co-variance
+\item We need to measure \textit{source markers}
+\item We need to recognise \textit{source profiles}
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sampling -- analysis -- information}
+\includegraphics[width=\textwidth]{../graphics/matrices}
+\end{frame}
+
+\begin{frame}
+\frametitle{Dimension reduction}
+\only<1-5>{
+If a group of chemical species have a common origin, they should show similar variation with time
+
+\begin{itemize}[<+->]
+\item There are common sources influencing many chemical species at once
+\item We want to ``combine'' those species into groups that vary together
+\item We call such combinations ``principal components'', or ``factors''
+\item So the temporal variation of, say, 40 species can be reduced to maybe 5 ``combinations''
+\item The combinations are linear combinations of species and they look like source profiles
+\end{itemize}
+}
+
+\only<6>{
+\begin{center}\includegraphics[width=.8\textwidth]{../graphics/factoranalysis}\end{center}
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Factor Analysis}
+\only<1>{
+\begin{equation} X_{ij} = \sum^P_{p=1}g_{ip}f_{pj} + e_{ij}\end{equation}\label{factor}
+
+\begin{description}
+\item[\(X_{ij}\)] is the measured concentration of the \(j^{th}\) species in the \(i^{th}\) sample
+\item[\(f_{pj}\)] is the concentration of the \(j^{th}\) species in material emitted by source \textit{p}
+\item[\(g_{ip}\)] is the contribution of the \(p^{th}\) source to the \(i^{th}\) sample
+\item[\(e_{ij}\)] is the portion of the measured concentration that cannot be fitted by the model
+\end{description}
+
+Applying a matrix algebra procedure, we find viable statistical solutions to the above expression that minimises the error \(e_{ij}\).
+}
+
+\only<2>{
+In matrix notation:
+
+\[\mathbf{X = GF + E}\]
+
+G is the matrix of factor scores, i.e. temporal variation of contributions, F is the matrix of factor loadings, ie. source profiles
+}
+
+\only<3>{
+So how do we actually do it?
+
+You might have noticed that there could be an infinite number of possible solutions to the equation \mode<article>{\ref{factor}}
+
+We start by finding the linear combination that \textit{maximises} the \textit{explained variance}, and then we repeat the procedure on the remainder until we reach a stop criterium.
+}
+
+\only<4>{
+\includegraphics[height=3in]{../graphics/2PCs} \includegraphics[width=1.5in]{../graphics/2PCsloads}
+}
+
+\only<5>{
+\[PC1 = 0.707\times x_1 + 0.707*x_2\]
+
+\[PC2 = 0.707\times x_1 - 0.707*x_2\]
+
+\[
+\begin{bmatrix}
+x_{11}&x_{12}\\
+x_{21}&x_{22}\\
+x_{31}&x_{32}
+\end{bmatrix} = \begin{bmatrix} t_1\\t_2\\t_3\end{bmatrix} \begin{vmatrix}p_1&p_2\end{vmatrix} + E
+\]
+
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a principal component, anyway?}
+Dimension reduction:
+
+\begin{itemize}
+\item Always common causes influencing many variables
+\item Principal components represent those underlying causes
+\item Many variables combined into one!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Example}
+\only<1>{
+\includegraphics[width=.8\textwidth]{../graphics/tempions}
+
+Temporal variation of some ions
+}
+
+\only<2>{
+\resizebox{!}{2.5in}{\includegraphics[width=\textwidth]{../graphics/corrSO4S}}
+
+Bivariate correlation table, from temporal variation of variables
+}
+
+\only<3>{
+\includegraphics[width=.8\textwidth]{../graphics/PCsHNB2}
+
+The principal components extracted from temporal variation of all ions
+}
+
+\only<4>{
+\includegraphics[width=.8\textwidth]{../graphics/tempPCs}
+
+The temporal variation of the principal components
+}
+
+\only<5>{
+%\resizebox{!}{2.5in}{\includegraphics[width=\textwidth]{../graphics/PCsHNB}}
+\includegraphics[width=.8\textwidth]{../graphics/HNBPCstemp}
+
+The published version
+}
+
+\only<6>{
+We can use the temporal variation of the principal components to estimate the contribution of each to the measured PM\textsubscript{2.5} \textit{mass} by multilinear regression.
+
+\includegraphics[width=.8\textwidth]{../graphics/sceHNB}
+}
+\end{frame}
+
+\includepdf[pages={1,11-13,15-22},frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/EU_guide_on_SA}
+
+\lecture[Lecture 6]{Source Apportionment by receptor models -- CMB}{Lecture 6}
+
+\subsection{Chemical Mass Balance}
+
+\begin{frame}
+\frametitle{What is CMB?}
+\only<1>{
+In the PCA model we started out having no prior knowledge of neither the important sources nor their contributions.
+
+We constructed a best fit to recreate both the source profiles and the emission strengths
+
+\medskip Chemical mass balance is a model that is also based on fitting to the same equation, but we make an assumption that the sources and source profiles are known.
+
+In other words, we just have to reconstruct the emission strengths.
+}
+
+\only<2>{
+\includegraphics[width=.8\textwidth]{../graphics/modelrestriction}
+
+M. Viana et al. / \textit{Aerosol Science} 39 (2008) 827 –849
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{CMB assumptions and restrictions}
+\only<1>{
+CMB is based on the mass conservation of individual species; ions, elements, etc.
+
+\medskip The set of linear equations to be solved are the same as for PCA, but in this model the \textit{source profiles} are treated as known values.
+
+\medskip Because of this, the model can be applied to one sample per site
+}
+
+\only<2>{
+The chemical species used for fitting must be of primary origin (not secondary aerosol species). They must be:
+
+\begin{itemize}
+\item stable during atmospheric transport (low volatility and low reactivity)
+\item accurately determined at the receptor
+\item reported for all source profiles considered in the model
+\end{itemize}
+
+The number of fitting species has to be greater than the number of emission sources
+}
+
+\only<3>{
+The main strength of the CMB model is that it does not require a large dataset and theoretically the equation can be solved for an individual sample.
+
+\medskip An important issue is the selection of the source profiles that best represent the aerosol collected at the receptor site. Tis relies on two assumptions:
+
+(i) \enspace The aggregate emissions from a given source class are well represented by an average source profile\newline
+(ii)\enspace All the major primary sources of the species are included in the model
+}
+
+\only<4>{
+Four to eight primary sources are typically apportioned by CMB. They comprise traffic emissions which are separated between diesel and gasoline engines, biomass burning, vegetable detritus, cooking emissions and dust. For specific areas there can be specific sources, e.g. coal burning, metal smelting, metallurgical industry and shipping.
+
+\medskip There are a great number of profiles and composite profiles available in the literature (c.f. SPECIEUROPE)
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Steps in CMB modelling}
+1. \enspace Appropriate profiles have to be selected based on the study area (e.g. harbour, industries, wood burning, car fleet, etc.)\newline
+
+2. \enspace The model is run repeatedly with different combinations of profiles. The sensitivity of the results to the choice of profiles can be assessed.\newline
+
+3. \enspace Remaining quantities of reactive species such as ammonium, nitrate, sulfate and organic carbon  are indirectly apportioned to secondary sources (there are no good source profiles for secondary sources)
+\end{frame}
+
+\includepdf[pages={49-51},frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/EU_guide_on_SA}
+
+\subsection{Factor rotation}
+
+\begin{frame}
+\frametitle{What do we mean by rotation?}
+\only<1>{
+The first principal component will define the direction that maximises the variance captured, the next principal component will define the direction of maximum variance in the residual matrix, and so forth.
+
+\medskip The rotation of components allows us to identify \textit{independent components} and redistributes the variance explained for each independent component.
+}
+
+\only<2>{
+\includegraphics[width=\textwidth]{../graphics/rotation}
+}
+\end{frame}
+
+\subsection{Positive Matrix Factorisation -- PMF}
+
+\begin{frame}
+\frametitle{What is PMF?}
+\only<1>{
+PMF is a factor analysis method, similar to Principal Component Analysis, but Positive Matrix Factorisation addresses three weaknesses of PCA:
+
+1. \enspace The PCA model is not restricted to giving only positive values for the components, but in the real world negative contributions are meaningless\newline
+2. \enspace The PCA model cannot accommodate missing values in the input dataset. If a value is missing we have to use a proxy value (e.g. species average or extrapolated value) or we have to exclude the entire sample\newline
+3. \enspace The PCA model cannot give unequal weights to individual measurements, but if some measurements are known to be more accurate than others, then they should influence the result more strongly, they should be \textit{weighted up}, whereas values that are associated with greater uncertainty should be \textit{weighted down}
+}
+
+\only<2>{
+PMF achieves this through the introduction of an Object (cost) function, Q, that constrains the solutions of the model.
+
+\[Q(E) = \sum_{i=1}^m \sum_{j=1}^n \left[\frac{e_{ij}}{s_{ij}}\right]^2\]
+
+- \(s_{ij}\) is an estimate of the ``uncertainty'' of the \(i^{th}\) variable measured in the \(j^{th}\) sample.\newline
+- The factor analysis problem is then to minise Q(E) with respect to G and F matrices\newline
+- The non-negtivity constraint is imposed through the use of \underline{penalty functions} in and enhanced Q function. Penalty functions imposed to reduce rotational freedom. Rotation of the factors is part of the fitting process.\newline
+}
+
+\only<3>{
+Introducing zero values in either the G or F matrices and forcing the solution to  those values combined with non-negativity constraints reduces the rotational ambiguity.
+
+\textbf{The measurement uncertainty influences the solution!}
+
+\tiny{Paatero, P. and U. Tapper (1993) Analysis of Different Modes of Factor Analysis as Least Squares Fit
+Problems, \textit{Chemometrics and Intelligent Laboratory Systems} 18:183-194}
+}
+\end{frame}
+
+\includepdf[pages={3,13-22},frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/EPA_PMF_5_User_Guide}
+
+\lecture[Lecture 7]{Black Carbon}{Lecture 7}
+\section{The aethalometer model for source apportionment of carbonaceous aerosols}
+
+\begin{frame}
+\frametitle{Carbonaceous aerosol}
+Carbon is one of the most abundant constituents of ambient particulate
+matter and is either present as organic carbon (OC), which is mainly
+volatile and/or reactive in a heated air stream, or as elemental carbon
+(EC), which is non-volatile and non-reactive, or as carbonate.\\
+\medskip
+Mainly due to the presence of EC, ambient particulate material appears
+black when collected on a filter. Therefore, black carbon (BC) is
+defined as the fraction of carbonaceous aerosol absorbing light over a
+broad region of the visible spectrum, and is measured by determining the
+attenuation of light transmitted through the sample.
+\end{frame}
+
+\subsection{Black Carbon and Brown
+Carbon}\label{black-carbon-and-brown-carbon}
+
+\begin{frame}
+\frametitle{Soot and black carbon}
+\only<1>{
+Soot is among the most important of air pollutants.
+Soot is a particle-phase product of incomplete combustion
+of carbon containing fuels. Its main components are
+black carbon (BC) and organic carbon (OC).\\\medskip
+}
+
+\only<2>{
+Black carbon (BC) is a product of incomplete combustion. Unlike
+SO2 emissions, which principally depend on the mass of
+fuel burned and its sulfur content, BC emissions are
+governed by both the fuel consumed and combustion
+technology. 
+\\\medskip 
+For example, the BC emission factor
+(emitted BC mass per unit mass of fuel) for coal
+combustion in inefficient household stoves can be orders
+of magnitude greater than the emission factor for
+efficient coal burning in large power plants. 
+}
+
+\only<3>{ 
+Consequently,
+the aerosol optical properties (light absorption
+and scattering) depend on the relative contributions of
+emissions from inefficient and efficient fuel utilization
+sectors
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{soot and climate}
+BC, the principal light-absorbing component of soot,
+arguably rivals methane for being the second largest
+contributor to global warming, causing a total forcing,
+including its indirect effects on snow and cloud albedos,
+of \(0.8 \pm 0.4 Wm^{-2}\) (Hansen and Nazarenko, 2003).
+
+\bigskip
+Soot reduces atmospheric transparency
+andvisibility, by enough in India and China to
+reduce agricultural productivity an estimated 10–20\%
+(Chameides et al., 1999) with additional productivity
+loss from soot deposited on plant leaves (Bergin et al.,
+2001).
+\end{frame}
+
+\begin{frame}
+\frametitle{Measuring black carbon}
+Among all available optical absorption or light attenuation methods, the
+aethalometer, as described by Hansen, Rosen, and Novakov (1984), is the
+most frequently used technique to measure real-time BC mass
+concentrations
+
+\medskip \begin{quote}
+Hansen, A. D. A., Rosen, H., \& Novakov, T. (1984). The
+aethalometer---an instrument for the real-time measurement of optical
+absorption by aerosol particles. The Science of the Total Environment,
+36, 191--196.
+\end{quote}
+\end{frame}
+
+\subsection{Aethalometer measurement principle}\label{aethalometer-measurement-principle}
+
+\begin{frame}
+\frametitle{The Aethalometer}
+The Aaethalometer instrument was originally developed to quantify light
+absorption by elemental carbon, which is considered to be the
+predominant light-absorbing aerosol species at visible wavelengths.
+
+\medskip However, organic carbon significantly absorbs light in the ultraviolet
+wavelengths and less significantly going into the visible (e.g.
+Kirchstetter \emph{et al.}, 2004). This fraction, known as brown carbon
+for its light brownish colour, includes tar materials from smouldering
+fires or solid fuel combustion, pyrolysis products from biomass burning
+and humic-like substances from soil or biogenic emissions.
+\end{frame}
+
+\begin{frame}
+\frametitle{Aethalometer measurement principle}
+Determination of black carbon concentration is based on measurement of
+light absorption on a filter loaded with aerosols
+
+	\begin{centering}
+		\includegraphics[width=\textwidth]{../graphics/absorption.jpg}
+	\end{centering}
+\end{frame}
+
+\subsubsection{Calculating Black Carbon Concentration}\label{calculating-black-carbon-concentration}
+
+\begin{frame}
+\frametitle{Calculating Black Carbon Concentration}
+\only<1>{
+The optical attenuation is given by
+
+\[ ATN = -100 \times \frac{I}{I_0} \]
+
+%\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+    The attenuation coefficient is given by
+\[ b_{atn} = \frac {S \times \frac{\Delta ATN}{100} }{F_{in} \Delta t} \]
+where \emph{S} is the surface area of the collection spot on the filter,
+\emph{F} is the sampling flow rate and t is the duration of sampling
+between the measurements 
+ }
+
+\only<2>{
+The absorption coefficient is the attenuation coefficient corrected for
+\textbf{loading} and \textbf{scattering} effects
+\[ b_{abs} = \frac{b_{atn}}{C \times R} \] 
+
+Both the attenuation coefficient and the absorption coefficient are wavelength-dependent}
+\only<3>{
+    \textbf{The Black Carbon concentration (BC)} is given by the
+\emph{absorption coefficient} and the \emph{Mass Absorption
+Cross-Section} \[ BC [g/m^3] = \frac{b_{abs}(\lambda) [m^{-1}]}{MAC(\lambda) [m^2/g]} \]}
+\end{frame}
+
+\subsection{Wavelength-dependence of the absorption coefficient}\label{wavelength-dependence-of-the-absorption-coefficient}
+
+\begin{frame}
+\frametitle{Wavelength dependence of the absorption}
+\onslide*<1>{
+The absorption increases exponentially with lower wavelength
+    
+\begin{center} Equation [\textbf{1}]: \textbf{\( b_{abs} \propto \lambda^{-\alpha} \)} \end{center}
+
+\begin{alertblock}{The \AA ngstr\o m exponent}
+    The parameter \(\alpha\) is called the \AA ngstr\o m absorption exponent. While the
+spectral dependence of elemental carbon light absorption is low (\(\alpha \approx 1\)), Bond and Bergstrom, 2006), brown carbon exhibits a
+much higher \AA ngstr\o m absorption exponent (up to 7, see e.g. Hoffer
+\emph{et al.}, 2006).
+\end{alertblock}
+}
+
+\onslide*<2>
+ {   \includegraphics[width=\textwidth]{../graphics/turfabsorption} }
+
+\end{frame}
+
+%\subsection{Illustrated with real data}\label{illustrated-with-real-data}
+
+\begin{frame}
+\frametitle{Measurements of black carbon aerosol from different fuels:}
+
+    \only<1>{\includegraphics[width=\textwidth]{../graphics/IMG_3874.JPG}}
+    \only<2>{\includegraphics[width=\textwidth]{../graphics/IMG_3865.JPG}}
+\end{frame}
+    
+\subsubsection{Absorption vs. wavelength for wood (normalised
+values)}\label{absorption-vs.-wavelength-for-wood-normalised-values}
+
+\begin{frame}
+\frametitle{Absorption vs. wavelength for wood}
+\includegraphics[width=\textwidth]{../graphics/woodabsorption}
+\end{frame}
+
+ \subsubsection{Absorption vs. wavelength for
+Coal}\label{absorption-vs.-wavelength-for-coal}
+
+\begin{frame}
+\frametitle{Absorption vs. wavelength for coal}
+\includegraphics[width=\textwidth]{../graphics/coalabsorption}
+\end{frame}
+
+ \subsubsection{Absorption vs. wavelength for Peat
+Briquettes}\label{absorption-vs.-wavelength-for-peat-briquettes}
+
+\begin{frame}
+\frametitle{Absorption vs. wavelength for peat briquettes}
+\includegraphics[width=\textwidth]{../graphics/peatabsorption}
+\end{frame}
+
+\subsubsection{Absorption vs. wavelength for
+TURF}\label{absorption-vs.-wavelength-for-turf}
+
+\begin{frame}
+\frametitle{Absorption vs. wavelength for turf}
+\includegraphics[width=\textwidth]{../graphics/turfabsorption}
+\end{frame}
+
+\subsubsection{Adsorption vs. wavelength for Vehicle
+exhaust}\label{adsorption-vs.-wavelength-for-vehicle-exhaust}
+
+\begin{frame}
+\frametitle{Absorption vs. wavelength for vehicle exhaust}
+\includegraphics[width=\textwidth]{../graphics/vehicleabsorption}
+\end{frame}
+
+\subsubsection{Comparing different
+fuels}\label{comparing-different-fuels}
+
+\begin{frame}
+\frametitle{Absorption vs. wavelength compared}
+\includegraphics[width=\textwidth]{../graphics/allabsorption}
+\end{frame}
+
+\begin{frame}
+\frametitle{Finding \(\alpha\)}
+\onslide*<1> {
+Curve fitting according to Equation{[}1{]} gives the exponential
+parameter \(\alpha\)
+
+Turn the exponential equation into a linear one:
+\[ b_{abs} = C * \lambda^{-\alpha} \]
+
+becomes
+
+\[ ln(b_{abs}) = ln(C) - \alpha * ln(\lambda) \]
+}
+\onslide*<2> {
+Now we can fit the curves and compare the slopes of the fitted lines
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{../graphics/linearabsorption}
+\end{center}
+\end{figure}
+The predicted \(\alpha\) for wood is 2.76 because the slope is -2.76\\
+The predicted \(\alpha\) for gasoline is 0.76 because the slope is -0.76
+}
+\end{frame}
+
+\subsection{Model equations}\label{model-equations}
+
+\begin{frame}
+\frametitle{Using the model}
+\only<1>
+{Now we'll look at how these measurements and observations can be used to
+estimate the separate contributions of solid fuel (wood) burning and
+vehicle exhaust.\\
+\vspace{1cm}
+We will use the fact that the wavelength-dependence of the absorption is different for the two
+types of emissions (wood smoke or vehicle exhaust)}
+\only<2>
+{
+\centering
+\includegraphics[width=\textwidth]{../graphics/sandradewi.jpg}
+\small{Sandradewi \emph{et al.} (2008) (\emph{Environ. Sci. Technol.},
+\textbf{2008}, 42, 3316-3323)}
+}
+
+\onslide*<3>{
+\textbf{\large Four Equations, two wavelengths, four unknowns, two sources:}
+
+\[ \frac{b_{abs}(\lambda_1)_{tr}}{b_{abs}(\lambda_2)_{tr}}  = (\frac{\lambda_1}{\lambda_2})^{-\alpha_{tr}} = C_{tr} \]
+
+\[ \frac{b_{abs}(\lambda_1)_{wb}}{b_{abs}(\lambda_2)_{wb}}  = (\frac{\lambda_1}{\lambda_2})^{-\alpha_{wb}} = C_{wb} \]
+
+\[ b_{abs}(\lambda_1) = b_{abs}(\lambda_1)_{tr} + b_{abs}(\lambda_1)_{wb} \]
+
+\[ b_{abs}(\lambda_2) = b_{abs}(\lambda_2)_{tr} + b_{abs}(\lambda_2)_{wb} \]
+}
+\onslide*<4>{
+Using \( \lambda_1 = 470 nm \) and \(\lambda_2 = 950 nm \)
+
+\[ \frac{b_{abs}(470 nm)_{tr}}{b_{abs}(950 nm)_{tr}}  = (\frac{470}{950})^{-\alpha_{tr}} = C_{tr} \]
+
+\[ \frac{b_{abs}(470 nm)_{wb}}{b_{abs}(950 nm)_{wb}}  = (\frac{470}{950})^{-\alpha_{wb}} = C_{wb} \]
+
+\[ b_{abs}(470 nm) = b_{abs}(470 nm)_{tr} + b_{abs}(470 nm)_{wb} \]
+
+\[ b_{abs}(950 nm) = b_{abs}(950 nm)_{tr} + b_{abs}(950 nm)_{wb} \]
+}
+\onslide*<5>{
+Solving the system gives:
+
+\[ b_{abs,wb}(\lambda_2) = \frac{b_{abs}(\lambda_1) - b_{abs}(\lambda_2)(\frac{\lambda_1}{\lambda_2})^{-\alpha_{tr}}}{(\frac{\lambda_1}{\lambda_2})^{-\alpha_{wb}} - (\frac{\lambda_1}{\lambda_2})^{-\alpha_{tr}}} \]
+\vspace{1cm}
+\[ b_{abs,tr}(\lambda_2) = \frac{b_{abs}(\lambda_1) - b_{abs}(\lambda_2)(\frac{\lambda_1}{\lambda_2})^{-\alpha_{wb}}}{(\frac{\lambda_1}{\lambda_2})^{-\alpha_{tr}} - (\frac{\lambda_1}{\lambda_2})^{-\alpha_{wb}}} \]
+}
+\onslide*<6>{
+Both \(b_{abs}(\lambda_1)\) and \(b_{abs}(\lambda_2)\) are measured
+directly\\ \(\alpha_{tr}\) and \(\alpha_{wb}\) are known from empirical
+studies and experiments
+\vspace{1cm}
+
+    \large{In terms of Equivalent Black Carbon (EBC)}
+
+\[ EBC_{TOT} = EBC_{WB} + EBC_{TR} = \frac{b_{abs,tr}(\lambda_2)}{MAC_{TR}(\lambda_2)} + \frac{b_{abs,WB}(\lambda_2)}{MAC_{WB}(\lambda_2)} \]
+}
+\end{frame}
+
+\subsubsection{Estimating \( \alpha \) without curvefitting}
+
+\begin{frame}
+\frametitle{Estimating \(\alpha\) from measurements}
+    Equation [1] states that the value of \( b_{abs} \) is proportional to \( \lambda \), so:
+
+\[ \frac{b_{abs}(\lambda_1)}{b_{abs}(\lambda_2)} = (\frac{\lambda_1}{\lambda_2})^{-\alpha} \]
+
+So:
+
+\[ \alpha = - \frac{ln(\frac{b_{abs}(\lambda_1)}{b_{abs}(\lambda_2)})}{ln(\frac{\lambda_1}{\lambda_2})}  \]
+
+Use \( \lambda_1 \) in the UV or Near-UV range for organic (brown) and
+\( \lambda_2 \) in the Vis-IR range for elemental carbon
+
+\end{frame}
+
+\subsection{Looking at real data}\label{looking-at-real-data}
+
+\begin{frame}
+\frametitle{For wood}\label{for-wood}
+
+    Pick two wavelengths, eg. 370 and 660, so \(\lambda_1\) = 370 and
+\(\lambda_2\) = 660
+
+The corresponding values of \(b_{abs}\) are approximately \(1.81*10^6\)
+and \(1.61*10^5\)
+
+So the ratio
+\[ \frac{b_{abs}(\lambda_1)}{b_{abs}(\lambda_2)} = (\frac{\lambda_1}{\lambda_2})^{-\alpha} \]
+
+becomes
+\[ \frac{b_{abs}(370)}{b_{abs}(660)} = (\frac{370}{660})^{-\alpha} \]
+
+or
+\[ \frac{1.81*10^6}{1.61*10^5} = (\frac{370}{660})^{-\alpha} \]
+\end{frame}
+
+\begin{frame}
+\frametitle{Using different wavelengths to find \(\alpha\) -- wood}
+so now, using wavelengths 370 nm and 660 nm:
+
+\[ \alpha = - \frac{ln(\frac{1.81*10^6}{1.61*10^5})}{ln(\frac{370}{660})} = 4.18 \]
+
+The estimated \(\alpha\) using 370 nm and 660 nm is 4.18\newline
+The estimated \(\alpha\) using 470 nm and 660 nm is 3.32\newline
+The estimated \(\alpha\) using 470 nm and 880 nm is 2.69\newline
+The estimated \(\alpha\) using 520 nm and 880 nm is 2.27\newline
+The estimated \(\alpha\) using 590 nm and 950 nm is 1.94\newline
+The estimated \(\alpha\) using 660 nm and 950 nm is 1.71\newline
+\end{frame}
+
+\subsubsection{Applying the aethalometer model}
+
+Establishing a generally valid value for \(\alpha\) is necessary to make use of the model. Multiple studies have tried to arrive at a value for \(\alpha\) that has some general validity, and the latest consensus is that it is 1.68 for biomass and 09 for fossil fuel. 
+
+This combination works very well on the continent, where the solid fuel mixture is dominated by wood and biomass. In Ireland and the UK (and some eastern European countries), coal is a common fuel.
+
+\begin{frame}
+\frametitle{Applying the model to estimate Traffic and solid fuel contributions}
+\only<1>{
+    Using \(\alpha\) values determined from 520 nm and 880 nm and Equations above.
+    
+The calculations are, for \(\alpha_{tr} = 0.8\) and \(\alpha_{wb} = 2.3\):
+
+\medskip    \[ b_{abs,wb}(660) = \frac{b_{abs}(370) - b_{abs}(660)(\frac{370}{660})^{-0.8}}{(\frac{370}{660})^{-2.3} - (\frac{370}{660})^{-0.8}} \]
+
+\[ b_{abs,tr}(660) = \frac{b_{abs}(370) - b_{abs}(660)(\frac{370}{660})^{-2.3}}{(\frac{370}{660})^{-0.8} - (\frac{370}{660})^{-2.3}} \]
+}
+
+\only<2->{
+\[ EBC_{TOT} = EBC_{WB} + EBC_{TR} \visible<3>{= \frac{b_{abs,tr}(660)}{MAC_{TR}(660)} + \frac{b_{abs,WB}(660)}{MAC_{WB}(660}} \]
+
+\visible<3>{Wood Burning contribution = 100 \(\times \frac{EBC_{WB}}{EBC_{TOT}}\) \%
+
+\smallskip Fossil Fuel contribution = 100 \(\times \frac{EBC_{TR}}{EBC_{TOT}}\) \%
+
+    Where MAC(\(\lambda\)) is the wavelength-dependent mass absorption
+cross-section. 
+
+Typical MAC values are: 18.47, 14.54, 13.14, 11.58, 10.35,
+7.77 and 7.19 \(m^2/g\) for wavelengths 370, 470, 520, 590, 660, 880,
+950 nm, respectively}
+}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{For gasoline car exhaust measured at tailpipe}
+\only<1>{
+Using wavelengths 370 nm (\(\lambda_1\)) and 660 nm (\(\lambda_2\))
+
+Above, we showed how we found the \(\alpha\)-coefficients using two wavelengths. We have decided to use \(\alpha\) values of 0.8 and 2.3 for traffic emissions and wood burning, respectively.
+
+We have measured \(b_{abs}\) for gasoline exhaust at all seven wavelengths. They are: \(b_{abs}(370) = 4.29784\times10^6 \) and \(b_{abs}(660) = 2.87785\times10^6\)
+
+We will use the standard value for MAC(660) = 10.35 \(m^2/g\)
+}
+
+\only<2>{
+We know that
+
+\(EBC_{WB} = \frac{b_{abs,wb}(660)}{MAC_{WB}(660)}\) and \(EBC_{TR} = \frac{b_{abs,tr}(660)}{MAC_{TR}(660)}\)
+
+So we need to find \(b_{abs,wb}(660)\) and \(b_{abs,tr}(660)\) from:
+
+\[ b_{abs,wb}(660) = \frac{\textcolor{red}{b_{abs}(370) - b_{abs}(660)}(\frac{370}{660})^{-0.8}}{(\frac{370}{660})^{-2.3} - (\frac{370}{660})^{-0.8}} \]
+and
+\[b_{abs,tr}(660) = \frac{\textcolor{red}{b_{abs}(370) - b_{abs}(660)}(\frac{370}{660})^{-2.3}}{(\frac{370}{660})^{-0.8} - (\frac{370}{660})^{-2.3}}\]
+}
+
+\only<3>{
+Now all the parameters on the right hand side of the equations are known, so we just have to enter the measured values of \(b_{abs}\) to get \(b_{abs,wb}(660)\) and \(b_{abs,tr}(660)\)
+
+Then we find \(EBC_{TOT} = EBC_{WB} + EBC_{TR} ( =3.5\times10^5)\)  and 
+
+Percent of Biomass Burning contribution,
+
+\hfill \(BB\% = 100 \times EBC_{WB}/EBC_{TOT} = -1.6\) \%
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{For wood burning smoke sampled at the chimney}
+We use the same equation with the same values of \(\alpha\), but we measure \(b_{abs}\) again for wood smoke and obtain: 
+
+\hfill \(BB\% = 100 \times EBC_{WB}/EBC_{TOT} = 106.7\) \%
+
+\medskip So the model is approximately correct; the car exhaust is in reality 0\% wood smoke and the wood smoke is 100\% biomass burning
+
+\medskip But it is dependent on having a reasonably correct value for \(\alpha\)
+\end{frame}
+
+\textbf{Note: In the examples above, the true value of one of \(EBC_{WB}\) or \(EBC_{TR}\) was zero, so the value of the model estimate can be slightly negative due to modeling error. That means it contributes negatively to the sum and this can lead to apparent percentages below 0 or above 100.}
+
+\begin{frame}
+\frametitle{How does it work for Coal?}
+\only<1>{
+We are sticking with the same values of \(\alpha_{tr} = 0.8\) and \(\alpha_{wb} = 2.3\)
+
+\medskip but we obtain a new value for \(\textcolor{red}{b_{abs}(370) - b_{abs}(660)}\) after sampling smoke from coal burning directly from the chimney
+
+\medskip Interestingly, we get an estimated contribution from biomass burning in this sample of 29\%!
+}
+
+\only<2>{
+So we probably have the wrong \(\alpha\) value for coal. Try adjusting the value of \(\alpha_{wb}\) to 1.4
+
+\medskip Entering the new value into the equation produces an estimate for BB\% = 98\%
+
+The usefulness of the model depends on using the correct \(\alpha\)-values for each source, i.e. traffic or solid fuel burning.
+
+In an environment where all residential solid fuel burning is wood the model is very successful and has been verified by comparison with \(^{14}C\).
+
+In an environment like Ireland the solid fuel is a mixture and the model breaks down
+}
+\end{frame}
+
+\includepdf[pages={77-79},frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/EU_guide_on_SA}
+
+\subsection{Elemental Carbon and Organic Carbon}
+
+\includepdf[pages=-,frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Literature/Elemental Carbon Based Method for Monitoring Occupational Exposures to Particulate Diesel Exhaust}
+
+\section{Example problems}
+
+\begin{frame}
+\frametitle{Example: using known \(\alpha\) values and real-world measurements}
+\onslide*<1>{
+\begin{tabular}{l c c c}
+Emission type & Typical \(\alpha\) & \(b_{abs}(470)\) & \(b_{abs}(950)\)\\\hline
+Biomass & 1.68 & &\\
+Vehicle exhaust & 0.9 & &\\
+Sample & & 0.000111 & 0.0000197\\\hline
+\end{tabular}
+\[ C_{wb} = (\frac{470}{950})^{-\alpha_{wb}} = (\frac{470}{950})^{-1.68} \approx 3.26\]
+\[ C_{tr} = (\frac{470}{950})^{-\alpha_{tr}} = (\frac{470}{950})^{-0.9} \approx 1.88\] }
+\onslide*<2> {
+\[ b_{abs,wb}(\lambda_1) = \frac{0.000111 - 0.000019*1.88}{3.26 - 1.88} \approx 5.455\times10^{-5}\]
+\[ b_{abs,tr}(\lambda_2) = \frac{0.000111 - 0.000019*3.26}{1.88 - 3.26} \approx -3.555\times10^-5\]
+}
+\end{frame}
+
+\includepdf[pages=-,frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Exams/Q3W2018.pdf}
+
+\includepdf[pages=-,frame=true,pagecommand={\thispagestyle{empty}},scale=0.95]{../Exams/Q4W2018.pdf}
+
+\begin{frame}
+\end{frame}
+
+\end{document}

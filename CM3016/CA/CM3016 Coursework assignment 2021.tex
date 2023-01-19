@@ -1,0 +1,103 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\setlength{\parindent}{0pt}
+\begin{document}
+
+\printanswers
+\begin{center}
+\fbox{\fbox{\parbox{5.5in}{\centering
+CM3016 Coursework assignment electronic spectroscopy S1 2021/22\\Deadline for submission on Canvas: Tuesday November 30 17:00}}}
+\end{center}
+\vspace{0.3in}
+%\makebox[\textwidth]{Name and number:\enspace\hrulefill}
+Please write out the answers to the following questions by hand, then scan or photograph your handwritten answers and upload to canvas.
+
+\vspace{0.6in}
+%\makebox[\textwidth]{Instructor's name:\enspace\hrulefill}
+%\vspace{0.3in}
+
+\begin{questions}
+\question Consider the configuration \(ns^1d^1\)
+\begin{parts}
+\part What terms result from it?
+\begin{solution}
+Because the electrons are not in the same subshell, the Pauli principle does not limit the combinations of \(m_\ell\) and \(m_s\). 
+
+\(S_{min} = 1/2 - 1/2 = 0\), \(S_{max} = 1/2 + 1/2 = 1 \implies S = 0,1\)
+
+\(L_{min} = 2 - 0 = 2\), \(L_{max} = 2 + 0 = 2 \implies L = 2\)
+
+Therefore, the terms that arise from the configuration \(ns^1d^1\) are \(^3D\) and \(^1D\)
+\end{solution}
+
+\part How many quantum states are associated with each terms?
+\begin{solution}
+Because each term has (2S+1)(2L+1) states, the \(^3D\) term has 15 states and the \(^1D\) term has 5 states
+\end{solution}
+
+\part List the possible terms and states in a table, with the headings \(m_{\ell 1}, m_{\ell 2}, m_{s1}, m_{s2}, M_S\) and \(M_L\) and term symbols for each state
+
+\begin{solution}
+using the z-components of \(m_{si}\) and \(m_{\ell i}\) we have:
+
+\(M_S = \sum_i m_{si}\) and \(M_L = \sum_i m_{\ell i}\)
+
+\vspace{0.2in}
+\begin{tabular}{ccccccl}
+\(m_{\ell 1}\) & \(m_{\ell 2}\) & \(M_L = m_{\ell 1} + m_{\ell 2}\) & \(m_{s 1}\) & \(m_{s 2}\) & \(M_S = m_{s1} + m_{s2}\) & Term\\\hline
+0 & -2 & -2 & -1/2 & -1/2 & -1 & \(^3D\)\\
+0 & -2 & -2 & -1/2 & 1/2 & 0 & \(^1D, ^3D\)\\
+0 & -2 & -2 & 1/2 & -1/2 & 0 & \(^1D, ^3D\)\\
+0 & -2 & -2 & 1/2 & 1/2 & 1 & \(^3D\)\\
+0 & -1 & -1 & -1/2 & -1/2 & -1 & \(^1D\)\\
+0 & -1 & -1 & -1/2 & 1/2 & 0 & \(^1D, ^3D\)\\
+0 & -1 & -1 & 1/2 & -1/2 & 0 & \(^1D, ^3D\)\\
+0 & -1 & -1 & 1/2 & 1/2 & 1 & \(^3D\)\\
+0 & 0 & 0 & -1/2 & -1/2 & -1 & \(^3D\)\\
+0 & 0 & 0 & -1/2 & 1/2 & 0 & \(^1D, ^3D\)\\
+0 & 0 & 0 & 1/2 & -1/2 & 0 & \(^1D, ^3D\)\\
+0 & 0 & 0 & 1/2 & 1/2 & 1 & \(^3D\)\\
+0 & 1 & 1 & -1/2 & -1/2 & -1 & \(^3D\)\\
+0 & 1 & 1 & -1/2 & 1/2 & 0 & \(^1D, ^3D\)\\
+0 & 1 & 1 & 1/2 & -1/2 & 0 & \(^1D, ^3D\)\\
+0 & 1 & 1 & 1/2 & 1/2 & 1 & \(^3D\)\\
+0 & 2 & 2 & -1/2 & -1/2 & -1 & \(^3D\)\\
+0 & 2 & 2 & -1/2 & 1/2 & 0 & \(^1D, ^3D\)\\
+0 & 2 & 2 & 1/2 & -1/2 & 0 & \(^1D, ^3D\)\\
+0 & 2 & 2 & 1/2 & 1/2 & 1 & \(^3D\)\\\hline
+\end{tabular}
+\end{solution}
+\end{parts}
+
+\question The following list are possible terms for molecular oxygen, \ce{O2}:
+
+\(^3\Sigma_g^-,\ ^1\Delta_g,\ ^1\Sigma_g^+,\ ^3\Sigma_u^+,\ ^3\Sigma_u^-\)
+
+Using Hund’s rules, determine which one is the ground state. Using the selection rules for electronic transitions, indicate which transition(s) from the ground state to the higher energy states is/are allowed and state the rules precluding the other transitions
+
+\begin{solution}
+\(^3\Sigma_g^-\), Hund's first rule, greater multiplicity, lower energy.
+
+Apply the selection rules
+
+\begin{enumerate}
+\item \(\Delta S = 0 \ \Delta\Sigma = 0\)
+\item \(\Delta\Lambda = 0, \pm1\)
+\item Symmetry, g \(\leftrightarrow\) u allowed for homonuclear molecules\\
+	+ \(\leftrightarrow\) + and \(- \leftrightarrow -\) allowed for heteronuclear molecules
+\end{enumerate}
+\end{solution}
+
+\question Consider the molecule formaldehyde. Refer to a molecular orbital diagram for this molecule and deduce what are the transitions most likely to be observed with electronic spectroscopy in this molecule? Provide a suitable diagram and explain why these are the expected transitions.
+
+Find a spectrum of formaldehyde and compare with your predictions.  Indicate what transitions you think the bands in the spectrum represent and give your reason.
+
+
+\begin{solution}
+Use the literature to find a spectrum of formaldehyde. You can refer refer to page 9 in the notes for orbital energy diagram. The important thing here is to use the literature and try to make a connection between observed bands and transitions, so any good attempt is awarded.
+\end{solution}
+
+\end{questions}
+\end{document}
